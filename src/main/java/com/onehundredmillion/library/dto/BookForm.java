@@ -10,8 +10,9 @@ public class BookForm {
 
     private String name;
     private String author;
-    private int isbn;
+    private String isbn;
     private String contents;
     private String company;
+    private int stockQuantity;
 
 }
