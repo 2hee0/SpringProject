@@ -1,4 +1,3 @@
-/*
 package com.onehundredmillion.library.filter;
 
 import com.onehundredmillion.library.sessioin.SessionConst;
@@ -11,7 +10,7 @@ import org.springframework.util.PatternMatchUtils;
 import java.io.IOException;
 
 public class LoginCheckFilter implements Filter {
-    private static final String[] whitelist = {"/", "/join", "/login", "/logout", "/css/*"};
+    private static final String[] whitelist = {"/",  "/login", "/logout", "/css/*"};
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
@@ -42,13 +41,10 @@ public class LoginCheckFilter implements Filter {
         }
     }
 
-    */
-/**
-     * simpleMatch: 어떤 문자열이 특정 패턴에 매칭되는지를 검사
-     *//*
+
 
     private boolean isLoginCheckPath(String requestURI) {
         return !PatternMatchUtils.simpleMatch(whitelist, requestURI);
 
     }
-}*/
+}

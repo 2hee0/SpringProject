@@ -1,4 +1,3 @@
-/*
 package com.onehundredmillion.library.filter;
 
 import jakarta.servlet.Filter;
@@ -30,4 +29,4 @@ public class WebConfig {
         filterRegistrationBean.addUrlPatterns("/*");
         return filterRegistrationBean;
     }
-}*/
+}

@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -16,7 +15,7 @@
         <div class="mainContent">
             <div class="swiper-container">
                 <h3 class="maintitle">
-                    <img class="mainbannerimage" src="img/crown.png" alt="">
+                    <img class="mainbannerimage" src="/img/crown.png" alt="">
                     베스트셀러
                 </h3>
                 <div class="swiper-wrapper">
@@ -418,6 +417,6 @@
         </div>
     </div>
 </body>
-<script src="home.js"></script>
+<script src="../../../../home.js"></script>
 
 </html>
