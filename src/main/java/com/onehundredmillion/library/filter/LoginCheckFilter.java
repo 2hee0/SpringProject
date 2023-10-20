@@ -1,3 +1,4 @@
+/*
 package com.onehundredmillion.library.filter;
 
 import com.onehundredmillion.library.sessioin.SessionConst;
@@ -41,11 +42,13 @@ public class LoginCheckFilter implements Filter {
         }
     }
 
-    /**
+    */
+/**
      * simpleMatch: 어떤 문자열이 특정 패턴에 매칭되는지를 검사
-     */
+     *//*
+
     private boolean isLoginCheckPath(String requestURI) {
         return !PatternMatchUtils.simpleMatch(whitelist, requestURI);
 
     }
-}
+}*/

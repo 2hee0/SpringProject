@@ -1,11 +1,10 @@
 package com.onehundredmillion.library.controller;
 
+
 import com.onehundredmillion.library.domain.Address;
 import com.onehundredmillion.library.domain.Member;
 import com.onehundredmillion.library.dto.JoinForm;
-import com.onehundredmillion.library.dto.LoginForm;
 import com.onehundredmillion.library.service.MemberService;
-import com.onehundredmillion.library.sessioin.SessionConst;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -30,13 +29,13 @@ public class MemberController {
     @GetMapping(value = "/members/new")
     public String createForm(Model model) {
         model.addAttribute("joinForm", new JoinForm());
-        return "join/joinForm";
+        return "join/join";
     }
 
     @PostMapping(value = "/members/new")
     public String create(@Valid JoinForm form, BindingResult result) {
         if (result.hasErrors()) {
-            return "join/joinForm";
+            return "join/join";
         }
         Address address = new Address(form.getAddr(), form.getAddr_detail(), form.getAddr_etc(), form.getZipcode());
         Member member = new Member();
@@ -45,7 +44,7 @@ public class MemberController {
         memberService.join(member);
         return "redirect:/";
     }
-
+/*
     @GetMapping("/login")
     public String loginForm(@ModelAttribute("loginForm") LoginForm form) {
         return "login/loginForm";
@@ -73,5 +72,5 @@ public class MemberController {
         session.setAttribute(SessionConst.LOGIN_MEMBER, loginMember);
         //redirectURL 적용
         return "redirect:" + redirectURL;
-    }
+    }*/
 }

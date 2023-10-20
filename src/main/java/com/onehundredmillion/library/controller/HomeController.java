@@ -39,7 +39,7 @@ public class HomeController {
     }
 */
 
-    @PostMapping("/logout")
+ /*   @PostMapping("/logout")
     public String logout(HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         if (session != null) {
@@ -47,5 +47,5 @@ public class HomeController {
         }
         return "redirect:/";
     }
-
+*/
 }
