@@ -6,6 +6,7 @@
     <link rel="stylesheet" th:href="@{/css/join.css}">
 
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="js/join.js"></script>
     <link href="https://font.elice.io/css?family=Elice+DX+Neolli" rel="stylesheet">
     <title>회원가입</title>
 </head>
@@ -31,7 +32,7 @@
 
             <div class="re-userpw">
                 <b>비밀번호 재입력</b><br>
-                <input id="re-password" type="password" th:field="*{rePassword}">
+                <input id="re-password" type="password" th:field="*{passwordConfirm}">
             </div>
 
             <div class="uesername">
@@ -57,7 +58,10 @@
                 <b>주소</b><br>
                 <div class="zipcodeInput">
                     <input type="text" id="sample4_postcode" placeholder="우편번호" th:field="*{zipcode}">
-                    <input type="button" class="zipcodeButton" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+                    <button type="button" class="zipcodeButton" onclick="sample4_execDaumPostcode()" value="우편번호 찾기">
+                        우편번호
+                    </button>
+                    </br>
                 </div>
                 <input type="text" id="sample4_roadAddress" placeholder="도로명주소" th:field="*{addr}">
                 <input type="text" id="sample4_jibunAddress" placeholder="지번주소" th:field="*{addr_detail}"> <br>
