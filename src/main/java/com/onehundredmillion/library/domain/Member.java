@@ -12,21 +12,23 @@ import java.util.List;
 @Getter
 @Setter
 public class Member {
+
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+//    @SequenceGenerator(name = "member_id", sequenceName = "member_id", allocationSize = 1)
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "MEMBER_ID", nullable = false)
+    @GeneratedValue
+    @Column(name = "MEMBER_ID")
     private Long id;
 
     @NotEmpty
-    private String loginId;
+    private String userid;
     @NotEmpty
     private String name;
     @NotEmpty
     private String password;
-
-    private String RRN; //주민번호
+    private String passwordConfirm;
+    private String Rrn; //주민번호
     private String phoneNo;
-
     @Embedded
     Address address;
 

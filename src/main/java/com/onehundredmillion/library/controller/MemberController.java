@@ -36,20 +36,19 @@ public class MemberController {
     }
 
     @PostMapping(value = "/members/new")
-    public String create(@Valid JoinForm form, BindingResult result) {
+    public String create(@Valid JoinForm form, BindingResult result)throws IllegalAccessException {
         if (result.hasErrors()) {
             return "join/join";
         }
-        Address address = new Address(form.getAddr(), form.getAddr_detail(), form.getAddr_etc(), form.getZipcode());
-        Member member = new Member();
-        member.setName(form.getName());
-        member.setAddress(address);
+
+        Member member = form.toMember();
+
         memberService.join(member);
         return "redirect:/";
     }
     @GetMapping("/login")
     public String loginForm(@ModelAttribute("loginForm") LoginForm form) {
-        return "login/loginForm";
+        return "login/login";
     }
 
     @PostMapping("/login")
@@ -58,14 +57,14 @@ public class MemberController {
             @RequestParam(defaultValue = "/") String redirectURL,
             HttpServletRequest request) {
         if (bindingResult.hasErrors()) {
-            return "login/loginForm";
+            return "login/login";
         }
         Member loginMember = memberService.login(form.getLoginId(),
                 form.getPassword());
         log.info("login? {}", loginMember);
         if (loginMember == null) {
             bindingResult.reject("loginFail", "아이디 또는 비밀번호가 맞지 않습니다.");
-            return "login/loginForm";
+            return "login/login";
         }
         //로그인 성공 처리
         //세션이 있으면 있는 세션 반환, 없으면 신규 세션 생성
