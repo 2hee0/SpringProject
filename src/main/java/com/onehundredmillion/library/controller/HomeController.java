@@ -23,6 +23,7 @@ public class HomeController {
         return "home";
     }
 
+/*
     @GetMapping("/login")
     public String login(
             @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false)
@@ -36,6 +37,7 @@ public class HomeController {
         model.addAttribute("member", loginMember);
         return "home";
     }
+*/
 
     @PostMapping("/logout")
     public String logout(HttpServletRequest request) {
