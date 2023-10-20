@@ -1,41 +1,39 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" th:href="@{/css/header.css}">
     <script th:src="@{/js/header.js}"></script>
+</head>
 <body>
-<li>
-    <a href="" th:id="topLogin">로그인</a>
-    <a href="#" th:id="topLogout" style="display: none;">로그아웃</a>
-</li>
-<li class="memberJoin">
-    <a href="/members/new">
-        회원가입
-    </a>
-</li>
-<li class="mypg" th:onmouseover="showMlv('mlv');" th:onmouseout="hideMlv('mlv');">
-    <a href="#" th:id="mlv_arrow" class="on" th:onfocus="showMlv('mlv');">마이페이지</a>
-    <div class="mypgsub" th:id="mlv" style="display: none;" th:onmouseover="showMlv('mvl');"
-         th:onmouseout="hideMlv('mlv');">
-        <div class="mlv_Ly">
-            <dl>
-                <dt class="blind">마이페이지 레이어</dt>
-                <dd>
-                    <a href="#">마이도서</a>
-                </dd>
-                <dd>
-                    <a href="#">회원정보</a>
-                </dd>
-            </dl>
+<ul>
+    <li>
+        <a href="" th:id="topLogin">로그인</a>
+        <a href="#" th:id="topLogout" style="display: none;">로그아웃</a>
+    </li>
+    <li class="memberJoin">
+        <a th:href="@{/members/new}">회원가입</a>
+    </li>
+    <li class="mypg" th:onmouseover="showMlv('mlv');" th:onmouseout="hideMlv('mlv');">
+        <a href="#" th:id="mlv_arrow" class="on" th:onfocus="showMlv('mlv');">마이페이지</a>
+        <div class="mypgsub" th:id="mlv" style="display: none;" th:onmouseover="showMlv('mvl');"
+             th:onmouseout="hideMlv('mlv');">
+            <div class="mlv_Ly">
+                <dl>
+                    <dt class="blind">마이페이지 레이어</dt>
+                    <dd>
+                        <a href="#">마이도서</a>
+                    </dd>
+                    <dd>
+                        <a href="#">회원정보</a>
+                    </dd>
+                </dl>
+            </div>
         </div>
-    </div>
-</li>
+    </li>
 </ul>
-</div>
-</div>
 <div class="headerWrapper">
     <div class="headerBox">
         <div class="header_logosearch">
@@ -82,39 +80,7 @@
                                         <li>
                                             <a href="#">시.에세이</a>
                                         </li>
-                                        <li>
-                                            <a href="#">경제경영</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">자기계발</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">역사.문화</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">인문</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">종교.역학</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">초등학생</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">중학생</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">고등학생</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">국어.외국어.사전</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">자연.과학</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">사회과학</a>
-                                        </li>
+                                        <!-- Add more categories as needed -->
                                     </ul>
                                 </div>
                             </div>
@@ -125,16 +91,14 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="bookGnBLeft">
                 <ul class="gnbNav">
                     <li class="gnbleft n1">
                         <a href="#">베스트셀러</a>
                     </li>
-                    <li class
-                    "gnbleft n2">
-                    <a href="#">프론트/백엔드</a>
+                    <li class="gnbleft n2">
+                        <a href="#">프론트/백엔드</a>
                     </li>
                     <li class="gnbleft n3">
                         <a href="#">자격증</a>
@@ -147,9 +111,5 @@
         </div>
     </div>
 </div>
-</div>
-</div>
 </body>
-</head>
-
 </html>

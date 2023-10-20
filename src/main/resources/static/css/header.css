@@ -147,10 +147,11 @@ a {
 .header_logosearch {
     padding: 29px 0 0 1px;
     height: 70px;
+    background: url('static/img/logo.png');
     position: relative;
 }
 
-.header_logosearch h1 {
+.header_logosearch.logo {
     bottom: 10px;
     margin: 0;
     float: left;
