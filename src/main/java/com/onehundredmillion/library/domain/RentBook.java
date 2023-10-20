@@ -36,7 +36,8 @@ public class RentBook {
     @JoinColumn(name = "RENT_ID")
     private Rent rent;
 
-    /** 주문 취소 */
+//* 주문 취소
+
     public void returnBook() {
        getBook().addStock(count);
     }

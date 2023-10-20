@@ -19,7 +19,7 @@ public class Rent {
 
     private String returnBook;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
 
@@ -55,7 +55,7 @@ public class Rent {
     }
 
     //==비즈니스 로직==//
-    /** 책 반납 */
+//    * 책 반납
     public void returnBook() {
              this.setStatus(RentStatus.ReturnBook);
         for (RentBook rentBook : rentBookList) {

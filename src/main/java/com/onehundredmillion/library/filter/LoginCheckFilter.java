@@ -10,7 +10,7 @@ import org.springframework.util.PatternMatchUtils;
 import java.io.IOException;
 
 public class LoginCheckFilter implements Filter {
-    private static final String[] whitelist = {"/",  "/login", "/logout", "/css/*"};
+    private static final String[] whitelist = {"/", "/members/new",  "/login", "/logout", "/css/*"};
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
