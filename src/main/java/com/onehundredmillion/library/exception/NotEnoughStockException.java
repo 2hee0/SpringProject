@@ -17,4 +17,3 @@ public class NotEnoughStockException extends Throwable {
         super(cause);
     }
 }
-}
