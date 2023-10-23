@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
+<head th:fragment="header">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -16,15 +16,15 @@
     <li class="memberJoin">
         <a th:href="@{/members/new}">회원가입</a>
     </li>
-    <li class="mypg" th:onmouseover="showMlv('mlv');" th:onmouseout="hideMlv('mlv');">
-        <a href="#" th:id="mlv_arrow" class="on" th:onfocus="showMlv('mlv');">마이페이지</a>
-        <div class="mypgsub" th:id="mlv" style="display: none;" th:onmouseover="showMlv('mvl');"
-             th:onmouseout="hideMlv('mlv');">
+    <li class="mypg" th:onmouseover="showMlv('mlv')" th:onmouseout="hideMlv('mlv')">
+        <a th:href="@{/members/mypage}" th:id="mlv_arrow" class="on" th:onfocus="showMlv('mlv')">마이페이지</a>
+        <div class="mypgsub" th:id="mlv" style="display: none;" th:onmouseover="showMlv('mvl')"
+             th:onmouseout="hideMlv('mlv')">
             <div class="mlv_Ly">
                 <dl>
                     <dt class="blind">마이페이지 레이어</dt>
                     <dd>
-                        <a href="#">마이도서</a>
+                        <a th:href="@{/member/mypage}">마이도서</a>
                     </dd>
                     <dd>
                         <a href="#">회원정보</a>

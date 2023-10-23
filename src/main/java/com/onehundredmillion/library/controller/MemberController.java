@@ -36,7 +36,7 @@ public class MemberController {
     }
 
     @PostMapping(value = "/members/new")
-    public String create(@Valid JoinForm form, BindingResult result)throws IllegalAccessException {
+    public String create(@Valid JoinForm form, BindingResult result) throws IllegalAccessException {
         if (result.hasErrors()) {
             return "join/join";
         }
@@ -46,6 +46,7 @@ public class MemberController {
         memberService.join(member);
         return "redirect:/";
     }
+
     @GetMapping("/login")
     public String loginForm(@ModelAttribute("loginForm") LoginForm form) {
         return "login/login";
@@ -73,5 +74,11 @@ public class MemberController {
         session.setAttribute(SessionConst.LOGIN_MEMBER, loginMember);
         //redirectURL 적용
         return "redirect:" + redirectURL;
+    }
+
+
+    @GetMapping("/members/mypage")
+    public String myPage(Model model) {
+        return "member/mypage";
     }
 }
