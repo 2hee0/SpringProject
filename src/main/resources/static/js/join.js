@@ -1,4 +1,3 @@
-// DOMContentLoaded 이벤트를 사용하여 문서가 로드된 후 실행
 document.addEventListener('DOMContentLoaded', function () {
   // 주민등록번호 앞자리 입력란에 대한 참조
   const rrn1Input = document.getElementById('rrn1');
