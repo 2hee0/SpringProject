@@ -1,3 +1,48 @@
+// DOMContentLoaded 이벤트를 사용하여 문서가 로드된 후 실행
+document.addEventListener('DOMContentLoaded', function () {
+    // 주민등록번호 앞자리 입력란에 대한 참조
+    const rrn1Input = document.getElementById('rrn1');
+
+    // 두 번째 RRN 입력란에 대한 참조
+    const rrn2Input = document.getElementById('rrn2');
+
+    // rrn1 입력란에 input 이벤트 리스너를 추가
+    rrn1Input.addEventListener('input', function () {
+        // 입력 값의 길이가 6자 이상인 경우
+        if (rrn1Input.value.length >= 6) {
+            // 두 번째 RRN 입력란으로 포커스 이동
+            rrn2Input.focus();
+        }
+    });
+
+    // rrn2 입력란에 input 이벤트 리스너를 추가
+    rrn2Input.addEventListener('input', function () {
+        // 입력 값을 '*' 문자로 가리기
+        const rrn2Value = rrn2Input.value;
+        const hiddenValue = '*'.repeat(rrn2Value.length);
+        rrn2Input.value = hiddenValue;
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    // 주민등록번호 앞자리 입력란에 대한 참조
+    const rrn1Input = document.getElementById('rrn1');
+    const rrn2Input = document.getElementById('rrn2');
+
+    rrn1Input.addEventListener('input', function () {
+        if (rrn1Input.value.length >= 6) {
+            rrn2Input.focus();
+        }
+    });
+
+    rrn2Input.addEventListener('input', function () {
+        const rrn2Value = rrn2Input.value;
+        const hiddenValue = '*'.repeat(rrn2Value.length);
+        rrn2Input.value = hiddenValue;
+    });
+});
+
 function sample4_execDaumPostcode() {
     new daum.Postcode({
         oncomplete: function(data) {
