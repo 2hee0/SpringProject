@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../join/join.css">
+    <link rel="stylesheet" href="../join/join.css" >
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="../join/join.js"></script>
     <link href="https://font.elice.io/css?family=Elice+DX+Neolli" rel="stylesheet">
     <title>Document</title>
 </head>
-
 <body>
 
     <div class="joinform">
@@ -49,9 +47,9 @@
                 <div class="birth">
                     <b>주민번호</b><br>
                     <div class="rrn">
-                        <input type="text" id="rrn1" size="6" maxlength="6" />
+                        <input type="text" id="rrn1" size="6" maxlength="6"/>
                         <span class="hyphen"> - </span>
-                        <input type="text" id="rrn2" size="7" maxlength="7" />
+                        <input type="text" id="rrn2" size="7" maxlength="7"/>
                     </div>
                     <div class="field-error"></div>
                 </div>
@@ -64,9 +62,10 @@
 
                 <div class="address">
                     <b>주소</b><br>
-                    <input type="text" id="sample4_postcode" placeholder="우편번호">
-                    <input type="button" class="zipcodeButton" onclick="sample4_execDaumPostcode()"
-                        value="우편번호 찾기">
+                    <div class="zipcodeInput">
+                        <input type="text" id="sample4_postcode" placeholder="우편번호">
+                        <input type="button" class="zipcodeButton" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+                    </div>
                     <input type="text" id="sample4_roadAddress" placeholder="도로명주소">
                     <input type="text" id="sample4_jibunAddress" placeholder="지번주소">
                     <span id="guide" style="color:#999;display:none"></span>
@@ -76,11 +75,10 @@
                 </div>
             </div>
 
-            <input type="submit" onclick="" value="가입하기" class="join"> <br>
+            <input type="submit" onclick="" value="가입하기" class="join" > <br>
             <a class="home" href="home.html">홈으로</a>
 
         </form>
     </div>
 </body>
-
 </html>

@@ -8,7 +8,7 @@ body{
     font-size:14px; 
     line-height: 1.5em;
     color : #222;
-    margin: 0;
+    margin-top: 50px;
 }
 
 @import url("https://font.elice.io/css?family=Elice+DX+Neolli");
@@ -17,26 +17,25 @@ header{
     display: flex;
     justify-content: center;
     font-family: "Elice DX Neolli", sans-serif;
+    font-size: 20px;
+    margin-bottom: 40px;
 }
 
-.joinForm{
+.joinform {
+    max-width: 500px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .rrn {
-    display: flex; /* 내부 요소들을 가로로 배열합니다. */
+    display: flex; /* 내부 요소들을 가로로 배열 */
     align-items: center; /* 내부 요소들을 수직 가운데 정렬합니다. */
-}
-
-.rrn b {
-    margin-right: 10px; /* 주민번호 레이블과 입력 필드 사이의 간격을 설정합니다. */
 }
 
 #rrn1,
 #rrn2 {
-    border: 1px solid #dadada; /* 입력 필드에 테두리를 추가합니다. */
     padding: 15px;
     margin: 0; /* 입력 필드 사이의 여백을 제거합니다. */
 }
@@ -45,51 +44,44 @@ header{
     margin: 0 5px; /* 하이픈 간격을 조절합니다. */
 }
 
-
-.joinForm .input-box{
+.joinform .input-box{
     margin :5px 0;
-}
-
-.joinForm .input-box b{
-    margin-top: 5px;
-    margin-bottom: 2px;
 }
 
 .input-box input {
     border: 1px solid #dadada;
     padding: 15px;
     width: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
-.joinForm .input-box input[type=button] {
+.joinform .input-box input[type=button] {
     background-color: #EAEAEA;
 }
 
-.joinForm button[type=submit] {
+.joinform input[type=submit] {
     background-color: #FF3636;
-    width: 100%; /* 버튼의 너비를 100%로 설정하여 부모 요소의 폭에 맞게 확장되도록 함 */
-    height: 50px; /* 원하는 높이 값으로 조정 */
-    font-size: 16pt; /* 원하는 글꼴 크기로 조정 */
+    width: 100%;
+    height: 50px;
+    font-size: 15pt;
     color: white;
     border: none;
     border-radius: 5px;
-    margin-top: 20px; /* 버튼 위에 여백 추가 */
+    margin-top: 20px;
 }
 
 
-.joinForm input:focus:not(input[type=button]):not(.join) {
+.joinform input:focus:not(input[type=button]):not(.join) {
     border: 1px solid black;
 }
 
 
-
-a{
+a {
     text-decoration: none;
     color: gray;
 }
 
-.zipcodeInput{
+.zipcodeInput {
     display: flex;
     align-items: center;
 }
@@ -108,4 +100,8 @@ input.join:active {
     display: flex;
     justify-content: flex-end; /* 왼쪽으로 정렬 */
     margin-top: 10px; /* 위에 마진을 추가 */
+}
+
+.field-error{
+    color: red;
 }
