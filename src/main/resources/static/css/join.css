@@ -21,7 +21,7 @@ header{
     margin-bottom: 40px;
 }
 
-.joinform {
+.joinForm {
     max-width: 500px;
     margin: 0 auto;
     display: flex;
@@ -44,7 +44,7 @@ header{
     margin: 0 5px; /* 하이픈 간격을 조절합니다. */
 }
 
-.joinform .input-box{
+.joinForm .input-box{
     margin :5px 0;
 }
 
@@ -55,11 +55,11 @@ header{
     margin-bottom: 10px;
 }
 
-.joinform .input-box input[type=button] {
+.joinForm .input-box input[type=button] {
     background-color: #EAEAEA;
 }
 
-.joinform input[type=submit] {
+.joinForm input[type=submit] {
     background-color: #FF3636;
     width: 100%;
     height: 50px;
@@ -71,7 +71,7 @@ header{
 }
 
 
-.joinform input:focus:not(input[type=button]):not(.join) {
+.joinForm input:focus:not(input[type=button]):not(.join) {
     border: 1px solid black;
 }
 

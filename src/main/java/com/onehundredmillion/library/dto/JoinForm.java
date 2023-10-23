@@ -13,7 +13,8 @@ public class JoinForm {
 
     private String password;
     private String passwordConfirm;
-    private String Rrn; //주민번호
+    private String Rrn1; //주민번호
+    private String Rrn2;
     private String name;
     @NotEmpty(message = "회원 전화번호는 필수입니다.")
     private String phoneNo;
@@ -29,7 +30,8 @@ public class JoinForm {
         member.setName(this.getName());
         member.setPassword(this.getPassword());
         member.setPasswordConfirm(this.getPasswordConfirm());
-        member.setRrn(this.getRrn());
+        member.setRrn1(this.getRrn1());
+        member.setRrn2(this.getRrn2());
         member.setPhoneNo(this.getPhoneNo());
         member.setAddress(new Address(zipcode,addr,addr_etc,addr_detail));
         return member;
