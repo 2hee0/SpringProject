@@ -1,0 +1,143 @@
+/* 기본 css */
+body {
+    display: block;
+    font-family: "dotum", "sans-serif";
+    color: #666;
+    line-height: 130%;
+}
+
+.dl {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+dd{
+    margin: 0;
+    padding: 0;
+    display: block;
+    margin-inline-start: 40px;
+}
+/* 풋터 */
+.footerWrap {
+    clear: both;
+    font-size: 11px;
+    width: 1248px;
+    height: 230px;
+    text-align: center;
+    margin: 0 auto;
+    background: url(https://qi-b.qoo10cdn.com/renewPark/reBookpark/footer/bg_footerWrap.gif) no-repeat left top;
+}
+
+.footerWrap::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.footerM {
+    width: 100%;
+    font-size: 11px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 14px 0 30px 0;
+    border-top: 1px solid #999;
+    font-family: "Malgun Gothic", "맑은 고딕", "Nanum Gothic", "Dotum", sans-serif;
+}
+
+.footer_info {
+    width: 1000px;
+    margin: 0 auto;
+    line-height: 16px;
+    font-size: 11px;
+
+}
+
+.cinfo01 {
+    float: left;
+    width: 335px;
+    height: 200px;
+    padding-bottom: 3px;
+    border-right: 1px solid #e7e7e7;
+    letter-spacing: -1px;
+}
+
+.name {
+    clear: both;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 12px;
+    letter-spacing: -1px;
+    color: #2a2a2a;
+    font-weight: normal;
+}
+
+.dot {
+   padding:  0 0 0 5px;
+   background: url(https://qi-b.qoo10cdn.com/renewPark/reBookpark/footer/bullet_mainDot.gif) no-repeat left center;
+   color: #acacac;
+}
+
+.dot {
+    width: 130px;
+}
+
+
+.cinfo02 {
+    float: left;
+    width: 255px;
+    height: 200px;
+    margin-left: 15px;
+    border-right: 1px solid #e7e7e7;
+    letter-spacing: -1px;
+}
+
+.title1{
+    position: relative;
+    margin-left: 0;
+    font-weight: normal;
+    padding-bottom: 5px;
+    line-height: 40px;
+    font-size: 12px;
+    height: 40px;
+}
+
+.title1 img {
+    width: 150px;
+    height: 40px;
+    float: left;
+}
+
+.cinfo03 {
+    float: left;
+    width: 355px;
+    height: 104px;
+    margin-left: 15px;
+    letter-spacing: -1px;
+}
+
+.maponame {
+    font-weight: bold;
+    clear: both;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 14px;
+    letter-spacing: -1px;
+    color: #2a2a2a;
+}
+
+.map {
+    height: 200px;
+    width: 355px;
+}
+
+.dd1 {
+    padding: 0;
+    display: block;
+    margin-left: 0;
+}

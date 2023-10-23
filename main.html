@@ -1,18 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f93d75b47dd331c83de73a293e351e45"></script>
 </head>
-
 <body>
+    <div class="header">
+        <div class="geteGenbMain">
+            <div class="geteCon">
+                <div class="geteRight">
+                    <ul>
+                        <li>
+                            <a href="#" id="topLogin">로그인</a>
+                            <a href="#" id="topLogout" style="display: none;">로그아웃</a>
+                        </li>
+                        <li class="memberJoin">
+                            <a href="#">
+                                회원가입
+                            </a>
+                        </li>
+                        <li class="mypg" onmouseover="showMlv('mlv');" onmouseout="hideMlv('mlv');">
+                            <a href="#" id="mlv_arrow" class="on" onfocus="showMlv('mlv');">마이페이지</a>
+                            <div class="mypgsub" id="mlv" style="display: none;" onmouseover="showMlv('mvl');"
+                                onmouseout="hideMlv('mlv');">
+                                <div class="mlv_Ly">
+                                    <dl>
+                                        <dt class="blind">마이페이지 레이어</dt>
+                                        <dd>
+                                            <a href="#">마이도서</a>
+                                        </dd>
+                                        <dd>
+                                            <a href="#">회원정보</a>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="headerWrapper">
+                <div class="headerBox">
+                    <div class="header_logosearch">
+                        <h1>
+                            <a href="#" class="logo"></a>
+                        </h1>
+                        <div class="search">
+                            <input type="text" name="query" placeholder="" />
+                            <div class="btn">
+                                <a href="#"></a>
+                            </div>
+                        </div>
+                        <div class="top_banner">
+                            <div class="top_banner_img">
+                                <img src="https://qi-b.qoo10cdn.com/partner/goods_image/1/9/3/4/337791934g.jpg" alt="">
+                            </div>
+                            <div class="top_banner_text">
+                                <a href="#" class="top_banner_tip">오늘의 목표!</a>
+                                <span class="top_banner_tip2">홈페이지를 구현해보자!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bookGNBWrapper">
+                    <div class="bookGNB">
+                        <div class="bookAllview">
+                            <a href="#" class="allNav">
+                                <span>전체 카테고리</span>
+                            </a>
+                            <div class="bookAllCategoryWrap" style="display: none;">
+                                <i class="shadow"></i>
+                                <div class="bookAllCategories">
+                                    <div class="mainNav">
+                                        <div class="col category1">
+                                            <h3>국내도서</h3>
+                                            <div class="categoryNav">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#">소설</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">장르소설</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">시.에세이</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">경제경영</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">자기계발</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">역사.문화</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">인문</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">종교.역학</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">초등학생</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">중학생</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">고등학생</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">국어.외국어.사전</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">자연.과학</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">사회과학</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="bottomADWrap" id="601121"></div>
+                                    <div class="closeCategories">
+                                        <a href="#">닫기</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="bookGnBLeft">
+                            <ul class="gnbNav">
+                                <li class="gnbleft n1">
+                                    <a href="#">베스트셀러</a>
+                                </li>
+                                <li class="gnbleft n2">
+                                    <a href="#">프론트/백엔드</a>
+                                </li>
+                                <li class="gnbleft n3">
+                                    <a href="#">자격증</a>
+                                </li>
+                                <li class="gnbleft n4">
+                                    <a href="#">추천도서</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="mainContent">
             <div class="swiper-container1">
@@ -419,6 +567,64 @@
             </div>
         </div>
     </div>
+    <div class="footerWrap">
+        <div class="footerM">
+            <div class="footer_info">
+                <div class="cinfo01">
+                    <dl>
+                        <dt class="name">팀명 | 1조1억번</dt>
+                        <dd class="dot">
+                            팀장 | 우지연
+                        </dd>
+                        <dd class="dot">
+                            조원 | 김지영, 김태형, 이희영, 김호년
+                        </dd>
+                        <dd class="dot">
+                            주제 | 온라인 도서관
+                        </dd>
+                    </dl>
+                </div>
+                <div class="cinfo02">
+                    <dl>
+                        <dd class="title1">
+                            <img src="img/logo.png" alt="">
+                        </dd>
+                        <dd class="dot1">
+
+                        </dd>
+                        <dd class="dot1">
+
+                        </dd>
+                        <dd class="dot1">
+
+                        </dd>
+                        <dd class="dot">
+                            전화 1234-5678
+                        </dd>
+                        <dd class="dot">
+                            팩스 01-123-4567
+                        </dd>
+                        <dd class="dot">
+                            찾아오는길
+                        </dd>
+                        <dd class="dot">
+                            주소 | 서울특별시 강남구 역삼동 819-10 세경빌딩 3층
+                        </dd>
+                    </dl>
+                </div>
+                <div class="cinfo03">
+                    <dl>
+                        <dt class="maponame">지도</dt>
+                        <dd class="dd1">
+                            <div id="map" class="map"></div>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <script src="home.js"></script>
+<script src="header.js"></script>
+<script src="footer.js"></script>
 </html>

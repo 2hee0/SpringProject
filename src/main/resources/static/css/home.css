@@ -9,17 +9,33 @@ div{
     margin: 0 auto;
 }
 .mainContent {
+    position: relative;
     font-family: "맑은 고딕", "Malgun Gothic", "Dotum", sans-serif;
     letter-spacing: -1px;
     margin-right: 100px; /* 100px 왼쪽으로 이동 */
 }
-.swiper-container {
-    width: 1200px;
+
+.swiper-container1 {
+    margin: 0 237.5px 0 330px;
+    width: 1100px;
 	height:400px;
 }
 
+.maincon {
+    margin-top: 40px;
+    margin-left: 37;
+    margin-right: auto;
+}
+
+.mainbanner {
+    position: relative;
+}
+
+.book {
+    width: 250px !important;
+}
+
 .swiper-slide {
-	text-align:center;
 	display:flex;
 	align-items:center; 
 	justify-content:center;
@@ -46,8 +62,8 @@ div{
 }
 
 .title {
+    text-align: center;
     right: 290px;
-    position: absolute;
     display: block;
     width: 170px;
     overflow: hidden;
@@ -73,168 +89,16 @@ div{
     top: 10px;
 }
 
+
+
+.swiper-button-prev {
+    background-image: url(https://w7.pngwing.com/pngs/833/219/png-transparent-knight-frank-france-real-estate-commercial-property-blank-angle-rectangle-blank-thumbnail.png) !important;
+}
+
 .swiper-button-next {
-    display: none;
-}
-.swiper-button-prev{
-    display: none;
+    background-image: url(https://w7.pngwing.com/pngs/833/219/png-transparent-knight-frank-france-real-estate-commercial-property-blank-angle-rectangle-blank-thumbnail.png) !important;
 }
 
-/* 중간 배너 */
-
-/* 두번쨰 메인 배너 */
-.trendSection {
-    width: 1000px;
-    margin: 25px auto 0;
-}
-.interparkRecommend{
-    width: 1000px;
-    margin: 49px auto 0;
-}
-.interparkRecommendHeader{
-    position: relative;
-    padding-top: 11px;
-    border-bottom: 1px solid #000;
-}
-.interparkRecommendHeader h2 {
-    position: relative;
-    z-index: 1;
-    margin: 0 auto -13px;
-    width: 159px;
-    height: 25px;
-    background: url(https://qi-b.qoo10cdn.com/UI/pc/main/2017/text/h2_interparkRecommend.png) no-repeat;
-    text-indent: -9999px;
-}
-.sliderWrap1 {
-    position: relative;
-    padding: 38px 50px 22px 55px;
-    height: 271px;
-    width: 900px;
-}
-.sliderArea {
-    overflow: hidden;
-    height: 248px;
-}
-.mySwiper {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    height: 248px;
-}
-.mySwiper > .swiper-wrapper {
-    width: 615%;
-    position: relative;
-}
-.mySwiper > .swiper-wrapper > .swiper-slide {
-    float: left;
-    list-style: none;
-    position: relative;
-    width: 457px;
-    margin-right: 21px;
-}
-
-.swiper2 a{
-    position: relative;
-    display: block;
-    overflow: hidden;
-    width: 430px;
-    height: 248px;
-}
-.bookCo {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 162px;
-}
-.bookCo.big {
-    height: 237px;
-}
-.coverW{
-    height: 237px;
-    display: table-cell;
-    position: relative;
-    vertical-align: bottom;
-    text-align: center;
-    font-size: 0;
-    line-height: 0;
-    letter-spacing: 0;
-    word-spacing: normal;
-}
-.lazy {
-    width: 155px;
-    max-height: 222px;
-}
-.bookCoverTop {
-    height: 32px;
-    background: url(https://qi-b.qoo10cdn.com/UI/pc/main/2017/cover/img_bookCover.png) no-repeat;
-    position: absolute;
-    left: 0;
-    width: 100%;
-    display: block;
-    top: 0;
-}
-.bookCoverRepeat {
-    top: 32px;
-    bottom: 43px;
-    background: url(https://qi-b.qoo10cdn.com/UI/pc/main/2017/cover/bg_bookCoverBig.png) repeat-y;
-    position: absolute;
-    left: 0;
-    width: 100%;
-}
-.bookCoverBottom{
-    background-position: 0 -32px;
-    height: 43px;
-    background: url(https://qi-b.qoo10cdn.com/UI/pc/main/2017/cover/img_bookCoverBig.png) no-repeat;
-    bottom: 0;
-    position: absolute;
-    left: 0;
-    width: 100%;
-}
-.bookMeta {
-    position: absolute;
-    bottom: 0;
-    left: 162px;
-    padding: 11px 2px 0 23px;
-    width: 270px;
-}
-.rateWrap{
-    font-size: 0;
-    letter-spacing: 0;
-    word-spacing: normal;
-}
-.title2 {
-    text-align: left;
-    margin-top: 5px;
-    display: block;
-    width: 150px;
-    height: 40px;
-    overflow: hidden;
-    font-size: 16px;
-    line-height: 20px;
-    color: #444;
-}
-.bookDetail {
-    text-align: left;
-    margin-top: 15px;
-    font-size: 11px;
-    font-weight: bold;
-    line-height: 20px;
-    color: #444;
-}
-.descc {
-    text-align: left;
-    margin-top: 16px;
-    background: #f7f7f7;
-    padding: 9px 10px 13px;
-}
-.descc p {
-    text-align: left;
-    height: 76px;
-    overflow: hidden;
-    font-size: 12px;
-    line-height: 19px;
-    color: #444;
-}
 /* 세번쨰 메인 배너 */
 /* 첫번쨰 배너 */
 .choiceSection {
@@ -325,8 +189,9 @@ div{
 
 /* 오늘의 도서 */
 .todaybook {
+    margin-left: 390PX;
     width: 1000px;
-	height:400px;
+	height:300px;
 }
 .todaybook h2 {
     margin: 40px 0 16px;
@@ -411,3 +276,267 @@ div{
     word-break: break-word;
 }
 
+/* 중간 배너 */
+/* 기본css */
+li{
+    list-style: none;
+}
+
+/* 배너 */
+.tendSection{
+    width: 980px;
+    height: 356px;
+    margin: 25px auto 0;
+}
+
+.interparkRecmmend {
+    float: left;
+    width: 745px;
+    margin-right: -745px;
+}
+
+.interparkRecommendHeader {
+    position: relative;
+    padding-top: 11px;
+}
+
+.interparkRecommendHeader h2 {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto -13px;
+    width: 159px;
+    height: 25px;
+    background: url(https://qi-b.qoo10cdn.com/UI/pc/main/2017/text/h2_interparkRecommend.png) no-repeat;
+    text-indent: -9999px;
+}
+.sliderWrap1 {
+    position: relative;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #eee;
+    padding: 38px 50px 22px 55px;
+    height: 271px;
+}
+
+.sliderArea1 {
+    overflow: hidden;
+    height: 248px;
+}
+
+.bx_wrapper {
+    max-width: 640px !important;
+}
+
+.bx_viewport {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 248px;
+}
+
+.sliders1 {
+    width: 615%;
+    position: relative;
+    height: 260px;
+}
+
+.slider1 {
+    list-style: none;
+    position: relative;
+    width: 457px;
+}
+
+.slider1 a {
+    margin-left: 70px;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    width: 457px;
+    height: 248px;
+}
+
+.bookCover1 {
+    position: absolute;
+    bottom: 0;
+    width: 162px;
+    height: 237px;
+    display: table;
+    width: 100%;
+    height: 184px;
+}
+
+.coverWrap1 {
+    margin-left: 30px;
+    display: table-cell;
+    position: relative;
+    height: 184px;
+    vertical-align: bottom;
+    font-size: 0;
+    line-height: 0;
+    letter-spacing: 0;
+    word-spacing: normal;
+}
+
+.imageWrap1 {
+    padding: 2px 7px 13px 0;
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.imageWrap1 img {
+    width: 155px;
+    max-height: 222px;
+    display: block;
+    text-align: left !important;
+}
+
+.bookCoverTop1 {
+    pointer-events: none;
+    height: 32px;
+    background: url(https://qi-b.qoo10cdn.com/UI/pc/main/2017/cover/img_bookCoverBig.png) no-repeat;
+    top: 0;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    display: block;
+}
+
+.bookCoverRepeat1 {
+    pointer-events: none;
+    top: 32px;
+    bottom: 43px;
+    background: url(https://qi-b.qoo10cdn.com/UI/pc/main/2017/cover/bg_bookCoverBig.png) repeat-y right 0;
+    position: absolute;
+    left: 0;
+    width: 100%;
+}
+
+.bookCoverBottom1 {
+    pointer-events: none;
+    background-position: 0 -32px;
+    height: 43px;
+    bottom: 0;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    display: block;
+    background: url(https://qi-b.qoo10cdn.com/UI/pc/main/2017/cover/img_bookCover.png) no-repeat;
+}
+
+.bookRecommend1 {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: -11px;
+    left: 6px;
+    width: 38px;
+    height: 27px;
+    background: url(https://qi-b.qoo10cdn.com/UI/pc/main/2017/common/img_heartClip.png) no-repeat;
+}
+
+.bookMeta1 {
+    position: absolute;
+    left: 162px;
+    padding: 11px 2px 0 23px;
+    width: 270px;
+}
+
+.title2 {
+    margin-top: 5px;
+    display: block;
+    height: 40px;
+    font-size: 16px;
+    line-height: 20px;
+    color: #444;
+}
+
+.bookDetail1 {
+    margin-top: 15px;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 20px;
+    color: #444;
+}
+
+.category1 {
+    margin-top: 15px;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 20px;
+    color: #444;
+}
+
+.recommender1 {
+    margin-top: 15px;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 20px;
+    color: #444;
+}
+
+.desc1 {
+    margin-top: 16px;
+    background: #f7f7f7;
+    padding: 9px 10px 13px;
+}
+
+.desc1 p {
+    height: 76px;
+    font-size: 12px;
+    line-height: 19px;
+    color: #444;
+}
+
+.tendIssue {
+    margin-left: 745px;
+    padding-left: 15px;
+}
+
+.tendIssueHeader h2 {
+    padding: 1px 0 4px;
+    margin: 0;
+    font-size: 14px;
+    font-family: tahoma, sans-serif;
+    color: #555;
+}
+
+.sliderWrap2 {
+    position: relative;
+    border-top: 1px solid #000;
+    background: #f7f7f7;
+    height: 332px;
+}
+
+.sliders2 {
+    padding: 0;
+    margin: 0;
+    height: 332px;
+}
+
+.bannerType2 {
+    height: 332px;
+}
+
+.bannerType2 iframe {
+    display: block;
+    width: 219px;
+    height: 332px;
+}
+
+.bannerType2 iframe a img {
+    width: 219px;
+    aspect-ratio: auto 219 / 332;
+    height: 332px;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+}
+
+:root {
+    --swiper-theme-color: #ef544d !important;
+}
