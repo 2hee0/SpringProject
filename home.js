@@ -11,7 +11,7 @@ new Swiper('.swiper-container', {
     loop: true, // 무한 반복
   
     autoplay: {
-      delay: 3000,
+      delay: 3500,
       disableOnInteraction: false,
       },
   });
@@ -35,7 +35,7 @@ new Swiper(".myswiper", {
 	slidesPerView: 1,
 	loop: true,
 	autoplay: {
-	  delay: 5500,
+	  delay: 6000,
 	  disableOnInteraction: false,
 	},
 	pagination: {
