@@ -15,10 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,8 +33,13 @@ public class MemberController {
     }
 
     @PostMapping(value = "/members/new")
-    public String create(@Valid JoinForm form, BindingResult result) throws IllegalAccessException {
+    public String create(@Valid  JoinForm form, BindingResult result) throws IllegalAccessException {
         if (result.hasErrors()) {
+            return "join/join";
+        }
+
+        if (!form.getPassword().equals(form.getPasswordConfirm())) {
+            result.rejectValue("passwordConfirm", "password.confirmation", "비밀번호 확인이 일치하지 않습니다.");
             return "join/join";
         }
 

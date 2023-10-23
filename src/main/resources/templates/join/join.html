@@ -2,12 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/join.css}">
 
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script src="js/join.js"></script>
+    <script th:src="@{/js/join.js}"></script>
+
     <link href="https://font.elice.io/css?family=Elice+DX+Neolli" rel="stylesheet">
+
     <title>회원가입</title>
 </head>
 <body>
@@ -35,7 +37,7 @@
                 <input id="re-password" type="password" th:field="*{passwordConfirm}">
             </div>
 
-            <div class="uesername">
+            <div class="username">
                 <b>이름</b><br>
                 <input id="name" type="text" th:field="*{name}">
             </div>
@@ -43,9 +45,9 @@
             <div class="birth">
                 <b>주민번호</b><br>
                 <div class="rrn">
-                    <input type="text" id="rrn1" th:field="*{rrn}"/>
+                    <input type="text" id="rrn1" th:field="*{rrn1}"/>
                     <span class="hyphen"> - </span>
-                    <input type="text" id="rrn" th:field="*{rrn}"/>
+                    <input type="text" id="rrn2" th:field="*{rrn2}"/>
                 </div>
             </div>
 
@@ -58,21 +60,19 @@
                 <b>주소</b><br>
                 <div class="zipcodeInput">
                     <input type="text" id="sample4_postcode" placeholder="우편번호" th:field="*{zipcode}">
-                    <button type="button" class="zipcodeButton" onclick="sample4_execDaumPostcode()" value="우편번호 찾기">
-                        우편번호
+                    <button type="button" class="zipcodeButton" th:onclick="sample4_execDaumPostcode()" >
+                        우편번호 찾기
                     </button>
-                    </br>
                 </div>
                 <input type="text" id="sample4_roadAddress" placeholder="도로명주소" th:field="*{addr}">
-                <input type="text" id="sample4_jibunAddress" placeholder="지번주소" th:field="*{addr_detail}"> <br>
-                <span id="guide" style="color:#999;display:none"></span>
+                <input type="text" id="sample4_jibunAddress" placeholder="지번주소" th:field="*{addr_detail}"><br>
+                <span id="guide" style="color: #999; display: none"></span>
                 <input type="text" id="sample4_detailAddress" placeholder="상세주소" th:field="*{addr_etc}">
-                <input type="text" id="sample4_extraAddress" placeholder="참고항목" th:field="*{extraAddr}">
+                <input type="text" id="sample4_extraAddress" placeholder="참고항목" >
             </div>
 
         </div>
         <button type="submit" class="join">가입하기</button>
-        <!--        <input type="submit" value="가입하기" class="join" > -->
         <br>
         <a class="home" href="/">홈으로</a>
 

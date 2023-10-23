@@ -59,7 +59,8 @@ header{
     background-color: #EAEAEA;
 }
 
-.joinForm input[type=submit] {
+
+.joinForm button[type=submit] {
     background-color: #FF3636;
     width: 100%;
     height: 50px;
