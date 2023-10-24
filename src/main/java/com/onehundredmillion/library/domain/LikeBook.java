@@ -22,12 +22,27 @@ public class LikeBook {
 	@Enumerated(EnumType.STRING)
 	private RentStatus status;
 	
-	@ManyToOne
-	@JoinColumn(name="LIKE_ID")
-	private Like like;
-	
+	@JoinColumn(name="MEMBER_ID")
+	private Member member;
+
 	@ManyToOne
 	@JoinColumn(name = "BOOK_ID")
-	private Book book;
+	private Book book;	
+
+
+	// =========== 비지스로직 ================
+	
+	public static LikeBook setLike(Member member, Book book) {
+		LikeBook likeBook = new LikeBook();
+		likeBook.setBook(book);
+		likeBook.setMember(member);
+		likeBook.setStatus(RentStatus.LIKE);
+		
+		return likeBook;	
+	}
+	
+	public static void setDislike() {
+		
+	}
 	
 }
