@@ -1,7 +1,5 @@
 package com.onehundredmillion.library.domain;
 
-import org.hibernate.validator.internal.util.privilegedactions.GetResolvedMemberMethods;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -27,11 +25,12 @@ public class LikeBook {
 	@ManyToOne
 	@JoinColumn(name="MEMBER_ID")
 	private Member member;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "BOOK_ID")
-	private Book book;
-	
+	private Book book;	
+
+
 	// =========== 비지스로직 ================
 	
 	public static LikeBook setLike(Member member, Book book) {
@@ -48,19 +47,3 @@ public class LikeBook {
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

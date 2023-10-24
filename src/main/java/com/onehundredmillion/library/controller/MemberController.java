@@ -34,12 +34,12 @@ public class MemberController {
     @PostMapping("/join")
     public String processJoinForm(@Valid JoinForm joinForm, BindingResult result) {
         if (result.hasErrors()) {
-            if(joinForm.getPasswordConfirm()==null) {
-                result.rejectValue("passwordConfirm", "passwordConfirm", "비밀번호확인을 해주세요.");
-            } else if (!joinForm.isPasswordMatch()) {
-                result.rejectValue("passwordConfirm", "passwordConfirm", "비밀번호와 비밀번호 확인이 일치하지 않습니다.");
-                return "join/join";
-            }
+        	if(joinForm.getPasswordConfirm()==null) {
+        		result.rejectValue("passwordConfirm", "passwordConfirm", "비밀번호확인을 해주세요.");
+        	} else if (!joinForm.isPasswordMatch()) {
+	            result.rejectValue("passwordConfirm", "passwordConfirm", "비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+	            return "join/join";
+	        }        
         }
         memberService.join(joinForm.toMember());
 
@@ -84,7 +84,7 @@ public class MemberController {
     public String myPage(Model model) {
         return "member/mypage";
     }
-
-
-
+    
+  
+    
 }

@@ -34,5 +34,7 @@ public class Member {
 
     @OneToMany(mappedBy = "member")
     private List<Rent> rent = new ArrayList<>();
+    
+    
 
 }
