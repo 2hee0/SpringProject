@@ -7,10 +7,6 @@ import java.io.IOException;
 import java.util.UUID;
 
 public class LogFilter implements Filter {
-/**
-     * ServletRequest : HttpServletRequest의 부모 클래스
-     * 기능이 많이 없어서 HttpServletRequest로 다운 캐스팅해서 사용
-     */
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {

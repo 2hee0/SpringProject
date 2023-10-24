@@ -2,9 +2,7 @@ package com.onehundredmillion.library.repository;
 
 import com.onehundredmillion.library.domain.Member;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,7 +11,6 @@ import java.util.Optional;
 @Repository
 @RequiredArgsConstructor
 public class MemberRepository {
-
 
 
     //@Autowired
@@ -26,10 +23,12 @@ public class MemberRepository {
     public Member findOne(Long id) {
         return em.find(Member.class, id);
     }
+
     public List<Member> findAll() {
         return em.createQuery("select m from Member m", Member.class)
                 .getResultList();
     }
+
     public List<Member> findByName(String name) {
         return em.createQuery("select m from Member m where m.name = :name",
                         Member.class)
@@ -38,9 +37,18 @@ public class MemberRepository {
     }
 
 
-    public Optional<Member> findByLoginId(String loginId) {
+    public Optional<Member> findByLoginId(String userId) {
         return findAll().stream()
-                .filter(m -> m.getUserid().equals(loginId))
+                .filter(m -> m.getUserId().equals(userId))
                 .findFirst();
+    }
+
+    public boolean existsByuserId(String userId) {
+        if (userId == null) {
+
+            return false;
+        }else{
+            return true;
+        }
     }
 }

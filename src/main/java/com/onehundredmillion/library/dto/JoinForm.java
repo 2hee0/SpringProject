@@ -3,6 +3,7 @@ package com.onehundredmillion.library.dto;
 import com.onehundredmillion.library.domain.Address;
 import com.onehundredmillion.library.domain.Member;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,18 +11,23 @@ import lombok.Setter;
 @Getter
 @Setter
 public class JoinForm {
-    @NotEmpty(message = "id는 필수입니다.")
-    @Size(min = 5,max = 15, message = "아이디는 5~15자 이내로 입력하세요")
+    @NotEmpty(message = "아이디를 입력해주세요.")
     private String userid;
 
+    @Size(min = 8, message = "비밀번호는 최소 8자 이상이어야 합니다.")
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[@#$%^&+=!.]).*$", message = "비밀번호는 숫자,  특수문자를 포함해야 합니다.")
     private String password;
+    @NotEmpty(message = "비밀번호확인을 해주세요.")
     private String passwordConfirm;
     private String Rrn1; //주민번호
 
     private String Rrn2; //주민번호
 
+    @NotEmpty(message = "이름을 입력해주세요.")
+
     private String name;
-    @NotEmpty(message = "회원 전화번호는 필수입니다.")
+    @Pattern(regexp = "^[0-9]+$", message = "전화번호는 숫자로만 입력해주세요.")
+    @Size(min = 10, max = 11, message = "전화번호는 10자 또는 11자여야 합니다.")
     private String phoneNo;
     private String zipcode;
     private String addr;
@@ -29,9 +35,13 @@ public class JoinForm {
     private String addr_etc;
     private String extraAddr;
 
+    public boolean isPasswordMatch() {
+        return password != null && password.equals(passwordConfirm);
+    }
+
     public Member toMember() {
         Member member = new Member();
-        member.setUserid(this.getUserid());
+        member.setUserId(this.getUserid());
         member.setName(this.getName());
         member.setPassword(this.getPassword());
         member.setPasswordConfirm(this.getPasswordConfirm());

@@ -22,6 +22,7 @@ public class LikeBook {
 	@Enumerated(EnumType.STRING)
 	private RentStatus status;
 	
+	@ManyToOne
 	@JoinColumn(name="MEMBER_ID")
 	private Member member;
 
