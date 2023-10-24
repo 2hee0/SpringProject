@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/login.css}" />
+    <link rel="stylesheet" th:href="@{/css/login.css}"/>
     <link href="https://font.elice.io/css?family=Elice+DX+Neolli" rel="stylesheet">
     <title>Document</title>
 </head>
@@ -13,21 +13,25 @@
         <h2>로그인</h2>
     </header>
 
-    <form action="/login"  method="post">
+    <form action="/login" th:action th:object="${loginForm}" method="post">
+
+        <div th:if="${#fields.hasGlobalErrors()}">
+            <p class="field-error" th:each="err : ${#fields.globalErrors()}"
+               th:text="${err}">전체 오류 메시지</p>
+        </div>
         <div class="input-box">
-            <input id="userid" type="text" name="userid" placeholder="ID" />
+            <input id="userid" type="text" name="userid" th:field="*{userId}" placeholder="ID"/>
             <label for="userid">ID</label>
-            <div class="field-error"></div>
+            <div class="field-error" th:errors="*{userId}"></div>
         </div>
 
         <div class="input-box">
-            <input id="password" type="password" name="password" placeholder="Password" />
+            <input id="password" type="password" name="password" th:field="*{password}" placeholder="Password"/>
             <label for="password">Password</label>
-            <div class="field-error"></div>
+            <div class="field-error" th:errors="*{password}"></div>
         </div>
         <div>
-            <input type="hidden" name="redirectURL" th:value="${param.redirectURL}" />
-            <input type="submit" value="로그인" />
+            <button type="submit">로그인</button>
         </div>
         <div class="findInfo">
             <a href="" id="forgot">비밀번호 찾기</a>

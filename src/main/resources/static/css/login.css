@@ -60,7 +60,7 @@ input:focus, input:not(:placeholder-shown){
     outline: none;
 }
 
-input[type=submit]{
+button[type=submit]{
     background-color: #FF3636;
     border: none;
     color: white;
