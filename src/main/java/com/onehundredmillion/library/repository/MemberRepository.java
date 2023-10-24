@@ -15,7 +15,6 @@ import java.util.Optional;
 public class MemberRepository {
 
 
-
     //@Autowired
     private final EntityManager em;
 
@@ -26,10 +25,12 @@ public class MemberRepository {
     public Member findOne(Long id) {
         return em.find(Member.class, id);
     }
+
     public List<Member> findAll() {
         return em.createQuery("select m from Member m", Member.class)
                 .getResultList();
     }
+
     public List<Member> findByName(String name) {
         return em.createQuery("select m from Member m where m.name = :name",
                         Member.class)
@@ -42,5 +43,14 @@ public class MemberRepository {
         return findAll().stream()
                 .filter(m -> m.getUserid().equals(loginId))
                 .findFirst();
+    }
+
+    public boolean existsByuserid(String userid) {
+        if (userid == null) {
+
+            return false;
+        }else{
+            return true;
+        }
     }
 }

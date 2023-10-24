@@ -1,40 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../login/login.css" >
-  <link href="https://font.elice.io/css?family=Elice+DX+Neolli" rel="stylesheet">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/login.css}" />
+    <link href="https://font.elice.io/css?family=Elice+DX+Neolli" rel="stylesheet">
+    <title>Document</title>
 </head>
 <body>
-  <div class="loginform">
+<div class="loginForm">
     <header>
         <h2>로그인</h2>
     </header>
 
-    
-    <form action="" method="post">
-      <div class="input-box">
-        <input id="userid"  type="text" name="userid" placeholder="ID">
-        <label for="userid">ID</label>
-        <div class="field-error"></div>
-      </div>
+    <form action="/login"  method="post">
+        <div class="input-box">
+            <input id="userid" type="text" name="userid" placeholder="ID" />
+            <label for="userid">ID</label>
+            <div class="field-error"></div>
+        </div>
 
-      <div class="input-box">
-        <input id="password" type="password" name="password" placeholder="Password">
-        <label for="password">Password</label>
-        <div class="field-error"></div>
-      </div>
-      <div>
-        <input type="submit" value="로그인" />
-      </div>
-      <div class="findInfo">
-        <a href="" id="forgot">비밀번호 찾기</a>
-        <span class="bar"></span>
-        <a href="#" id="join">회원가입</a>
-      </div>
+        <div class="input-box">
+            <input id="password" type="password" name="password" placeholder="Password" />
+            <label for="password">Password</label>
+            <div class="field-error"></div>
+        </div>
+        <div>
+            <input type="hidden" name="redirectURL" th:value="${param.redirectURL}" />
+            <input type="submit" value="로그인" />
+        </div>
+        <div class="findInfo">
+            <a href="" id="forgot">비밀번호 찾기</a>
+            <span class="bar"></span>
+            <a th:href="@{/join/join}" id="join">회원가입</a>
+        </div>
     </form>
-  </div>
+</div>
 </body>
 </html>

@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class WebConfig {
 
     @Bean
-    public FilterRegistrationBean  loginCheckFilter() {
+    public FilterRegistrationBean loginCheckFilter() {
         FilterRegistrationBean<Filter> filterRegistrationBean = new FilterRegistrationBean<>();
 
         //내가 방금 만든 로그 필터를 등록

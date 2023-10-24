@@ -10,7 +10,7 @@ import org.springframework.util.PatternMatchUtils;
 import java.io.IOException;
 
 public class LoginCheckFilter implements Filter {
-    private static final String[] whitelist = {"/", "/members/new",  "/login", "/logout", "/css/*", "/js/*"};
+    private static final String[] whitelist = {"/", "/join", "/login", "/logout", "/css/*", "/js/*"};
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
@@ -40,7 +40,6 @@ public class LoginCheckFilter implements Filter {
             System.out.println("인증 체크 필터 종료 : " + requestURI);
         }
     }
-
 
 
     private boolean isLoginCheckPath(String requestURI) {

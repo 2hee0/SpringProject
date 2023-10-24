@@ -18,23 +18,26 @@
         <h2>회원가입</h2>
     </header>
 
-    <form action="/members/new" th:object="${joinForm}" method="post">
+    <form action="/join" th:object="${joinForm}" method="post">
         <div class="input-box">
 
             <div class="userid">
                 <b>아이디</b><br>
                 <input id="userid" type="text" th:field="*{userid}">
+                <div class="field-error" th:errors="*{userid}">ID 입력 오류</div>
                 <input type="button" value="중복확인">
             </div>
 
             <div class="userpw">
                 <b>비밀번호</b><br>
                 <input id="password" type="password" th:field="*{password}">
+                <div class="field-error" th:errors="*{password}">password 오류</div>
             </div>
 
             <div class="re-userpw">
                 <b>비밀번호 재입력</b><br>
                 <input id="re-password" type="password" th:field="*{passwordConfirm}">
+                <div class="field-error" th:errors="*{passwordConfirm}">password 중복 오류</div>
             </div>
 
             <div class="username">

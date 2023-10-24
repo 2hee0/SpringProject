@@ -3,6 +3,7 @@ package com.onehundredmillion.library.service;
 import com.onehundredmillion.library.domain.Member;
 import com.onehundredmillion.library.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,8 +17,10 @@ public class MemberService {
 
     @Transactional //변경
     public Long join(Member member) {
-//        validateDuplicateMember(member); //중복 회원 검증
-        memberRepository.save(member);
+        validateDuplicateMember(member); //중복 회원 검증
+       /* String hashPw = bCryptPasswordEncoder.encode(member.getPassword());
+        member.setPassword(hashPw);*/
+       memberRepository.save(member);
         return member.getId();
     }
     private void validateDuplicateMember(Member member) {
@@ -39,5 +42,9 @@ public class MemberService {
     }
     public Member findOne(Long memberId) {
         return memberRepository.findOne(memberId);
+    }
+
+    public Boolean checkIdDuplicate(String userid) {
+        return memberRepository.existsByuserid(userid);
     }
 }
