@@ -5,7 +5,6 @@ import com.onehundredmillion.library.dto.LoginForm;
 import com.onehundredmillion.library.sessioin.SessionConst;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -27,12 +26,9 @@ public class HomeController {
         if (loginMember == null) {
             return "home";
         }
-
-        // 로그인 성공한 사람 : loginHome
         model.addAttribute("member", loginMember);
-        return "loginHome";
+        return "home";
     }
-
 
 
     @PostMapping("/logout")

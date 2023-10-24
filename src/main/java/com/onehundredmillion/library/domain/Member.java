@@ -19,7 +19,7 @@ public class Member {
     private Long id;
 
     @NotEmpty(message = "")
-    private String userid;
+    private String userId;
     @NotEmpty
     private String name;
     @NotEmpty

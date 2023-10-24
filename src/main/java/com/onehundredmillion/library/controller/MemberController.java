@@ -37,15 +37,18 @@ public class MemberController {
         if (result.hasErrors()) {
             return "join/join";
         }
-
+        if (!joinForm.isPasswordMatch()) {
+            result.rejectValue("passwordConfirm", "passwordConfirm", "비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+            return "join/join";
+        }
         memberService.join(joinForm.toMember());
 
         return "redirect:/";
     }
 
-    @GetMapping("/joinForm/{userid}/exists")
-    public ResponseEntity<Boolean> checkIdDuplicate(@PathVariable String userid) {
-        return ResponseEntity.ok(memberService.checkIdDuplicate(userid));
+    @GetMapping("/joinForm/{userId}/exists")
+    public ResponseEntity<Boolean> checkIdDuplicate(@PathVariable String userId) {
+        return ResponseEntity.ok(memberService.checkIdDuplicate(userId));
     }
 
 
@@ -58,25 +61,22 @@ public class MemberController {
     @PostMapping("/login")
     public String login(
             @Valid @ModelAttribute LoginForm loginForm, BindingResult bindingResult,
-            @RequestParam(defaultValue = "/home") String redirectURL,
             HttpServletRequest request) {
         if (bindingResult.hasErrors()) {
             return "login/login";
         }
-        Member loginMember = memberService.login(loginForm.getLoginId(),
+        Member loginMember = memberService.login(loginForm.getUserId(),
                 loginForm.getPassword());
         log.info("login? {}", loginMember);
         if (loginMember == null) {
             bindingResult.reject("loginFail", "아이디 또는 비밀번호가 맞지 않습니다.");
             return "login/login";
         }
+
         //로그인 성공 처리
-        //세션이 있으면 있는 세션 반환, 없으면 신규 세션 생성
         HttpSession session = request.getSession();
-        //세션에 로그인 회원 정보 보관
         session.setAttribute(SessionConst.LOGIN_MEMBER, loginMember);
-        //redirectURL 적용
-        return "redirect:" + redirectURL;
+        return "redirect:/";
 
     }
 
