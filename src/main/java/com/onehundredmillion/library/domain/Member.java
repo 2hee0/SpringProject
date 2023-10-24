@@ -34,5 +34,10 @@ public class Member {
 
     @OneToMany(mappedBy = "member")
     private List<Rent> rent = new ArrayList<>();
+    
+    @OneToMany(mappedBy = "member")
+    private List<Like> like = new ArrayList<>();
+    
+    
 
 }
