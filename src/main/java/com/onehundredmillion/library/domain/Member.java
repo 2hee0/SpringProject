@@ -26,6 +26,7 @@ public class Member {
     private String password;
     private String passwordConfirm;
     private String Rrn1; //주민번호
+
     private String Rrn2; //주민번호
     private String phoneNo;
     @Embedded
