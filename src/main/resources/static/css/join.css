@@ -55,8 +55,12 @@ header{
     margin-bottom: 10px;
 }
 
-.joinForm .input-box input[type=button] {
+.joinForm .input-box button {
     background-color: #EAEAEA;
+    border: 1px solid #dadada;
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 .joinForm button[type=submit] {
