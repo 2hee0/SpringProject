@@ -33,17 +33,22 @@ public class MemberController {
 
     @PostMapping("/join")
     public String processJoinForm(@Valid JoinForm joinForm, BindingResult result) {
-        if (result.hasErrors()) {
-        	if(joinForm.getPasswordConfirm()==null) {
-        		result.rejectValue("passwordConfirm", "passwordConfirm", "비밀번호확인을 해주세요.");
-        	} else if (!joinForm.isPasswordMatch()) {
-	            result.rejectValue("passwordConfirm", "passwordConfirm", "비밀번호와 비밀번호 확인이 일치하지 않습니다.");
-	            return "join/join";
-	        }        
-        }
-        memberService.join(joinForm.toMember());
-
-        return "redirect:/";
+    
+		if (joinForm.getPasswordConfirm() == null) {
+			result.rejectValue("passwordConfirm", "passwordConfirm", "비밀번호 재입력을 해주세요.");
+		}
+		
+		if (!joinForm.isPasswordMatch()) {
+			result.rejectValue("passwordConfirm", "passwordConfirm", "비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+		}
+		
+		if (result.hasErrors()) {
+			return "join/join";
+		}
+			
+		memberService.join(joinForm.toMember());
+		return "redirect:/";
+		
     }
 
     @GetMapping("/joinForm/{userId}/exists")
@@ -65,8 +70,7 @@ public class MemberController {
         if (bindingResult.hasErrors()) {
             return "login/login";
         }
-        Member loginMember = memberService.login(loginForm.getUserId(),
-                loginForm.getPassword());
+        Member loginMember = memberService.login(loginForm.getUserId(), loginForm.getPassword());
         log.info("login? {}", loginMember);
         if (loginMember == null) {
             bindingResult.reject("loginFail", "아이디 또는 비밀번호가 맞지 않습니다.");
@@ -76,7 +80,7 @@ public class MemberController {
         //로그인 성공 처리
         HttpSession session = request.getSession();
         session.setAttribute(SessionConst.LOGIN_MEMBER, loginMember);
-        return "redirect:/";
+        return "redirect:home";
 
     }
 
