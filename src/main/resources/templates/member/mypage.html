@@ -307,40 +307,6 @@
         </section>
     </main>
 </body>
-<script src="../../static/js/mypage.js"></script>
-<script>
-    // Get the necessary elements
-  const likeItem = document.querySelector('.like_item');
-  const libraryItem = document.querySelector('.libary_item');
-  const rentalItem = document.querySelector('.rental_item');
-  const buttons = document.querySelectorAll('.list_search button');
+<script src="../../../../../mypage.js"></script>
 
-  // Add event listeners to the buttons
-  buttons.forEach((button) => {
-    button.addEventListener('click', function () {
-      // Reset the text color of all buttons to #000
-      buttons.forEach((btn) => {
-        btn.style.color = '#000';
-      });
-
-      // Change the text color of the clicked button to ef544d
-      button.style.color = '#ef544d';
-
-      // Show/hide items based on the button clicked
-      if (button.classList.contains('current')) {
-        likeItem.style.display = '';
-        libraryItem.style.display = 'none';
-        rentalItem.style.display = 'none';
-      } else if (button.classList.contains('reservation')) {
-        likeItem.style.display = 'none';
-        libraryItem.style.display = '';
-        rentalItem.style.display = 'none';
-      } else if (button.classList.contains('rental')) {
-        likeItem.style.display = 'none';
-        libraryItem.style.display = 'none';
-        rentalItem.style.display = '';
-      }
-    });
-  });
-</script>
 </html>

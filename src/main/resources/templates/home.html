@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" th:href="@{css/footer.css}" >
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f93d75b47dd331c83de73a293e351e45"></script>
 </head>
-
 <body>
+	<div th:replace="header :: header" />
     <div class="container">
         <div class="mainContent">
             <div class="swiper-container1">
@@ -396,10 +398,7 @@
                                 <a href="#">
                                     <img src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/480D200132970.jpg"
                                         alt="">
-                                </a>
-                            </div>
-                            <a href="#">
-                                <div class="Choicetitle2">
+                                    <div class="Choicetitle2">
                                     <span>야 너도 리눅스 사용할수 있어!</span>
                                 </div>
                                 <div class="LastTitle">
@@ -407,7 +406,8 @@
                                         <p class="lastinfo">누구나 가능한 유닉스&리눅스 2판</p>
                                     </span>
                                 </div>
-                            </a>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -501,7 +501,9 @@
             </div>
         </div>
     </div>
+    <div th:replace="footer :: footer" />
 </body>
-<script src="home.js"></script>
-
+<script th:src="@{/js/home.js}"></script>
+<script th:src="@{/js/header.js}"></script>
+<script th:src="@{/js/footer.js}"></script>
 </html>

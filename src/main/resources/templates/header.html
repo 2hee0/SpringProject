@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="header">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="header.css">
-    <script src="header.js"></script>
-    
+    <link rel="stylesheet" th:href="@{css/header.css}" >
+    <script th:src="@{/js/header.js}"></script>
+</head>
 <body>
-    <div class="header">
+    <div class="header" th:fragment="header">
         <div class="geteGenbMain">
             <div class="geteCon">
                 <div class="geteRight">
                     <ul>
-                        <li>
-                            <a href="#" id="topLogin">로그인</a>
-                            <a href="#" id="topLogout" style="display: none;">로그아웃</a>
-                        </li>
-                        <li class="memberJoin">
-                            <a href="#">
-                                회원가입
-                            </a>
-                        </li>
+						<li>
+						    <a th:href="@{/login/login}" id="topLogin" th:if="${loginMember == null}">로그인</a>
+						    <span th:if="${loginMember != null}" th:text="${loginMember.name + '님'}">Member Name</span>
+						</li>
+						<li class="memberJoin">
+						    <a th:href="@{/join}" th:if="${loginMember == null}">회원가입</a>
+						    <a th:href="@{/logout}" id="topLogout" th:if="${loginMember != null}">로그아웃</a>
+						</li>
                         <li class="mypg" onmouseover="showMlv('mlv');" onmouseout="hideMlv('mlv');">
                             <a href="#" id="mlv_arrow" class="on" onfocus="showMlv('mlv');">마이페이지</a>
                             <div class="mypgsub" id="mlv" style="display: none;" onmouseover="showMlv('mvl');"
@@ -34,7 +32,7 @@
                                             <a href="#">마이도서</a>
                                         </dd>
                                         <dd>
-                                            <a href="#">회원정보</a>
+                                            <a th:href="@{/userinfo}">회원정보</a>
                                         </dd>
                                     </dl>
                                 </div>
@@ -47,15 +45,14 @@
                 <div class="headerBox">
                     <div class="header_logosearch">
                         <h1>
-                            <a href="#" class="logo">
-                                <img src="img/logo.png" alt="">
-                            </a>
+                            <a th:href="@{/}" class="logo">
+								<img src="img/logo.png" alt="">
+							</a>
                         </h1>
                         <div class="search">
                             <input type="text" name="query" placeholder="" />
                             <div class="btn">
-                                <a href="#">
-                                </a>
+                                <a href="#"></a>
                             </div>
                         </div>
                         <div class="top_banner">
@@ -105,7 +102,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                         <div class="bookGnBLeft">
                             <ul class="gnbNav">
@@ -127,8 +123,6 @@
                 </div>
             </div>
         </div>
-    </div>
+     </div>
 </body>
-</head>
-
 </html>

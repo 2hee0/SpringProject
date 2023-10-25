@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../../static/css/mypage.css">
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{css/mypage.css}" >
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<link rel="stylesheet" th:href="@{css/footer.css}" >
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f93d75b47dd331c83de73a293e351e45"></script>
 </head>
-
 <body>
-    <main class="container_wrapper">
+	<div th:replace="header :: header" />
+	<main class="container_wrapper">
         <section class="contents_wrap elib">
             <div class="elib_head">
                 <div class="innner">
@@ -19,11 +21,11 @@
                             <img src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/img_no_profile@2x.png"
                                 alt="">
                         </div>
-                        <p class="name">
-                            <strong>OO</strong>
-                            님의
-                            <b>라이브러리</b>
-                        </p>
+                        <p class="name1">
+						    <strong th:if="${loginMember != null}" th:text="${loginMember.name}">Member Name</strong>
+						    님의
+						    <b>라이브러리</b>
+						</p>
                     </div>
                     <ul class="elib_quick">
                         <li>
@@ -45,11 +47,12 @@
                 <div class="tab_wrap">
                     <div class="tab_content">
                         <div class="title_wrap title_size_lg">
-                            <p class="title_heading"">회원정보 수정</p>
+                           <p class="title_heading">회원정보 수정</p>
                         </div>
                         <div class="title_wrap title_size_md">
                             <p class="title_heading1">기본 정보</p>
                         </div>
+                    	<form th:action="@{'/updateUser/' + ${loginMember.id}}" method="post">
                         <div class="tbl_row_wrap">
                             <table class="tbl_row">
                                 <colgroup>
@@ -60,7 +63,7 @@
                                     <tr>
                                         <th scope="row">아이디</th>
                                         <td>
-                                            <span class="fc_black" id="userid">유저 아이디</span>
+                                            <span class="fc_black" id="userid" th:text="${loginMember.userId}">유저 아이디</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -68,8 +71,9 @@
                                         <td>
                                             <div class="form_ip_pw">
                                                 <input type="password" placeholder="새 비밀번호를 입력해주세요" maxlength="15"
-                                                    class="form_ip password" id="password">
+                                                    class="form_ip password" id="password" name="password">
                                             </div>
+                                            <div class="field-error"></div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -77,15 +81,16 @@
                                         <td>
                                             <div class="form_ip_pw">
                                                 <input type="password" placeholder="새 비밀번호를 한번더 입력해주세요" maxlength="15"
-                                                    class="form_ip1 passwordcheck" id="password" disabled=true>
+                                                    class="form_ip1 passwordcheck" id="passwordConfirm" disabled=true name="passwordConfirm">
                                             </div>
+                                            <div class="field-error"></div>
                                         </td>
                                     </tr>
                                     <tr class="username">
                                         <th scope="row">이름</th>
                                         <td>
                                             <div class="btn_next_box between">
-                                                <span class="text fc_black" id="name">유저 이름</span>
+                                                <span class="text fc_black" th:text="${loginMember.name}">유저 이름</span>
                                                 <button type="button" class="btn_line_primary btn_sm"
                                                     onclick="showEditForm()">
                                                     <span class="text">변경</span>
@@ -101,12 +106,13 @@
                                                     <div class="input_btn_box">
                                                         <div class="awesomplete">
                                                             <input type="text" class="form_ip2"
-                                                                placeholder="이름을 입력해주세요." id="name">
+                                                                placeholder="이름을 입력해주세요." id="name" name="name">
                                                             <button type="button" class="cancel btn_line_primary btn_sm"
                                                                 onclick="cancelEdit()">
                                                                 <span class="text">취소</span>
                                                             </button>
                                                         </div>
+                                                        <div class="field-error"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -120,17 +126,11 @@
                                     <col style="width: auto;">
                                 </colgroup>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">생년월일</th>
-                                        <td>
-                                            <span class="fc_black" id="rrn1">유저 생일</span>
-                                        </td>
-                                    </tr>
                                     <tr class="userphone">
                                         <th scope="row">휴대폰번호</th>
                                         <td>
                                             <div class="btn_next_box between">
-                                                <span class="text fc_black" id="phoneNo">010-1234-5678</span>
+                                                <span class="text fc_black" th:text="${loginMember.phoneNo}">010-1234-5678</span>
                                                 <button type="button" class="btn_line_primary btn_sm"
                                                     onclick="showEditForm2()">
                                                     <span class="text">변경</span>
@@ -146,12 +146,13 @@
                                                     <div class="input_btn_box">
                                                         <div class="awesomplete">
                                                             <input type="tel" class="form_ip2"
-                                                                placeholder="새 전화번호를 입력해주세요." id="phoneNo">
+                                                                placeholder="새 전화번호를 입력해주세요." name="phoneNo" id="phoneNo">
                                                             <button type="button" class="cancel btn_line_primary btn_sm"
                                                                 onclick="cancelEdit2()">
                                                                 <span class="text">취소</span>
                                                             </button>
                                                         </div>
+                                                        <div class="field-error"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -163,18 +164,15 @@
                                             <div class="form_col_group">
                                                 <div class="col_box">
                                                     <div class="valid_check">
-                                                        <input type="text" class="from_ip3" id="sample4_postcode"
-                                                            placeholder="우편번호" readonly>
-                                                        <input type="text" class="from_ip3" id="sample4_jibunAddress"
-                                                            placeholder="지번주소" readonly>
-                                                        <input type="text" class="from_ip" id="sample4_roadAddress"
-                                                            placeholder="도로명주소" readonly>
-                                                        <span id="guide" style="color:#999;display:none"></span>
-                                                        <input type="text" class="from_ip" id="sample4_detailAddress"
-                                                            placeholder="상세주소" readonly>
-                                                        <input type="text" class="from_ip4" id="sample4_extraAddress"
-                                                            placeholder="참고항목" readonly>
-                                                        <button type="button" class="btn_line_primary btn_sm"
+                                                        <input type="text" class="from_ip3" id="sample4_postcode" placeholder="우편번호" readonly
+														    th:value="${loginMember.address.zipcode}" />
+														<input type="text" class="from_ip3" id="sample4_jibunAddress" placeholder="지번주소" readonly
+														    th:value="${loginMember.address.addr}" />
+														<input type="text" class="from_ip" id="sample4_roadAddress" placeholder="도로명주소" readonly
+														    th:value="${loginMember.address.addr_etc}" />
+														<input type="text" class="from_ip4" id="sample4_detailAddress" placeholder="상세주소" readonly
+														    th:value="${loginMember.address.addr_detail}" /> 
+                                                            <button type="button" class="btn_line_primary btn_sm"
                                                             onclick="showEditForm3()">
                                                             <span class="text">변경</span>
                                                         </button>
@@ -189,17 +187,17 @@
                                             <div class="form_col_group">
                                                 <div class="col_box">
                                                     <div class="valid_check">
-                                                        <input type="text" class="from_ip3 postcode"
+                                                        <input type="text" name="zipcode" class="from_ip3 postcode"
                                                             id="sample4_postcode" placeholder="우편번호">
                                                         <input type="button" class="btn_line_primary btn_sm"
                                                             onclick="sample4_execDaumPostcode()" value="우편번호 찾기">
-                                                        <input type="text" class="from_ip jibunAddress"
+                                                        <input type="text" name="addr_detail" class="from_ip jibunAddress"
                                                             id="sample4_jibunAddress" placeholder="지번주소">
-                                                        <input type=" text" class="from_ip roadAddress"
+                                                        <input type=" text" name="addr" class="from_ip roadAddress"
                                                             id="sample4_roadAddress" placeholder="도로명주소">
                                                         <span id="guide" class="guide"
                                                             style="color:#999;display:none"></span>
-                                                        <input type="text" class="from_ip detailAddress"
+                                                        <input type="text" name="addr_etc" class="from_ip detailAddress"
                                                             id="sample4_detailAddress" placeholder="상세주소">
                                                         <input type="text" class="from_ip4 extraAddress"
                                                             id="sample4_extraAddress" placeholder="참고항목">
@@ -208,6 +206,7 @@
                                                             <span class="text">취소</span>
                                                         </button>
                                                     </div>
+                                                    <div class="field-error"></div>
                                                 </div>
                                             </div>
                                         </td>
@@ -216,16 +215,21 @@
                             </table>
                         </div>
                         <div class="btn_wrap page_bottom">
-                            <button type="button" class="btn_lg btn_light_gray" onclick="self.location.reload()"><span
-                                    class="text">취소</span></button>
-                            <button type="button" class="btn_lg btn_primary" data-mbr-event-fn="fn_doSaveMain"
-                                data-mbr-event-type="click"><span class="text">확인</span></button>
+                          <button type="button" class="btn_lg btn_light_gray" th:onclick="'javascript:location.href = \'' + @{/} + '\''">
+							    <span class="text">취소</span>
+							</button>
+                            <button type="submit" class="btn_lg btn_primary" onclick="location.href = '/'">
+							    <span class="text">확인</span>
+							</button>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+    <div th:replace="footer :: footer" />
 </body>
-<script src="../../static/js/mypage.js"></script>
+<script th:src="@{/js/mypage.js}"></script>
+<script th:src="@{/js/footer.js}"></script>
 </html>
