@@ -22,8 +22,8 @@
         <div class="input-box">
             <div class="userid">
                 <b>아이디</b><br>
-                <input id="userid" type="text" th:field="*{userid}">
-                <div class="field-error" th:errors="*{userid}">ID 입력 오류</div>
+                <input id="userid" type="text" th:field="*{getUserId}">
+                <div class="field-error" th:errors="*{getUserId}">ID 입력 오류</div>
                     <button th:onclick="checkDuplicationButton()" >중복확인</button>
             </div>
             <div class="userpw">
