@@ -33,12 +33,27 @@ public class BookController {
     }*/
 
 
-    @GetMapping(value = "/items")
+    @GetMapping(value = "/books")
     public String list(Model model) {
         List<Book> books = bookService.findBooks();
         model.addAttribute("books", books);
         return "book/bookList";
     }
+    
+    @GetMapping(value = "/books/reserve")
+    public String reserve(Model model) {
+        Book book = bookService.reserve();
+        model.addAttribute("book", book);
+        return "book/reserve";
+    }
+    
+    @GetMapping(value = "/books/rent")
+    public String rent(Model model) {
+        Book book = bookService.rent();
+        model.addAttribute("book", book);
+        return "book/rent";
+    }
+    
 
 
 }

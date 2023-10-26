@@ -27,4 +27,14 @@ public class BookRepository {
     public List<Book> findAll() {
         return em.createQuery("select b from Book b", Book.class).getResultList();
     }
+
+	public Book reserve() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Book rent() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
