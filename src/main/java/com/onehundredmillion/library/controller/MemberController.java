@@ -55,7 +55,6 @@ public class MemberController {
         return ResponseEntity.ok(memberService.checkIdDuplicate(userId));
     }
 
-
     @GetMapping("/login")
     public String loginForm(@ModelAttribute("loginForm") LoginForm loginForm) {
 
