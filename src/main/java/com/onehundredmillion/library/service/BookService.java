@@ -26,4 +26,13 @@ public class BookService {
     public Book findOne(Long bookId) {
         return bookRepository.findOne(bookId);
     }
+
+	public Book reserve() {
+		return bookRepository.reserve();
+	}
+
+	public Book rent() {
+		return bookRepository.rent();
+	}
+	
 }
