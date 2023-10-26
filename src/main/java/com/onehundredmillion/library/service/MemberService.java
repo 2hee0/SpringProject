@@ -51,3 +51,16 @@ public class MemberService {
         return memberRepository.existsByuserId(userId);
     }
 }
+/*    @Transactional
+    public boolean changePassword(String userId, String newPassword) {
+        Member member = memberRepository.findByLoginId(userId)
+                .filter(m -> passwordEncoder.matches(newPassword, m.getPassword()))
+                .orElse(null);
+        if (member != null) {
+            // 비밀번호 변경 로직
+            String encodedPassword = passwordEncoder.encode(newPassword);
+            member.setPassword(encodedPassword);
+            return true;
+        }
+        return false;
+    }*/

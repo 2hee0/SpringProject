@@ -20,14 +20,12 @@
 
     <form action="/join" th:object="${joinForm}" method="post">
         <div class="input-box">
-
             <div class="userid">
                 <b>아이디</b><br>
                 <input id="userid" type="text" th:field="*{userid}">
                 <div class="field-error" th:errors="*{userid}">ID 입력 오류</div>
-                <input type="button" value="중복확인">
+                    <button type="button">중복확인</button>
             </div>
-
             <div class="userpw">
                 <b>비밀번호</b><br>
                 <input id="password" type="password" th:field="*{password}">
@@ -63,7 +61,7 @@
                 <b>주소</b><br>
                 <div class="zipcodeInput">
                     <input type="text" id="sample4_postcode" placeholder="우편번호" th:field="*{zipcode}">
-                    <button type="button" class="zipcodeButton" th:onclick="sample4_execDaumPostcode()" >
+                    <button class="zipcodeButton" th:onclick="sample4_execDaumPostcode()" >
                         우편번호 찾기
                     </button>
                 </div>
