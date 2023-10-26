@@ -38,11 +38,11 @@ public class RentController {
 //		세션에서 현재 로그인된 멤버 조회.
 		Member member = (Member) session.getAttribute(SessionConst.LOGIN_MEMBER);
 		
-		try {
-			rentService.rent(member,bookId);
-		} catch (NotEnoughStockException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			rentService.rent(member,bookId);
+//		} catch (NotEnoughStockException e) {
+//			e.printStackTrace();
+//		}
 		
         return "redirect:/";
     }

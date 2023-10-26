@@ -29,7 +29,7 @@
         </div>
 
         <!-- 전역 에러 메시지 -->
-        <div th:if="${#fields.hasGlobalErrors()}">
+        <div class="input-box" th:if="${#fields.hasGlobalErrors()}">
             <p class="field-error" th:each="err : ${#fields.globalErrors()}"
                th:text="${err}">전체 오류 메시지</p>
         </div>

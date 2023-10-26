@@ -28,7 +28,7 @@
                 
                 <div class="bookReserve">
                     수량<input class="quantity" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
-                    <button class="rent" type="button" th:href="@{rent/{bookId}(bookId=${book.id})}">
+                    <button class="rent" type="button" th:onclick="|location.href='@{/rent/{bookId}(bookId=${book.id})}'|">
                         대여하기
                     </button>
                     <button class="reserve" type="button">
