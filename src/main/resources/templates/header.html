@@ -22,7 +22,7 @@
 						    <a th:href="@{/logout}" id="topLogout" th:if="${loginMember != null}">로그아웃</a>
 						</li>
                         <li class="mypg" onmouseover="showMlv('mlv');" onmouseout="hideMlv('mlv');">
-                            <a href="#" id="mlv_arrow" class="on" onfocus="showMlv('mlv');">마이페이지</a>
+                            <a th:href="@{/login}" id="mlv_arrow" class="on" onfocus="showMlv('mlv');">마이페이지</a>
                             <div class="mypgsub" id="mlv" style="display: none;" onmouseover="showMlv('mvl');"
                                 onmouseout="hideMlv('mlv');">
                                 <div class="mlv_Ly">
