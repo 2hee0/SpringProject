@@ -1,5 +1,5 @@
 package com.onehundredmillion.library.domain;
 
 public enum RentStatus {
-    RENT,ReturnBook,LIKE,DISLIKE;
+    RENT,ReturnBook,RESERVATION,Cancel,LIKE,DISLIKE;
 }

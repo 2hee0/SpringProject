@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.onehundredmillion.library.domain.Member;
 import com.onehundredmillion.library.dto.JoinForm;
 import com.onehundredmillion.library.dto.LoginForm;
+import com.onehundredmillion.library.dto.MemberUpdateForm;
 import com.onehundredmillion.library.service.MemberService;
 import com.onehundredmillion.library.sessioin.SessionConst;
 
@@ -28,7 +29,7 @@ public class MemberController {
 
 	private final MemberService memberService;
 
-	@GetMapping("/join")
+	@GetMapping(value = "/join")
 	public String createForm(Model model) {
 		model.addAttribute("joinForm", new JoinForm());
 		return "join/join";
@@ -36,23 +37,23 @@ public class MemberController {
 
 	@PostMapping("/join")
 	public String processJoinForm(@Valid JoinForm joinForm, BindingResult result) {
-		
+
 		if (joinForm.getPasswordConfirm() == null) {
-			result.rejectValue("passwordConfirm", "passwordConfirm", "비밀번호확인을 해주세요.");
+			result.rejectValue("passwordConfirm", "passwordConfirm", "비밀번호 재입력을 해주세요.");
 		}
-		
+
 		if (!joinForm.isPasswordMatch()) {
 			result.rejectValue("passwordConfirm", "passwordConfirm", "비밀번호와 비밀번호 확인이 일치하지 않습니다.");
 		}
-		
+
 		if (result.hasErrors()) {
 			return "join/join";
 		}
-		
-		memberService.join(joinForm.toMember());
 
+		memberService.join(joinForm.toMember());
 		return "redirect:/";
-    }
+
+	}
 
 	@GetMapping("/joinForm/{userId}/exists")
 	public ResponseEntity<Boolean> checkIdDuplicate(@PathVariable String userId) {
@@ -78,10 +79,11 @@ public class MemberController {
 			return "login/login";
 		}
 
+		// 로그인 성공 처리
 		HttpSession session = request.getSession();
 		session.setAttribute(SessionConst.LOGIN_MEMBER, loginMember);
-
 		return "redirect:/";
+
 	}
 
 	@GetMapping("/join/mypage")
@@ -89,17 +91,7 @@ public class MemberController {
 		return "member/mypage";
 	}
 
-	@GetMapping("/logout")
-	public String logOut(HttpServletRequest request) {
-		HttpSession session = request.getSession();
-
-		session.removeAttribute(SessionConst.LOGIN_MEMBER);
-		session.removeAttribute("member.name");
-
-		return "redirect:/";
-	}
-
-	@GetMapping("/userinfo")
+	@GetMapping("/userinfoForm")
 	public String userInfo(Model model, HttpSession session) {
 		Member loginMember = (Member) session.getAttribute(SessionConst.LOGIN_MEMBER);
 		if (loginMember != null) {
@@ -110,11 +102,21 @@ public class MemberController {
 		return "member/userinfo";
 	}
 
-	@PostMapping("/updateUser/{id}")
-	public String updateUser(@ModelAttribute("form") Member member, @PathVariable Long id) {
+	@PostMapping("/userinfo/{Id}")
+	public String updateMember(@PathVariable Long Id,
+			@ModelAttribute("loginMember") @Valid MemberUpdateForm loginMember, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			if (!loginMember.isPasswordMatch()) {
+				bindingResult.rejectValue("passwordConfirm", "passwordConfirm", "비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+				return "/userinfoForm";
+			}
+		}
+		if (bindingResult.hasErrors()) {
+			return "/userinfoForm";
+		}
 
-		memberService.updateUser(id, member);
-
-		return "redirect:/userinfo";
+		memberService.updateMember(Id, loginMember);
+		return "redirect:/userinfoForm";
 	}
+
 }

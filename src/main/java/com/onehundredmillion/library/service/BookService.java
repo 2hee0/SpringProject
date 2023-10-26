@@ -15,7 +15,11 @@ public class BookService {
     private final BookRepository bookRepository;
 
     @Transactional
+<<<<<<< HEAD
     public void saveBooks(Book book) {
+=======
+    public void savdBooks(Book book) {
+>>>>>>> fed9438 (유저 정보 업데이트 최종완성)
         bookRepository.save(book);
     }
 
@@ -34,6 +38,7 @@ public class BookService {
 	public Book rent() {
 		return bookRepository.rent();
 	}
+<<<<<<< HEAD
     @Transactional
     public void updateBook(Long id, String name, int stockQuantity)
     {
@@ -41,4 +46,7 @@ public class BookService {
         book.setName(name);
         book.setStockQuantity(stockQuantity);
     }
+=======
+	
+>>>>>>> fed9438 (유저 정보 업데이트 최종완성)
 }

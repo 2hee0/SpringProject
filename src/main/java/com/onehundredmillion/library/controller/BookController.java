@@ -7,8 +7,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+=======
+>>>>>>> fed9438 (유저 정보 업데이트 최종완성)
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -17,6 +20,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BookController {
     private final BookService bookService;
+<<<<<<< HEAD
 
     //  책 추가 관리자용
     @GetMapping(value = "/admin/new")
@@ -35,6 +39,24 @@ public class BookController {
         bookService.saveBooks(book);
         return "redirect:/items";
     }
+=======
+  /*책 추가 관리자용(추후에,,)
+  @GetMapping(value = "/items/new")
+    public String createForm(Model model) {
+        model.addAttribute("form", new BookForm());
+        return "items/createItemForm";
+    }
+    @PostMapping(value = "/items/new")
+    public String create(BookForm form) {
+        Book book = new Book();
+        book.setName(form.getName());
+        book.setStockQuantity(form.getStockQuantity());
+        book.setAuthor(form.getAuthor());
+        book.setIsbn(form.getIsbn());
+        bookService.savdBooks(book);
+        return "redirect:/items";
+    }*/
+>>>>>>> fed9438 (유저 정보 업데이트 최종완성)
 
 
     @GetMapping(value = "/books")
@@ -43,20 +65,29 @@ public class BookController {
         model.addAttribute("books", books);
         return "book/bookList";
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> fed9438 (유저 정보 업데이트 최종완성)
     @GetMapping(value = "/books/reserve")
     public String reserve(Model model) {
         Book book = bookService.reserve();
         model.addAttribute("book", book);
         return "book/reserve";
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> fed9438 (유저 정보 업데이트 최종완성)
     @GetMapping(value = "/books/rent")
     public String rent(Model model) {
         Book book = bookService.rent();
         model.addAttribute("book", book);
         return "book/rent";
     }
+<<<<<<< HEAD
 
 
     @GetMapping(value = "/book/{bookId}/edit")
@@ -80,4 +111,9 @@ public class BookController {
         return "redirect:/booklist";
     }
 
+=======
+    
+
+
+>>>>>>> fed9438 (유저 정보 업데이트 최종완성)
 }

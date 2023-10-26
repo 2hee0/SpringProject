@@ -55,10 +55,22 @@ header{
     margin-bottom: 10px;
 }
 
+<<<<<<< HEAD
 .joinForm .input-box input[type=button] {
     background-color: #EAEAEA;
 }
 
+=======
+.joinForm .input-box button {
+    background-color: #EAEAEA;
+    border: 1px solid #dadada;
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+
+>>>>>>> fed9438 (유저 정보 업데이트 최종완성)
 .joinForm button[type=submit] {
     background-color: #FF3636;
     width: 100%;

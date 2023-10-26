@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+
 document.addEventListener('DOMContentLoaded', function () {
   // 주민등록번호 앞자리 입력란에 대한 참조
   const rrn1Input = document.getElementById('rrn1');
@@ -40,6 +41,29 @@ document.addEventListener('DOMContentLoaded', function () {
     rrn2Input.value = hiddenValue;
   });
 });
+
+function checkDuplicationButton() {
+  // 입력한 아이디 가져오기
+  var userId = /*[[${joinForm.userId}]]*/ '';
+
+  // AJAX 요청을 통해 아이디 중복 확인
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', '/checkDuplication?userId=' + userId, true);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      var response = xhr.responseText;
+      if (response === 'true') {
+        alert('사용 가능한 아이디입니다.');
+      } else {
+        alert('이미 사용 중인 아이디입니다.');
+      }
+    }
+  };
+  xhr.send();
+}
+
+
+
 
 function sample4_execDaumPostcode () {
   new daum.Postcode({

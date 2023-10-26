@@ -606,7 +606,7 @@ tr {
 .form_ip1 {
     padding: 0 14px 0 14px;
     display: inline-block;
-    width: 100%;
+    width: 300px;
     height: 44px;
     padding: 0 14px 2px;
     color: #000;
@@ -1067,3 +1067,23 @@ tr {
     transition: border-color 0.2s ease-out;
     outline: none;
 }
+
+.field-error {
+	color: #ef544d !important;
+}
+
+.field-error2 {
+	color: #ef544d !important;
+}
+
+.field-error3 {
+	color: #ef544d !important;
+}
+
+.field-error4 {
+	color: #ef544d !important;
+}
+
+.field-error5 {
+	color: #ef544d !important;
+} 

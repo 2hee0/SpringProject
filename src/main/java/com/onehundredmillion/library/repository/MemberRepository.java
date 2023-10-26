@@ -21,6 +21,10 @@ public class MemberRepository {
 		em.persist(member);
 	}
 
+	public Member update(Member member) {
+		return em.merge(member);
+	}
+
 	public Member findOne(Long id) {
 		return em.find(Member.class, id);
 	}
@@ -45,9 +49,5 @@ public class MemberRepository {
 		} else {
 			return true;
 		}
-	}
-
-	public void update(Member members) {
-		em.merge(members);
 	}
 }
