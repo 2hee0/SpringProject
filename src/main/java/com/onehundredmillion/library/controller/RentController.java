@@ -37,9 +37,10 @@ public class RentController {
 		HttpSession session = request.getSession();
 //		세션에서 현재 로그인된 멤버 조회.
 		Member member = (Member) session.getAttribute(SessionConst.LOGIN_MEMBER);
-		
+		System.out.println("현재로그인된 멤버의 이름:"+member.getName());
 //		try {
 //			rentService.rent(member,bookId);
+//			System.out.println("대여하기 성공");
 //		} catch (NotEnoughStockException e) {
 //			e.printStackTrace();
 //		}

@@ -28,11 +28,11 @@ public class RentBook {
     }
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "BOOK_ID")
     private Book book;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "RENT_ID")
     private Rent rent;
 
