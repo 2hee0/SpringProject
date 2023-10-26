@@ -6,27 +6,6 @@ const active2Link = document.querySelector(".active2");
 const libaryAllDiv = document.querySelector(".libary_all");
 const userlistDiv = document.querySelector(".userlist");
 
-// Add click event listeners to active1 and active2 links
-active1Link.addEventListener("click", function () {
-    // Change text color
-    active1Link.style.color = "#ef544d";
-    active2Link.style.color = "#000";
-
-    // Show libary_all and hide userlist
-    libaryAllDiv.style.display = "block";
-    userlistDiv.style.display = "none";
-});
-
-active2Link.addEventListener("click", function () {
-    // Change text color
-    active1Link.style.color = "#000";
-    active2Link.style.color = "#ef544d";
-
-    // Show userlist and hide libary_all
-    libaryAllDiv.style.display = "none";
-    userlistDiv.style.display = "block";
-});
-
 // "새 비밀번호" 입력란의 클래스명이 "password"인 경우
 const newPasswordInput = document.querySelector('.password');
 // "새 비밀번호 확인" 입력란의 클래스명이 "passwordcheck"인 경우
@@ -166,8 +145,6 @@ function sample4_execDaumPostcode() {
         }
     }).open();
 }
-
-
 
 
 

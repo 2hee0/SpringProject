@@ -19,6 +19,8 @@ public class Book {
     private String name;
     private String author;
     private String isbn;
+    private String contents;
+    private String company;
     private int stockQuantity;
 
 

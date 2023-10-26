@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class JoinForm {
     @NotEmpty(message = "아이디를 입력해주세요.")
-    private String userid;
+    private String userId;
 
     @Size(min = 8, message = "비밀번호는 최소 8자 이상이어야 합니다.")
 
@@ -43,7 +43,7 @@ public class JoinForm {
 
     public Member toMember() {
         Member member = new Member();
-        member.setUserId(this.getUserid());
+        member.setUserId(this.getUserId());
         member.setName(this.getName());
         member.setPassword(this.getPassword());
         member.setPasswordConfirm(this.getPasswordConfirm());

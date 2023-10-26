@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -40,19 +41,15 @@ public class BookController {
         return "book/bookList";
     }
     
-    @GetMapping(value = "/books/reserve")
-    public String reserve(Model model) {
-        Book book = bookService.reserve();
+    @GetMapping(value = "/book/{bookId}")
+    public String bookDetail(Model model, @PathVariable("bookId")Long bookId) {
+        Book book = bookService.findOne(bookId);
         model.addAttribute("book", book);
-        return "book/reserve";
+        return "book/detail";
     }
     
-    @GetMapping(value = "/books/rent")
-    public String rent(Model model) {
-        Book book = bookService.rent();
-        model.addAttribute("book", book);
-        return "book/rent";
-    }
+    
+    
     
 
 

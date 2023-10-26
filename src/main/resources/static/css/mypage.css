@@ -270,7 +270,7 @@ tr {
 .list_search button {
     margin: 0 30px 0 0;
     font-size: 23px;
-    color: #767676;
+    color: #000;
     line-height: 23px;
 }
 
@@ -290,7 +290,6 @@ tr {
 .prod_list.type_box {
     width: 1000px;
     height: 220px;
-    padding: 29px;
     margin-top: 30px;
     padding-bottom: 30px;
     display: flex;
@@ -310,7 +309,6 @@ tr {
 .prod_list.type_box > .prod_item {
     width: 450px !important;
     width: calc(50% - 12px);
-    margin-left: 24px;
     vertical-align: top;
     border: solid 1px #eaeaea;
     box-sizing: border-box;
@@ -394,7 +392,11 @@ tr {
 
 .libary_item {
     margin: 0 auto;
-    border-top: 1px solid #767676;
+    width: 1200px;
+}
+
+.like_item {
+    margin: 0 auto;
     width: 1200px;
 }
 
@@ -856,4 +858,193 @@ tr {
 
 .btn_wrap .btn_lg + .btn_lg {
     margin-left: 10px;
+}
+
+.form_chk {
+    flex-shrink: 0;
+    display: inline-block;
+    position: relative;
+    min-height: 22px;
+    vertical-align: top;
+    display: inline-block;
+    position: relative;
+    min-height: 22px;
+    vertical-align: top;
+}
+
+.form_chk.no_label {
+    width: 22px;
+    height: 22px;
+    min-height: auto;
+}
+
+.form_chk input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.form_chk.no_label input + label {
+    position: static;
+    padding-left: 0;
+    font-size: 0;
+}
+
+.form_chk.no_label input + label {
+    display: inline-block;
+    position: relative;
+    padding: 2px 0 0 27px;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    line-height: 20px;
+    color: #000;
+    cursor: pointer;
+    vertical-align: top;
+    transition: color 0.2s ease-out;
+}
+
+.form_chk input + label::before {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    transition: border-color 0.2s ease-out, background-color 0.2s ease-out;
+}
+
+.form_chk input + label::before, .form_chk input + label::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.hidden {
+    position: absolute;
+    visibility: hidden;
+    overflow: hidden;
+    height: 0;
+    line-height: 0;
+    width: 0;
+    margin: 0;
+    padding: 0;
+    font: 0/0 Arial;
+}
+
+.form_chk input + label::after {
+    background-position: center 8px;
+    background-repeat: no-repeat;
+    background-size: 10px 7px;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_checkbox@2x.png);
+}
+
+.form_chk input:checked + label:after {
+    background-size: 10px 7px;
+    background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_checkbox_active@2x.png);
+}
+
+.form_chk input:checked + label:before {
+    background-color: #5055b1;
+    border-color: #5055b1;
+}
+
+.list_result_wrap {
+    border-bottom: 1px solid #d5d5d5;
+}
+
+.list_result_wrap {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: end;
+    -moz-box-align: end;
+    -ms-flex-align: end;
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+.list_result_wrap .form_chk {
+    margin-bottom: 19px;
+}
+
+.form_chk p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+}
+
+.rental_item {
+    margin: 0 auto;
+    width: 1200px;
+}
+
+.rental {
+    font-weight: bold;
+    margin: 0 30px;
+    font-size: 23px;
+    line-height: 23px;
+}
+
+.right_area {
+    margin-left: auto;
+    flex-shrink: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: end;
+    -moz-box-align: end;
+    -ms-flex-align: end;
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    margin-bottom: 11px;
+}
+
+.item_group {
+    margin: 0 5px;
+    font-size: 0;
+}
+
+.btn_line_gray {
+    color: #fff;
+    background: #ef544d;
+    border: 1px solid #ef544d;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+.reservation {
+    font-weight: bold;
+    margin: 0 30px;
+    font-size: 23px;
+    line-height: 23px;
 }

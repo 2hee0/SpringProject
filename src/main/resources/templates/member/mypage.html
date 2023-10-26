@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" th:href="@{/css/mypage.css}">
+    <link rel="stylesheet" href="../../static/css/mypage.css">
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 
@@ -29,7 +29,7 @@
                         <li>
                             <a href="#" class="active1">
                                 <i class="ic_elib_own"></i>
-                                <span class="text">보유도서</span>
+                                <span class="text">MY도서</span>
                             </a>
                         </li>
                         <li>
@@ -44,14 +44,205 @@
             <div class="libary_all">
                 <div class="libary_contents">
                     <div class="contWrap">
-                        <h4>보유도서</h4>
+                        <h4>MY도서</h4>
                         <div class="list_search">
                             <button type="button" class="current">찜</button>
-                            <button type="button" th:onclick="|location.href='@{/book/rent}'|">대여</button>
+                            <button type="button" class="reservation">예약</button>
+                            <button type="button" class="rental">대여</button>
                         </div>
                     </div>
                 </div>
-                <div class="libary_item">
+                <div class="like_item" style="display: '';">
+                    <div class="list_result_wrap has_line">
+                        <span class="form_chk">
+                            <p>찜 목록</p>
+                        </span>
+                        <div class="right_area">
+                            <div class="item_group">
+                                <button type="button" class="btn_sm btn_line_gray"><span class="text">삭제</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prod_list type_box">
+                        <div class="prod_item">
+                            <div class="prod_area horizontal">
+                                <div class="form_chk no_label">
+                                    <input id="wish-prod-S000209614996-0" name="wish-product" type="checkbox">
+                                    <label for="wish-prod-S000209614996-0"><span class="hidden">상품선택</span></label>
+                                </div>
+                                <div class="prod_thumb_box type_bookcover">
+                                    <a href="#" class="prod_link">
+                                        <span class="img_box">
+                                            <img src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791160405835.jpg"
+                                                alt="">
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="prod_info_box">
+                                    <a href="#" class="prod_info">
+                                        <span class="prod_name">운명의 꼭두각시</span>
+                                        <span class="prod_author">윌리엄 트레버 외</span>
+                                    </a>
+                                </div>
+                                <div class="right_area">
+                                    <button type="button" class="btn_my_delete"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="prod_item">
+                            <div class="prod_area horizontal">
+                                <div class="form_chk no_label">
+                                    <input id="wish-prod-S000209614996-0" name="wish-product" type="checkbox">
+                                    <label for="wish-prod-S000209614996-0"><span class="hidden">상품선택</span></label>
+                                </div>
+                                <div class="prod_thumb_box type_bookcover">
+                                    <a href="#" class="prod_link">
+                                        <span class="img_box">
+                                            <img src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791160405835.jpg"
+                                                alt="">
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="prod_info_box">
+                                    <a href="#" class="prod_info">
+                                        <span class="prod_name">운명의 꼭두각시</span>
+                                        <span class="prod_author">윌리엄 트레버 외</span>
+                                    </a>
+                                </div>
+                                <div class="right_area">
+                                    <button type="button" class="btn_my_delete"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="prod_item">
+                            <div class="prod_area horizontal">
+                                <div class="form_chk no_label">
+                                    <input id="wish-prod-S000209614996-0" name="wish-product" type="checkbox">
+                                    <label for="wish-prod-S000209614996-0"><span class="hidden">상품선택</span></label>
+                                </div>
+                                <div class="prod_thumb_box type_bookcover">
+                                    <a href="#" class="prod_link">
+                                        <span class="img_box">
+                                            <img src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791160405835.jpg"
+                                                alt="">
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="prod_info_box">
+                                    <a href="#" class="prod_info">
+                                        <span class="prod_name">운명의 꼭두각시</span>
+                                        <span class="prod_author">윌리엄 트레버 외</span>
+                                    </a>
+                                </div>
+                                <div class="right_area">
+                                    <button type="button" class="btn_my_delete"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="libary_item" style="display: none;">
+                    <div class="list_result_wrap has_line">
+                        <span class="form_chk">
+                            <p>예약 목록</p>
+                        </span>
+                        <div class="right_area">
+                            <div class="item_group">
+                                <button type="button" class="btn_sm btn_line_gray"><span class="text">예약
+                                        하기</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prod_list type_box">
+                        <div class="prod_item">
+                            <div class="prod_area horizontal">
+                                <div class="form_chk no_label">
+                                    <input id="wish-prod-S000209614996-0" name="wish-product" type="checkbox">
+                                    <label for="wish-prod-S000209614996-0"><span class="hidden">상품선택</span></label>
+                                </div>
+                                <div class="prod_thumb_box type_bookcover">
+                                    <a href="#" class="prod_link">
+                                        <span class="img_box">
+                                            <img src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791160405835.jpg"
+                                                alt="">
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="prod_info_box">
+                                    <a href="#" class="prod_info">
+                                        <span class="prod_name">운명의 꼭두각시</span>
+                                        <span class="prod_author">윌리엄 트레버 외</span>
+                                    </a>
+                                </div>
+                                <div class="right_area">
+                                    <button type="button" class="btn_my_delete"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="prod_item">
+                            <div class="prod_area horizontal">
+                                <div class="form_chk no_label">
+                                    <input id="wish-prod-S000209614996-0" name="wish-product" type="checkbox">
+                                    <label for="wish-prod-S000209614996-0"><span class="hidden">상품선택</span></label>
+                                </div>
+                                <div class="prod_thumb_box type_bookcover">
+                                    <a href="#" class="prod_link">
+                                        <span class="img_box">
+                                            <img src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791160405835.jpg"
+                                                alt="">
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="prod_info_box">
+                                    <a href="#" class="prod_info">
+                                        <span class="prod_name">운명의 꼭두각시</span>
+                                        <span class="prod_author">윌리엄 트레버 외</span>
+                                    </a>
+                                </div>
+                                <div class="right_area">
+                                    <button type="button" class="btn_my_delete"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="prod_item">
+                            <div class="prod_area horizontal">
+                                <div class="form_chk no_label">
+                                    <input id="wish-prod-S000209614996-0" name="wish-product" type="checkbox">
+                                    <label for="wish-prod-S000209614996-0"><span class="hidden">상품선택</span></label>
+                                </div>
+                                <div class="prod_thumb_box type_bookcover">
+                                    <a href="#" class="prod_link">
+                                        <span class="img_box">
+                                            <img src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791160405835.jpg"
+                                                alt="">
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="prod_info_box">
+                                    <a href="#" class="prod_info">
+                                        <span class="prod_name">운명의 꼭두각시</span>
+                                        <span class="prod_author">윌리엄 트레버 외</span>
+                                    </a>
+                                </div>
+                                <div class="right_area">
+                                    <button type="button" class="btn_my_delete"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rental_item" style="display: none;">
+                    <div class="list_result_wrap has_line">
+                        <span class="form_chk">
+                            <p>대여 목록</p>
+                        </span>
+                        <div class="right_area">
+                            <div class="item_group">
+                                <button type="button" class="btn_sm btn_line_gray"><span class="text">반납
+                                        하기</span></button>
+                            </div>
+                        </div>
+                    </div>
                     <div class="prod_list type_box">
                         <div class="prod_item">
                             <div class="prod_area horizontal">
@@ -67,10 +258,8 @@
                                     <a href="#" class="prod_info">
                                         <span class="prod_name">운명의 꼭두각시</span>
                                         <span class="prod_author">윌리엄 트레버 외</span>
+                                        <span class="prod_author">대여 기간</span>
                                     </a>
-                                </div>
-                                <div class="right_area">
-                                    <button type="button" class="btn_my_delete"></button>
                                 </div>
                             </div>
                         </div>
@@ -88,10 +277,8 @@
                                     <a href="#" class="prod_info">
                                         <span class="prod_name">운명의 꼭두각시</span>
                                         <span class="prod_author">윌리엄 트레버 외</span>
+                                        <span class="prod_author">대여 기간</span>
                                     </a>
-                                </div>
-                                <div class="right_area">
-                                    <button type="button" class="btn_my_delete"></button>
                                 </div>
                             </div>
                         </div>
@@ -109,192 +296,10 @@
                                     <a href="#" class="prod_info">
                                         <span class="prod_name">운명의 꼭두각시</span>
                                         <span class="prod_author">윌리엄 트레버 외</span>
+                                        <span class="prod_author">대여 기간</span>
                                     </a>
                                 </div>
-                                <div class="right_area">
-                                    <button type="button" class="btn_my_delete"></button>
-                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="userlist" style="display: none;">
-                <div class="tab_wrap">
-                    <div class="tab_content">
-                        <div class="title_wrap title_size_lg">
-                            <p class="title_heading">회원정보 수정</p>
-                        </div>
-                        <div class="title_wrap title_size_md">
-                            <p class="title_heading">기본 정보</p>
-                        </div>
-                        <div class="tbl_row_wrap">
-                            <table class="tbl_row">
-                                <colgroup>
-                                    <col style="width: 264px;">
-                                    <col style="width: auto;">
-                                </colgroup>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">아이디</th>
-                                        <td>
-                                            <span class="fc_black" id="userid">유저 아이디</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">새 비밀번호</th>
-                                        <td>
-                                            <div class="form_ip_pw">
-                                                <input type="password" placeholder="새 비밀번호를 입력해주세요" maxlength="15"
-                                                    class="form_ip password" id="password">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">새 비밀번호 확인</th>
-                                        <td>
-                                            <div class="form_ip_pw">
-                                                <input type="password" placeholder="새 비밀번호를 한번더 입력해주세요" maxlength="15"
-                                                    class="form_ip1 passwordcheck" id="password" disabled=true>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="username">
-                                        <th scope="row">이름</th>
-                                        <td>
-                                            <div class="btn_next_box between">
-                                                <span class="text fc_black" id="name">유저 이름</span>
-                                                <button type="button" class="btn_line_primary btn_sm"
-                                                    onclick="showEditForm()">
-                                                    <span class="text">변경</span>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="usernamein" style="display: none;">
-                                        <th scope="row">이름</th>
-                                        <td>
-                                            <div class="form_col_group form_box">
-                                                <div class="valid_check">
-                                                    <div class="input_btn_box">
-                                                        <div class="awesomplete">
-                                                            <input type="text" class="form_ip2"
-                                                                placeholder="이름을 입력해주세요." id="name">
-                                                            <button type="button" class="cancel btn_line_primary btn_sm"
-                                                                onclick="cancelEdit()">
-                                                                <span class="text">취소</span>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <table class="tbl_row">
-                                <colgroup>
-                                    <col style="width: 264px;">
-                                    <col style="width: auto;">
-                                </colgroup>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">생년월일</th>
-                                        <td>
-                                            <span class="fc_black" id="rrn1">유저 생일</span>
-                                        </td>
-                                    </tr>
-                                    <tr class="userphone">
-                                        <th scope="row">휴대폰번호</th>
-                                        <td>
-                                            <div class="btn_next_box between">
-                                                <span class="text fc_black" id="phoneNo">010-1234-5678</span>
-                                                <button type="button" class="btn_line_primary btn_sm"
-                                                    onclick="showEditForm2()">
-                                                    <span class="text">변경</span>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="userphonein" style="display: none;">
-                                        <th scope="row">휴대폰번호</th>
-                                        <td>
-                                            <div class="form_col_group form_box">
-                                                <div class="valid_check">
-                                                    <div class="input_btn_box">
-                                                        <div class="awesomplete">
-                                                            <input type="tel" class="form_ip2"
-                                                                placeholder="새 전화번호를 입력해주세요." id="phoneNo">
-                                                            <button type="button" class="cancel btn_line_primary btn_sm"
-                                                                onclick="cancelEdit2()">
-                                                                <span class="text">취소</span>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="address">
-                                        <th scope="row">주소</th>
-                                        <td>
-                                            <div class="form_col_group">
-                                                <div class="col_box">
-                                                    <div class="valid_check">
-                                                        <input type="text" class="from_ip3" id="sample4_postcode"
-                                                            placeholder="우편번호" readonly>
-                                                        <input type="text" class="from_ip3" id="sample4_jibunAddress"
-                                                            placeholder="지번주소" readonly>
-                                                        <input type="text" class="from_ip" id="sample4_roadAddress"
-                                                            placeholder="도로명주소" readonly>
-                                                        <span id="guide" style="color:#999;display:none"></span>
-                                                        <input type="text" class="from_ip" id="sample4_detailAddress"
-                                                            placeholder="상세주소" readonly>
-                                                        <input type="text" class="from_ip4" id="sample4_extraAddress"
-                                                            placeholder="참고항목" readonly>
-                                                        <button type="button" class="btn_line_primary btn_sm"
-                                                            onclick="showEditForm3()">
-                                                            <span class="text">변경</span>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="addressin" style="display: none;">
-                                        <th scope="row">주소</th>
-                                        <td>
-                                            <div class="form_col_group">
-                                                <div class="col_box">
-                                                    <div class="valid_check">
-                                                        <input type="text" class="from_ip3 postcode" id="sample4_postcode"
-                                                            placeholder="우편번호">
-                                                        <input type="button" class="btn_line_primary btn_sm" onclick="sample4_execDaumPostcode()"
-                                                            value="우편번호 찾기">
-                                                        <input type="text" class="from_ip jibunAddress" id="sample4_jibunAddress"
-                                                            placeholder="지번주소">
-                                                        <input type=" text" class="from_ip roadAddress" id="sample4_roadAddress"
-                                                            placeholder="도로명주소">
-                                                        <span id="guide" class="guide" style="color:#999;display:none"></span>
-                                                        <input type="text" class="from_ip detailAddress" id="sample4_detailAddress"
-                                                            placeholder="상세주소">
-                                                        <input type="text" class="from_ip4 extraAddress" id="sample4_extraAddress"
-                                                            placeholder="참고항목">
-                                                        <button type="button" class="cancel btn_line_primary btn_sm"
-                                                            onclick="cancelEdit3()">
-                                                            <span class="text">취소</span>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="btn_wrap page_bottom">
-                            <button type="button" class="btn_lg btn_light_gray" onclick="self.location.reload()"><span class="text">취소</span></button>
-                            <button type="button" class="btn_lg btn_primary" data-mbr-event-fn="fn_doSaveMain" data-mbr-event-type="click"><span class="text">확인</span></button>
                         </div>
                     </div>
                 </div>
@@ -302,6 +307,40 @@
         </section>
     </main>
 </body>
-<script src="../../../../../mypage.js"></script>
+<script src="../../static/js/mypage.js"></script>
+<script>
+    // Get the necessary elements
+  const likeItem = document.querySelector('.like_item');
+  const libraryItem = document.querySelector('.libary_item');
+  const rentalItem = document.querySelector('.rental_item');
+  const buttons = document.querySelectorAll('.list_search button');
 
+  // Add event listeners to the buttons
+  buttons.forEach((button) => {
+    button.addEventListener('click', function () {
+      // Reset the text color of all buttons to #000
+      buttons.forEach((btn) => {
+        btn.style.color = '#000';
+      });
+
+      // Change the text color of the clicked button to ef544d
+      button.style.color = '#ef544d';
+
+      // Show/hide items based on the button clicked
+      if (button.classList.contains('current')) {
+        likeItem.style.display = '';
+        libraryItem.style.display = 'none';
+        rentalItem.style.display = 'none';
+      } else if (button.classList.contains('reservation')) {
+        likeItem.style.display = 'none';
+        libraryItem.style.display = '';
+        rentalItem.style.display = 'none';
+      } else if (button.classList.contains('rental')) {
+        likeItem.style.display = 'none';
+        libraryItem.style.display = 'none';
+        rentalItem.style.display = '';
+      }
+    });
+  });
+</script>
 </html>

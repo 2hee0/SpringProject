@@ -2,6 +2,7 @@ new Swiper('.swiper-container', {
     slidesPerView: 3,
     spaceBetween: 30,
     slidesPerGroup: 3, // 그룹으로 묶을 수, slidesPerView 와 같은 값을 지정하는게 좋음
+    speed : 1000,
 	loopFillGroupWithBlank: true,
 	centeredSlides: true,
     pagination: {
