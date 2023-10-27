@@ -14,12 +14,6 @@
     </header>
 
     <form action="/login" th:action="@{/login}" th:object="${loginForm}" method="post">
-        <!-- 전역 에러 메시지 -->
-        <div th:if="${#fields.hasGlobalErrors()}">
-            <p class="field-error" th:each="err : ${#fields.globalErrors()}"
-               th:text="${err}">전체 오류 메시지</p>
-        </div>
-        
         <div class="input-box">
             <!-- 사용자 아이디 입력 필드 -->
             <input id="userid" type="text" name="userid" th:field="*{userId}" placeholder="ID" />
@@ -34,6 +28,12 @@
             <div class="field-error" th:errors="*{password}"></div>
         </div>
 
+        <!-- 전역 에러 메시지 -->
+        <div class="input-box" th:if="${#fields.hasGlobalErrors()}">
+            <p class="field-error" th:each="err : ${#fields.globalErrors()}"
+               th:text="${err}">전체 오류 메시지</p>
+        </div>
+        
         <div>
             <!-- 로그인 버튼 -->
             <button type="submit">로그인</button>

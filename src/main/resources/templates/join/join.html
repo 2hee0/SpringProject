@@ -23,9 +23,13 @@
 
             <div class="userid">
                 <b>아이디</b><br>
-                <input id="userid" type="text" th:field="*{userid}">
-                <div class="field-error" th:errors="*{userid}">ID 입력 오류</div>
-                <input type="button" value="중복확인">
+                <input id="userId" type="text" th:field="*{UserId}">
+                <div class="field-error" th:errors="*{UserId}">ID 입력 오류</div>
+                <button th:onclick="checkDuplicationButton()" >중복확인</button>
+
+<!--                <input id="userid" type="text" th:field="*{userid}">-->
+<!--                <div class="field-error" th:errors="*{userid}">ID 입력 오류</div>-->
+<!--                <input type="button" value="중복확인">-->
             </div>
 
             <div class="userpw">

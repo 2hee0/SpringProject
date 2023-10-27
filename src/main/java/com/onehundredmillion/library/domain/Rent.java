@@ -23,7 +23,7 @@ public class Rent {
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
 
-    @OneToMany(mappedBy = "rent", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "rent", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<RentBook> rentBookList = new ArrayList<>();
 
     private LocalDateTime rentDate;
@@ -37,7 +37,7 @@ public class Rent {
     }
 
     public void addRentBook(RentBook rentBook) {
-        rentBook.add(rentBook);
+    	rentBookList.add(rentBook);
         rentBook.setRent(this);
     }
 
@@ -57,7 +57,7 @@ public class Rent {
     //==비즈니스 로직==//
 //    * 책 반납
     public void returnBook() {
-             this.setStatus(RentStatus.ReturnBook);
+        this.setStatus(RentStatus.ReturnBook);
         for (RentBook rentBook : rentBookList) {
             rentBook.returnBook();
         }

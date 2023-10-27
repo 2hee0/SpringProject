@@ -1,9 +1,11 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../detail/detail.css" >
+    <link rel="stylesheet" th:href="@{/css/detail.css}">
     <title>Document</title>
 </head>
 <body>
@@ -26,7 +28,7 @@
                 
                 <div class="bookReserve">
                     수량<input class="quantity" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
-                    <button class="rent" type="button">
+                    <button class="rent" type="button" th:onclick="|location.href='@{/rent/{bookId}(bookId=${book.id})}'|">
                         대여하기
                     </button>
                     <button class="reserve" type="button">
