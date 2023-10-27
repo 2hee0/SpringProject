@@ -1,9 +1,6 @@
 package com.onehundredmillion.library.service;
 
-import com.onehundredmillion.library.domain.Book;
-import com.onehundredmillion.library.domain.Member;
-import com.onehundredmillion.library.domain.Rent;
-import com.onehundredmillion.library.domain.RentBook;
+import com.onehundredmillion.library.domain.*;
 import com.onehundredmillion.library.exception.NotEnoughStockException;
 import com.onehundredmillion.library.repository.BookRepository;
 import com.onehundredmillion.library.repository.MemberRepository;
@@ -11,6 +8,8 @@ import com.onehundredmillion.library.repository.RentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
@@ -35,6 +34,10 @@ public class RentService {
 		
 		return rent.getId(); 
 	}
+
+    public List<Rent> findAll(Rent rent) {
+        return rentRepository.findAll();
+    }
 
 // 반납하기
     @Transactional

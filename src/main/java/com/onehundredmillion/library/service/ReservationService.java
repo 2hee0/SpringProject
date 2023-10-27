@@ -21,12 +21,13 @@ public class ReservationService {
     private final BookRepository bookRepository;
 
     @Transactional
-    public Long reservation(Long memberId, Long bookId, int count) throws NotEnoughStockException {
-        Member member = memberRepository.findOne(memberId);
+    public Long reservation(Member member, Long bookId) throws NotEnoughStockException {
+        Member savemember = memberRepository.findOne(member.getId());
         Book book = bookRepository.findOne(bookId);
+        ReservationBook reservationBook = ReservationBook.createReservationBook(book, 1);
 
-        ReservationBook reservationBook = ReservationBook.createReservationBook(book, count);
-        Reservation reservation = Reservation.createReservation(member, reservationBook);
+        Reservation reservation = Reservation.createReservation(savemember, reservationBook);
+
         reservationRepository.save(reservation);
         return reservation.getId();
     }
@@ -36,7 +37,6 @@ public class ReservationService {
     }
 
     //예약 취소
-
     @Transactional
     public void cancelReservation(Long reservationId) {
         Reservation reservation = reservationRepository.findOne(reservationId);

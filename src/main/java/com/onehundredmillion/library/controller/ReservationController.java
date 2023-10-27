@@ -7,7 +7,11 @@ import com.onehundredmillion.library.domain.ReservationSearch;
 import com.onehundredmillion.library.exception.NotEnoughStockException;
 import com.onehundredmillion.library.service.BookService;
 import com.onehundredmillion.library.service.MemberService;
+import com.onehundredmillion.library.service.RentService;
 import com.onehundredmillion.library.service.ReservationService;
+import com.onehundredmillion.library.sessioin.SessionConst;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +27,7 @@ public class ReservationController {
     private final MemberService memberService;
     private final BookService bookService;
 
-    @GetMapping(value = "/reserv")
+ /*   @GetMapping(value = "/reserv")
     public String createForm(Model model) {
         List<Member> members = memberService.findMembers();
         List<Book> books = bookService.findBooks();
@@ -36,7 +40,9 @@ public class ReservationController {
                         @RequestParam("bookId") Long bookId, @RequestParam("count") int count) throws NotEnoughStockException {
         reservationService.reservation(memberId, bookId,count);
         return "redirect:/bookList";
-    }
+    }*/
+
+
 
     @GetMapping(value = "/reservs")
     public String bookList(@ModelAttribute("reservationSearch") Reservation
@@ -46,9 +52,19 @@ public class ReservationController {
         return "book/BookList";
     }
 
-    @PostMapping(value = "/books/{reservId}/cancel")
-    public String cancelReserv(@PathVariable("reservId") Long reservId) {
-        reservationService.cancelReservation(reservId);
-        return "redirect:/bookList";
+    @GetMapping("/reserv/{bookId}")
+    public String rent(Model model, @PathVariable("bookId")Long bookId , HttpServletRequest request) {
+
+        HttpSession session = request.getSession();
+        Member member = (Member)session.getAttribute(SessionConst.LOGIN_MEMBER);
+        System.out.println("현재로그인된 멤버의 이름:"+member.getName());
+        try {
+            reservationService.reservation(member,bookId);
+            System.out.println("예약 완료");
+        } catch (NotEnoughStockException e) {
+            e.printStackTrace();
+        }
+
+        return "redirect:/";
     }
 }
