@@ -13,7 +13,7 @@ import org.hibernate.annotations.ColumnDefault;
 public class ReservationBook {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "RESERVATION_BOOK", nullable = false)
+    @Column(name = "RESERVATION_BOOK")
     private Long id;
 
     @ColumnDefault("1")
@@ -31,7 +31,9 @@ public class ReservationBook {
     public static ReservationBook createReservationBook(Book book, int count) throws NotEnoughStockException {
         ReservationBook reservationBook = new ReservationBook();
         reservationBook.setBook(book);
+        reservationBook.setCount(count);
 
+        book.removeStock(count);
         return reservationBook;
     }
 

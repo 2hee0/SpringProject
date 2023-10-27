@@ -20,7 +20,7 @@ public class Reservation {
     @JoinColumn(name = "member_id")
     private Member member;
 
-    @OneToMany(mappedBy = "reservation", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "reservation")
     private List<ReservationBook> reservationBooks = new ArrayList<>();
 
     private ReservationStatus status;
