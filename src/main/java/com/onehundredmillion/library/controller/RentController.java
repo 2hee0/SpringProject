@@ -27,9 +27,6 @@ import jakarta.servlet.http.HttpSession;
 public class RentController {
 	
 	private final RentService rentService;
-	private final MemberService memberService;
-	private final BookService bookService;
-	
 	
 	@GetMapping("/rent/{bookId}")
     public String rent(Model model, @PathVariable("bookId")Long bookId ,HttpServletRequest request) {

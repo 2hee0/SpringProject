@@ -23,12 +23,12 @@ public class RentService {
 // 대여하기
    @Transactional  
    public Long rent(Member member, Long bookId) throws NotEnoughStockException {
-	   	Member member2 = memberRepository.findOne(member.getId());
+	   	Member saveMember = memberRepository.findOne(member.getId());
 		Book book = bookRepository.findOne(bookId);
 		RentBook rentBook = RentBook.createRentBook(book, 1);
 		
 		//대여정보 생성
-		Rent rent = Rent.createRent(member2, rentBook);
+		Rent rent = Rent.createRent(saveMember, rentBook);
 		
         //대여정보 저장
 		rentRepository.save(rent);
