@@ -13,7 +13,7 @@
         <h2>로그인</h2>
     </header>
 
-    <form action="/login" th:action="@{/login}" th:object="${loginForm}" method="post">
+    <form th:action="@{/login}" th:object="${loginForm}" method="post">
         <div class="input-box">
             <!-- 사용자 아이디 입력 필드 -->
             <input id="userid" type="text" name="userid" th:field="*{userId}" placeholder="ID"/>

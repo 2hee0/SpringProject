@@ -58,4 +58,14 @@ public class BookController {
         bookService.updateBook(bookId, bookForm.getTitle(), bookForm.getStockQuantity());
         return "redirect:/booklist";
     }
+
+
+    @GetMapping(value = "/book/{bookId}")
+    public String bookDetail(Model model, @PathVariable("bookId")Long bookId) {
+        Book book = bookService.findOne(bookId);
+        model.addAttribute("book", book);
+        return "book/detail";
+    }
+
+
 }
