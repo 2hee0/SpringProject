@@ -1,13 +1,4 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/login.css}" />
-    <link href="https://font.elice.io/css?family=Elice+DX+Neolli" rel="stylesheet">
-    <title>로그인</title>
-=======
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,7 +6,6 @@
     <link rel="stylesheet" th:href="@{/css/login.css}"/>
     <link href="https://font.elice.io/css?family=Elice+DX+Neolli" rel="stylesheet">
     <title>Document</title>
->>>>>>> fed9438 (유저 정보 업데이트 최종완성)
 </head>
 <body>
 <div class="loginForm">
@@ -23,44 +13,26 @@
         <h2>로그인</h2>
     </header>
 
-<<<<<<< HEAD
     <form action="/login" th:action="@{/login}" th:object="${loginForm}" method="post">
         <div class="input-box">
             <!-- 사용자 아이디 입력 필드 -->
-            <input id="userid" type="text" name="userid" th:field="*{userId}" placeholder="ID" />
-=======
-    <form action="/login" th:action th:object="${loginForm}" method="post">
-
-        <div class="input-box">
             <input id="userid" type="text" name="userid" th:field="*{userId}" placeholder="ID"/>
->>>>>>> fed9438 (유저 정보 업데이트 최종완성)
             <label for="userid">ID</label>
             <div class="field-error" th:errors="*{userId}"></div>
         </div>
 
         <div class="input-box">
-<<<<<<< HEAD
-            <!-- 비밀번호 입력 필드 -->
-            <input id="password" type="password" name="password" th:field="*{password}" placeholder="Password" />
-            <label for="password">Password</label>
-            <div class="field-error" th:errors="*{password}"></div>
-        </div>
-
-        <!-- 전역 에러 메시지 -->
-=======
             <input id="password" type="password" name="password" th:field="*{password}" placeholder="Password"/>
             <label for="password">Password</label>
             <div class="field-error" th:errors="*{password}"></div>
         </div>
-        
->>>>>>> fed9438 (유저 정보 업데이트 최종완성)
+
         <div class="input-box" th:if="${#fields.hasGlobalErrors()}">
             <p class="field-error" th:each="err : ${#fields.globalErrors()}"
                th:text="${err}">전체 오류 메시지</p>
         </div>
-        
+
         <div>
-<<<<<<< HEAD
             <!-- 로그인 버튼 -->
             <button type="submit">로그인</button>
         </div>
@@ -73,16 +45,5 @@
     </form>
 </div>
 <script th:src="@{/js/header.js}"></script>
-=======
-            <button type="submit">로그인</button>
-        </div>
-        <div class="findInfo">
-            <a href="" id="forgot">비밀번호 찾기</a>
-            <span class="bar"></span>
-            <a th:href="@{/join/join}" id="join">회원가입</a>
-        </div>
-    </form>
-</div>
->>>>>>> fed9438 (유저 정보 업데이트 최종완성)
 </body>
 </html>

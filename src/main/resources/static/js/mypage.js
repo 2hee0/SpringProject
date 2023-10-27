@@ -9,15 +9,13 @@ const userlistDiv = document.querySelector(".userlist");
 // "새 비밀번호" 입력란의 클래스명이 "password"인 경우
 const newPasswordInput = document.querySelector('.password');
 // "새 비밀번호 확인" 입력란의 클래스명이 "passwordcheck"인 경우
-const confirmPasswordInput = document.querySelector('.passwordConfirm');
+const confirmPasswordInput = document.querySelector('.passwordcheck');
+
 newPasswordInput.addEventListener('input', function() {
-    console.log("Input event fired for newPasswordInput");
     if (newPasswordInput.value) {
-        console.log("New password has a value");
-        confirmPasswordInput.disabled = false; // "disabled" attribute is set to false
+        confirmPasswordInput.disabled = false; // "disabled" 속성 비활성화
     } else {
-        console.log("New password is empty");
-        confirmPasswordInput.disabled = true; // "disabled" attribute is set to true
+        confirmPasswordInput.disabled = true; // "disabled" 속성 활성화
     }
 });
 
@@ -80,41 +78,6 @@ function cancelEdit3() {
     var username = document.querySelector(".address");
     username.style.display = "";
 }
-
-function showEditForm4() {
-    // Make the password elements visible
-    var passwordnew = document.querySelector(".passwordnew");
-    var passwordin = document.querySelector(".passwordin");
-    passwordnew.style.display = "";
-    passwordin.style.display = "";
-
-    // Hide the userpassword element
-    var userpassword = document.querySelector(".userpassword");
-    userpassword.style.display = "none";
-
-    // Add the event listener after making the element visible
-    newPasswordInput.addEventListener('input', function() {
-        if (newPasswordInput.value) {
-            confirmPasswordInput.disabled = false;
-        } else {
-            confirmPasswordInput.disabled = true;
-        }
-    });
-}
-
-function cancelEdit4() {
-    // Make the password elements hidden
-    var passwordnew = document.querySelector(".passwordnew");
-    var passwordin = document.querySelector(".passwordin");
-    passwordnew.style.display = "none";
-    passwordin.style.display = "none";
-
-    // Show the userpassword element
-    var userpassword = document.querySelector(".userpassword");
-    userpassword.style.display = "";
-}
-
-
 
 function sample4_execDaumPostcode() {
     new daum.Postcode({
@@ -182,60 +145,7 @@ function sample4_execDaumPostcode() {
         }
     }).open();
 }
-function validateForm() {
-    var password = document.getElementById("password").value;
-    var passwordConfirm = document.getElementById("passwordConfirm").value;
-    var name = document.getElementById("name").value;
-    var phoneNo = document.getElementById("phoneNo").value;
-   	var zipcode = document.getElementsByName("zipcode")[0].value;
-    var addr_detail = document.getElementsByName("addr_detail")[0].value;
-    var addr = document.getElementsByName("addr")[0].value;
-    var addr_etc = document.getElementsByName("addr_etc")[0].value;
 
-    var errorField = document.querySelector(".field-error");
-    var errorField2 = document.querySelector(".field-error2");
-    var errorField3 = document.querySelector(".field-error3");
-    var errorField4 = document.querySelector(".field-error4");
-    var errorField5 = document.querySelector(".field-error5");
 
-    errorField.innerHTML = "";
-    errorField2.innerHTML = "";
-    errorField3.innerHTML = "";
-    errorField4.innerHTML = "";
-    errorField5.innerHTML = "";
-
-    if (password === "") {
-        errorField.innerHTML = "새 비밀번호를 입력해주세요.";
-        return false;
-    }
-
-    if (password !== passwordConfirm) {
-        errorField2.innerHTML = "새 비밀번호와 확인 비밀번호가 일치하지 않습니다.";
-        return false;
-    }
-
-    if (name === "") {
-        errorField3.innerHTML = "이름을 입력해주세요.";
-        return false;
-    }
-
-    if (phoneNo === "") {
-        errorField4.innerHTML = "새 휴대폰번호를 입력해주세요.";
-        return false;
-    }
-
-    if (zipcode === "" || addr_detail === "" || addr === "" || addr_etc === "") {
-        errorField5.innerHTML = "주소 정보를 모두 입력해주세요.";
-        return false;
-    }
-
-    const passwordPattern = /^(?=.*[0-9])(?=.*[a-z])(?=.*[@#$%^&+=]).*$/;
-    if (!passwordPattern.test(password)) {
-        errorField.innerHTML = "비밀번호는 숫자, 특수문자를 포함해야 합니다.";
-        return false;
-    }
-
-    return true;
-}
 
 
