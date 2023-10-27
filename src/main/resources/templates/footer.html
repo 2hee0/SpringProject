@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{css/footer.css}" >
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f93d75b47dd331c83de73a293e351e45"></script>
+</head>
+
+<body>
+    <div class="footerWrap" th:fragment="footer">
+        <div class="footerM">
+            <div class="footer_info">
+                <div class="cinfo01">
+                    <dl>
+                        <dt class="name">팀명 | 1조1억번</dt>
+                        <dd class="dot">
+                            팀장 | 우지연
+                        </dd>
+                        <dd class="dot">
+                            조원 | 김지영, 김태형, 이희영, 김호년
+                        </dd>
+                        <dd class="dot">
+                            주제 | 온라인 도서관
+                        </dd>
+                    </dl>
+                </div>
+                <div class="cinfo02">
+                    <dl>
+                        <dd class="title1">
+                            <img src="img/logo.png" alt="">
+                        </dd>
+                        <dd class="dot1">
+
+                        </dd>
+                        <dd class="dot1">
+
+                        </dd>
+                        <dd class="dot1">
+
+                        </dd>
+                        <dd class="dot">
+                            전화 1234-5678
+                        </dd>
+                        <dd class="dot">
+                            팩스 01-123-4567
+                        </dd>
+                        <dd class="dot">
+                            찾아오는길
+                        </dd>
+                        <dd class="dot">
+                            주소 | 서울특별시 강남구 역삼동 819-10 세경빌딩 3층
+                        </dd>
+                    </dl>
+                </div>
+                <div class="cinfo03">
+                    <dl>
+                        <dt class="maponame">지도</dt>
+                        <dd class="dd1">
+                            <div id="map" class="map"></div>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script th:src="@{/js/header.js}"></script>
+<script th:src="@{/js/footer.js}"></script>
+</html>
