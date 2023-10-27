@@ -23,6 +23,8 @@ public class Rent {
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
 
+    
+//    @OneToMany(mappedBy = "rent")
     @OneToMany(mappedBy = "rent", cascade = CascadeType.ALL)
     private List<RentBook> rentBookList = new ArrayList<>();
 
@@ -37,10 +39,17 @@ public class Rent {
     }
 
     public void addRentBook(RentBook rentBook) {
-        rentBook.add(rentBook);
+    	rentBookList.add(rentBook);
         rentBook.setRent(this);
     }
 
+//    public Rent findRentWithRentBooks(Long rentId) {
+//        return  queryFactory
+//                .selectFrom(rent)
+//                .leftJoin(rent.rentBookList).fetch()
+//                .where(rent.id.eq(rentId))
+//                .fetchOne();
+//    }
 
 
     public static Rent createRent(Member member, RentBook... rentBooks) {
@@ -57,7 +66,7 @@ public class Rent {
     //==비즈니스 로직==//
 //    * 책 반납
     public void returnBook() {
-             this.setStatus(RentStatus.ReturnBook);
+        this.setStatus(RentStatus.ReturnBook);
         for (RentBook rentBook : rentBookList) {
             rentBook.returnBook();
         }
