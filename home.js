@@ -2,6 +2,7 @@ new Swiper('.swiper-container', {
     slidesPerView: 3,
     spaceBetween: 30,
     slidesPerGroup: 3, // 그룹으로 묶을 수, slidesPerView 와 같은 값을 지정하는게 좋음
+    speed : 1000,
 	loopFillGroupWithBlank: true,
 	centeredSlides: true,
     pagination: {
@@ -11,7 +12,7 @@ new Swiper('.swiper-container', {
     loop: true, // 무한 반복
   
     autoplay: {
-      delay: 3000,
+      delay: 3500,
       disableOnInteraction: false,
       },
   });
@@ -35,7 +36,7 @@ new Swiper(".myswiper", {
 	slidesPerView: 1,
 	loop: true,
 	autoplay: {
-	  delay: 5500,
+	  delay: 6000,
 	  disableOnInteraction: false,
 	},
 	pagination: {
