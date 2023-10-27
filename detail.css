@@ -72,18 +72,13 @@ hr {
     height: 22px;
     width: 2rem;
     padding: 0.5rem;
-    border: 1px solid #ccc;
+    border: none;
     border-radius: 5px;
     text-align: center;
     font-size: 16px;
-    transition: box-shadow 0.3s; /* 변화에 애니메이션 효과 추가 */
     outline: none;
     margin-right: 20px;
     margin-left: 13px;
-}
-
-.quantity:focus {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* 클릭 시 그림자 효과 적용 */
 }
 
 .rent, .reserve {
