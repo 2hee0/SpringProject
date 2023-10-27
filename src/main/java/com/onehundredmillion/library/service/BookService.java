@@ -15,7 +15,7 @@ public class BookService {
     private final BookRepository bookRepository;
 
     @Transactional
-    public void savdBooks(Book book) {
+    public void saveBooks(Book book) {
         bookRepository.save(book);
     }
 
@@ -34,5 +34,11 @@ public class BookService {
 	public Book rent() {
 		return bookRepository.rent();
 	}
-	
+    @Transactional
+    public void updateBook(Long id, String name, int stockQuantity)
+    {
+        Book book = bookRepository.findOne(id);
+        book.setName(name);
+        book.setStockQuantity(stockQuantity);
+    }
 }

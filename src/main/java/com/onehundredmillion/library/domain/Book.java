@@ -29,6 +29,10 @@ public class Book {
         this.stockQuantity += quantity;
     }
 
+    @OneToMany(mappedBy = "book")
+    List<ReservationBook> reservationBooks = new ArrayList<>();
+
+
     public void removeStock(int quantity) throws NotEnoughStockException {
         int restStock = this.stockQuantity - quantity;
         if (restStock < 0) {
