@@ -27,8 +27,8 @@ public class AddBookController {
     public String create(BookForm bookForm) {
 
         Book book = new Book();
-        book.setName(bookForm.getName());
-        book.setAuthor(bookForm.getAuthor());
+        book.setName(bookForm.getTitle());
+        book.setAuthors(bookForm.getAuthors());
 //        book.setCategories(.);  //category 어떻게?
         book.setIsbn(bookForm.getIsbn());
         book.setStockQuantity(bookForm.getStockQuantity());

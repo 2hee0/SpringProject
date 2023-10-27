@@ -43,15 +43,6 @@ public class Rent {
         rentBook.setRent(this);
     }
 
-//    public Rent findRentWithRentBooks(Long rentId) {
-//        return  queryFactory
-//                .selectFrom(rent)
-//                .leftJoin(rent.rentBookList).fetch()
-//                .where(rent.id.eq(rentId))
-//                .fetchOne();
-//    }
-
-
     public static Rent createRent(Member member, RentBook... rentBooks) {
         Rent rent = new Rent();
         rent.setMember(member);

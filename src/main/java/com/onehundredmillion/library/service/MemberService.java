@@ -53,41 +53,26 @@ public class MemberService {
     public Boolean checkIdDuplicate(String userId) {
         return memberRepository.existsByuserId(userId);
     }
-    
+
     @Transactional
-	public Member updateMember(Long Id, MemberUpdateForm loginMember) {
-		Member member = memberRepository.findOne(Id);
+    public Member updateMember(Long Id, MemberUpdateForm loginMember) {
+        Member member = memberRepository.findOne(Id);
 
-		if (member == null) {
-			throw new MemberNotFoundException("Member with id " + Id + " not found");
-		}
-
-		// 업데이트할 필드 설정
-		member.setName(loginMember.getName());
-		Address address = member.getAddress();
-		address.setZipcode(loginMember.getZipcode());
-		address.setAddr(loginMember.getAddr());
-		address.setAddr_etc(loginMember.getAddr_etc());
-		address.setAddr_detail(loginMember.getAddr_detail());
-		member.setPassword(loginMember.getPassword());
-		member.setPhoneNo(loginMember.getPhoneNo());
-		// 다른 필드들도 필요에 따라 업데이트
-
-		// 업데이트된 멤버를 반환
-		return memberRepository.update(member);
-	}
-    
-}
-/*    @Transactional
-    public boolean changePassword(String userId, String newPassword) {
-        Member member = memberRepository.findByLoginId(userId)
-                .filter(m -> passwordEncoder.matches(newPassword, m.getPassword()))
-                .orElse(null);
-        if (member != null) {
-            // 비밀번호 변경 로직
-            String encodedPassword = passwordEncoder.encode(newPassword);
-            member.setPassword(encodedPassword);
-            return true;
+        if (member == null) {
+            throw new MemberNotFoundException("Member with id " + Id + " not found");
         }
-        return false;
-    }*/
+
+        // 업데이트할 필드 설정
+        member.setName(loginMember.getName());
+        Address address = member.getAddress();
+        address.setZipcode(loginMember.getZipcode());
+        address.setAddr(loginMember.getAddr());
+        address.setAddr_etc(loginMember.getAddr_etc());
+        address.setAddr_detail(loginMember.getAddr_detail());
+        member.setPassword(loginMember.getPassword());
+        member.setPhoneNo(loginMember.getPhoneNo());
+
+        // 업데이트된 멤버를 반환
+        return memberRepository.update(member);
+    }
+}
