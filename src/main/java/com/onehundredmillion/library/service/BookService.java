@@ -2,7 +2,6 @@ package com.onehundredmillion.library.service;
 
 import com.onehundredmillion.library.domain.Book;
 import com.onehundredmillion.library.repository.BookRepository;
-import com.onehundredmillion.library.repository.RentRepository;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,10 +14,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BookService {
     private final BookRepository bookRepository;
-    private final RentRepository rentRepository;
 
     @Transactional
-    public void savdBooks(Book book) {
+    public void saveBooks(Book book) {
         bookRepository.save(book);
     }
 
@@ -30,16 +28,13 @@ public class BookService {
         return bookRepository.findOne(bookId);
     }
 
-	public Book reserve() {
-		return bookRepository.reserve();
-	}
+    @Transactional
+    public void updateBook(Long id, String name, int stockQuantity)
+    {
+        Book book = bookRepository.findOne(id);
+        book.setName(name);
+        book.setStockQuantity(stockQuantity);
+    }
+
 
 }
-
-
-
-
-
-
-
-

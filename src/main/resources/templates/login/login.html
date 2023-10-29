@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/login.css}" />
+    <link rel="stylesheet" th:href="@{/css/login.css}"/>
     <link href="https://font.elice.io/css?family=Elice+DX+Neolli" rel="stylesheet">
-    <title>로그인</title>
+    <title>Document</title>
 </head>
 <body>
 <div class="loginForm">
@@ -13,27 +13,25 @@
         <h2>로그인</h2>
     </header>
 
-    <form action="/login" th:action="@{/login}" th:object="${loginForm}" method="post">
+    <form th:action="@{/login}" th:object="${loginForm}" method="post">
         <div class="input-box">
             <!-- 사용자 아이디 입력 필드 -->
-            <input id="userid" type="text" name="userid" th:field="*{userId}" placeholder="ID" />
+            <input id="userid" type="text" name="userid" th:field="*{userId}" placeholder="ID"/>
             <label for="userid">ID</label>
             <div class="field-error" th:errors="*{userId}"></div>
         </div>
 
         <div class="input-box">
-            <!-- 비밀번호 입력 필드 -->
-            <input id="password" type="password" name="password" th:field="*{password}" placeholder="Password" />
+            <input id="password" type="password" name="password" th:field="*{password}" placeholder="Password"/>
             <label for="password">Password</label>
             <div class="field-error" th:errors="*{password}"></div>
         </div>
 
-        <!-- 전역 에러 메시지 -->
         <div class="input-box" th:if="${#fields.hasGlobalErrors()}">
             <p class="field-error" th:each="err : ${#fields.globalErrors()}"
                th:text="${err}">전체 오류 메시지</p>
         </div>
-        
+
         <div>
             <!-- 로그인 버튼 -->
             <button type="submit">로그인</button>

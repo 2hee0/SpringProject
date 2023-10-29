@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../admin/admin_bookRegist.css">
+    <link rel="stylesheet" href="../admin/admin_book.css">
+    <link rel="stylesheet" th:href="@{css/admin_book.css}" >
     <title>Document</title>
 </head>
 <body>
     <div class="container">
-        <h1><img src="../image/book.png" class="bookImage">도서 등록</h1>
+        <h1><img src="../image/book.png" class="bookImage">도서 정보</h1>
         <form method="post">
             <div class="radioButton">
                 <label><img src="../image/check.png" class="checkIcon">도서 분류</label>
@@ -48,10 +49,10 @@
                 <label><img src="../image/check.png" class="checkIcon">도서 표지</label>
                 <input type="file" accept="image/*">
             </div>
-            <button type="submit" class="registButton">등록</button>
+            <button type="submit" class="registButton">수정</button>
             <button type="button" class="cancel">취소</button>
         </form>
     </div>
-    <script src="../admin/admin_bookRegist.js"></script>
+    <script src="../admin/admin_book.js"></script>
 </body>
 </html>

@@ -23,8 +23,12 @@ document.addEventListener("DOMContentLoaded", function () {
     allNav.addEventListener("click", function (e) {
         e.preventDefault(); // Prevent the link from navigating
 
-        // Always set the display to "block" when clicking "전체 카테고리"
-        bookAllCategoryWrap.style.display = "block";
+        // Toggle the visibility of the bookAllCategoryWrap
+        if (bookAllCategoryWrap.style.display === "none" || bookAllCategoryWrap.style.display === "") {
+            bookAllCategoryWrap.style.display = "block";
+        } else {
+            bookAllCategoryWrap.style.display = "none";
+        }
     });
 
     // When you click on the "닫기" link
@@ -32,8 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     closeCategories.addEventListener("click", function (e) {
         e.preventDefault(); // Prevent the link from navigating
 
-        // Set the display to "none" when clicking "닫기"
+        // Hide the bookAllCategoryWrap
         bookAllCategoryWrap.style.display = "none";
     });
 });
-

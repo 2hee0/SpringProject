@@ -23,13 +23,9 @@
 
             <div class="userid">
                 <b>아이디</b><br>
-                <input id="userId" type="text" th:field="*{UserId}">
-                <div class="field-error" th:errors="*{UserId}">ID 입력 오류</div>
-                <button th:onclick="checkDuplicationButton()" >중복확인</button>
-
-<!--                <input id="userid" type="text" th:field="*{userid}">-->
-<!--                <div class="field-error" th:errors="*{userid}">ID 입력 오류</div>-->
-<!--                <input type="button" value="중복확인">-->
+                <input id="userId" type="text" th:field="*{userId}">
+                <div class="field-error" th:errors="*{userId}">ID 입력 오류</div>
+                <button th:onclick="checkDuplicationButton()">중복확인</button>
             </div>
 
             <div class="userpw">
@@ -67,7 +63,7 @@
                 <b>주소</b><br>
                 <div class="zipcodeInput">
                     <input type="text" id="sample4_postcode" placeholder="우편번호" th:field="*{zipcode}">
-                    <button type="button" class="zipcodeButton" th:onclick="sample4_execDaumPostcode()" >
+                    <button type="button" class="zipcodeButton" th:onclick="sample4_execDaumPostcode()">
                         우편번호 찾기
                     </button>
                 </div>
@@ -75,7 +71,7 @@
                 <input type="text" id="sample4_jibunAddress" placeholder="지번주소" th:field="*{addr_detail}"><br>
                 <span id="guide" style="color: #999; display: none"></span>
                 <input type="text" id="sample4_detailAddress" placeholder="상세주소" th:field="*{addr_etc}">
-                <input type="text" id="sample4_extraAddress" placeholder="참고항목" >
+                <input type="text" id="sample4_extraAddress" placeholder="참고항목">
             </div>
 
         </div>

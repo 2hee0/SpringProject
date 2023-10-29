@@ -17,12 +17,11 @@ public class Book {
     @Column(name = "BOOK_ID", nullable = false)
     private Long id;
     private String name;
-    private String author;
+    private String authors;
     private String isbn;
     private String contents;
-    private String company;
+    private String publisher;
     private int stockQuantity;
-
 
     @ManyToMany(mappedBy = "books")
     private List<Category> categories = new ArrayList<Category>();
@@ -30,6 +29,13 @@ public class Book {
     public void addStock(int quantity) {
         this.stockQuantity += quantity;
     }
+
+    @OneToMany(mappedBy = "book")
+    List<ReservationBook> reservationBooks = new ArrayList<>();
+    
+    @OneToMany(mappedBy = "book")
+    List<RentBook> rentBooks = new ArrayList<>();
+
 
     public void removeStock(int quantity) throws NotEnoughStockException {
         int restStock = this.stockQuantity - quantity;

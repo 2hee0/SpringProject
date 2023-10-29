@@ -1,5 +1,7 @@
 package com.onehundredmillion.library.domain;
 
+import org.hibernate.annotations.ColumnDefault;
+
 import com.onehundredmillion.library.exception.NotEnoughStockException;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -14,8 +16,17 @@ public class RentBook {
     @Column(name = "RENTBOOK_ID", nullable = false)
     private Long id;
 
+    @ColumnDefault("1")
     private int count;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "BOOK_ID")
+    private Book book;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "RENT_ID")
+    private Rent rent;
+    
     public static RentBook createRentBook(Book book,  int
             count) throws NotEnoughStockException {
         RentBook rentBook = new RentBook();
@@ -27,17 +38,7 @@ public class RentBook {
         return rentBook;
     }
 
-
-    @ManyToOne
-    @JoinColumn(name = "BOOK_ID")
-    private Book book;
-
-    @ManyToOne
-    @JoinColumn(name = "RENT_ID")
-    private Rent rent;
-
-//* 주문 취소
-
+// 주문 취소
     public void returnBook() {
        getBook().addStock(count);
     }

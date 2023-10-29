@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 HELP.md
 .gradle
 build/
@@ -59,4 +58,3 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
->>>>>>> 556aa8a2b057bee5f4d217fa9f2e8f64d1f0b79a
