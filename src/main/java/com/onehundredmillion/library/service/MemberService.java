@@ -20,18 +20,13 @@ public class MemberService {
     //회원가입
     @Transactional
     public Long join(Member member) {
-        validateDuplicateMember(member); //중복 회원 검증
-       /* String hashPw = bCryptPasswordEncoder.encode(member.getPassword());
-        member.setPassword(hashPw);*/
+        String userId = member.getUserId();
+        checkIdDuplicate(userId);
         memberRepository.save(member);
         return member.getId();
     }
-
-    private void validateDuplicateMember(Member member) {
-        List<Member> findMembers = memberRepository.findByName(member.getName());
-        if (!findMembers.isEmpty()) {
-            throw new IllegalStateException("이미 존재하는 회원입니다.");
-        }
+    public Boolean checkIdDuplicate(String userId) {
+        return memberRepository.existsByuserId(userId);
     }
 
     //로그인
@@ -50,9 +45,6 @@ public class MemberService {
         return memberRepository.findOne(userId);
     }
 
-    public Boolean checkIdDuplicate(String userId) {
-        return memberRepository.existsByuserId(userId);
-    }
 
     @Transactional
     public Member updateMember(Long Id, MemberUpdateForm loginMember) {

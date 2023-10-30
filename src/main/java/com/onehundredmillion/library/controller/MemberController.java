@@ -45,7 +45,9 @@ public class MemberController {
         if (!joinForm.isPasswordMatch()) {
             result.rejectValue("passwordConfirm", "passwordConfirm", "비밀번호와 비밀번호 확인이 일치하지 않습니다.");
         }
-
+        if (memberService.checkIdDuplicate(joinForm.getUserId())) {
+            result.rejectValue("userId", "userId", "사용중인 아이디입니다.");
+        }
         if (result.hasErrors()) {
             return "join/join";
         }
@@ -86,7 +88,7 @@ public class MemberController {
 
     }
 
-    @GetMapping("/join/mypage")
+    @GetMapping("/mypage")
     public String myPage(Model model) {
         return "member/mypage";
     }
