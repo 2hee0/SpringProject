@@ -1,7 +1,5 @@
 package com.onehundredmillion.library.controller;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,15 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.onehundredmillion.library.domain.Member;
-import com.onehundredmillion.library.domain.Rent;
-import com.onehundredmillion.library.domain.Reservation;
 import com.onehundredmillion.library.dto.JoinForm;
 import com.onehundredmillion.library.dto.LoginForm;
 import com.onehundredmillion.library.dto.MemberUpdateForm;
-import com.onehundredmillion.library.service.BookService;
 import com.onehundredmillion.library.service.MemberService;
-import com.onehundredmillion.library.service.RentService;
-import com.onehundredmillion.library.service.ReservationService;
 import com.onehundredmillion.library.sessioin.SessionConst;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -35,9 +28,6 @@ import lombok.extern.slf4j.Slf4j;
 public class MemberController {
 
     private final MemberService memberService;
-    private final RentService rentService;
-    private final ReservationService reservationService;
-    
 
     @GetMapping(value = "/join")
     public String createForm(Model model) {
@@ -62,8 +52,8 @@ public class MemberController {
 
         memberService.join(joinForm.toMember());
         return "redirect:/login";
-    }
 
+    }
 
     @GetMapping("/joinForm/{userId}/exists")
     public ResponseEntity<Boolean> checkIdDuplicate(@PathVariable String userId) {
@@ -93,6 +83,7 @@ public class MemberController {
         HttpSession session = request.getSession();
         session.setAttribute(SessionConst.LOGIN_MEMBER, loginMember);
         return "redirect:/";
+
     }
 
     @GetMapping("/join/mypage")
@@ -126,19 +117,6 @@ public class MemberController {
 
         memberService.updateMember(Id, loginMember);
         return "redirect:/userinfoForm";
-    }
-    
-    @GetMapping("/mypage")
-    public String myBook(Model model, HttpSession session) {
-        Member loginMember = (Member) session.getAttribute(SessionConst.LOGIN_MEMBER);
-        if (loginMember != null) {
-            Member saveMember = memberService.findOne(loginMember.getId());
-            List<Rent> rents = rentService.findAll(saveMember);
-    		model.addAttribute("rents", rents);
-    		List<Reservation> reservations = reservationService.findAll(saveMember);
-    		model.addAttribute("reservations", reservations);
-        }
-        return "member/mypage";
     }
 
 }

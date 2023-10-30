@@ -1,16 +1,23 @@
+// 마이페이지 영역
+function showMlv(elementId) {
+    var element = document.getElementById(elementId + "_arrow");
+    var mypgsub = document.querySelector(".mypgsub");
 
-function showMlv(elementId){
-    var element = document.getElementById(elementId);
-    if(element !=null){ 
-        document.getElementById(elementId+"_arrow").className="on" 
-        document.getElementById(elementId).style.display = '';
+    if (element != null && mypgsub != null) {
+        element.classList.remove("on");
+        element.classList.add("off");
+        mypgsub.style.display = 'block';
     }
 }
-function hideMlv(elementId){
-     var element = document.getElementById(elementId);
-    if(element !=null){ 
-        document.getElementById(elementId+"_arrow").className="off" 
-        document.getElementById(elementId).style.display = 'none';
+
+function hideMlv(elementId) {
+    var element = document.getElementById(elementId + "_arrow");
+    var mypgsub = document.querySelector(".mypgsub");
+
+    if (element != null && mypgsub != null) {
+        element.classList.remove("off");
+        element.classList.add("on");
+        mypgsub.style.display = 'none';
     }
 }
 
@@ -38,5 +45,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Hide the bookAllCategoryWrap
         bookAllCategoryWrap.style.display = "none";
+    });
+});
+
+
+// 검색어 커서 클릭 시 placeholder 삭제
+document.addEventListener("DOMContentLoaded", function() {
+    var searchInput = document.getElementById("searchInput");
+
+    searchInput.addEventListener("focus", function() {
+        searchInput.removeAttribute("placeholder");
+    });
+
+    searchInput.addEventListener("blur", function() {
+        searchInput.setAttribute("placeholder", "검색할 도서를 입력해주세요");
     });
 });
