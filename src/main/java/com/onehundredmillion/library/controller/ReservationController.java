@@ -53,7 +53,7 @@ public class ReservationController {
     }
 
     @GetMapping("/reserv/{bookId}")
-    public String rent(Model model, @PathVariable("bookId")Long bookId , HttpServletRequest request) {
+    public String reservation(Model model, @PathVariable("bookId")Long bookId , HttpServletRequest request) {
 
         HttpSession session = request.getSession();
         Member member = (Member)session.getAttribute(SessionConst.LOGIN_MEMBER);
