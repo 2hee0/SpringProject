@@ -35,10 +35,12 @@ public class ReservationController {
     }
     
 	// 예약취소
-    @GetMapping(value = "/book/{reservationId}/cancel")
-    public String cancelBook(@PathVariable("reservationId")Long reservationId) {
-    	reservationService.cancelBook(reservationId);
-		return "redirect:/mypage";
+    @GetMapping(value = "/book/cancel")
+    public String cancelBook(@RequestParam("reservationId") Long reservationId) {
+        // reservationId를 받아와서 처리
+        reservationService.cancelBook(reservationId);
+        return "redirect:/mypage";
     }
+
 
 }

@@ -7,6 +7,7 @@
 	<title>Document</title>
 	<link rel="stylesheet" href="mypage.css">
 	<link rel="stylesheet" th:href="@{css/mypage.css}">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 
@@ -60,15 +61,18 @@
 						</span>
 						<div class="right_area">
 							<div class="item_group">
-								<button type="button" class="btn_sm btn_line_gray"><span class="text">삭제</span></button>
+								<button type="button" class="btn_sm btn_line_gray" id="cancelReservationButton">
+									<span class="text">삭제</span>
+								</button>
 							</div>
 						</div>
 					</div>
 					<div class="prod_list type_box">
-						<div class="prod_item">
+						<div class="prod_item" th:each="reservation:${reservations}">
 							<div class="prod_area horizontal">
 								<div class="form_chk no_label">
-									<input id="wish-prod-S000209614996-0" name="wish-product" type="checkbox">
+									<input id="wish-prod-S000209614996-0" name="wish-product" type="checkbox" 
+									onchange="sendReservationId(this, ${reservation.id})">
 									<label for="wish-prod-S000209614996-0"><span class="hidden">상품선택</span></label>
 								</div>
 								<div class="prod_thumb_box type_bookcover">
@@ -81,8 +85,10 @@
 								</div>
 								<div class="prod_info_box">
 									<a href="#" class="prod_info">
-										<span class="prod_name">운명의 꼭두각시</span>
-										<span class="prod_author">윌리엄 트레버 외</span>
+										<span class="prod_name" 
+										th:text="${reservation.reservationBooks[0].book.name}">운명의 꼭두각시</span>
+										<span class="prod_author"
+										th:text="${reservation.reservationBooks[0].book.authors}">윌리엄 트레버 외</span>
 									</a>
 								</div>
 								<div class="right_area">
@@ -150,7 +156,7 @@
 						<div class="right_area">
 							<div class="item_group">
 								<button type="button" class="btn_sm btn_line_gray"
-									th:onclick="|location.href='@{/book/{reservationId}/cancel(reservationId=1)}'|"><span
+									th:onclick="|location.href='@{/book/{reservationId}/cancel(reservationId=)}'|"><span
 										class="text">예약취소</span></button>
 							</div>
 						</div>
@@ -313,7 +319,7 @@
 		</section>
 	</main>
 </body>
-<script th:src="@{/js/mypage.js}"></script>
+<!--<script th:src="@{/js/mypage.js}"></script>-->
 <script>
 	// Get the necessary elements
 	const likeItem = document.querySelector('.like_item');
@@ -348,6 +354,33 @@
 			}
 		});
 	});
+	
+	// 클릭 이벤트 핸들러 설정
+	document.getElementById("cancelReservationButton").addEventListener("click", function sendReservationId(checkbox,reservationId) {
+	    // 체크박스 상태 확인
+	    if (checkbox.checked) {
+	        // 체크박스가 선택된 경우, reservationId를 추출
+	        sendReservationToServer(reservationId);
+	    } else {
+	        alert("체크박스를 선택하세요.");
+	    }
+	});
+
+	function sendReservationToServer(reservationId) {
+	    // Ajax를 사용하여 서버로 데이터를 전송하는 코드를 작성
+	    // jQuery Ajax 예시:
+	    $.ajax({
+	        url: '/book/cancel', // 서버 엔드포인트 URL을 수정
+	        type: 'GET', // 또는 'GET'에 따라서 서버 요청 방식을 선택
+	        data: { reservationId: reservationId }, // 전송할 데이터 및 필요한 다른 매개변수
+	        success: function(response) {
+	            // 성공 시 실행할 코드
+	        },
+	        error: function(error) {
+	            // 에러 발생 시 실행할 코드
+	        }
+	    });
+	}
 </script>
 
 </html>
