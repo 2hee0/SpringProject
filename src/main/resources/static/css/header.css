@@ -126,6 +126,7 @@ a {
     background-color: #fff;
     box-sizing: border-box;
     box-shadow: 0 5px 7px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
 .mlv_Ly dd {

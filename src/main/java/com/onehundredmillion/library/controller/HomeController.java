@@ -25,21 +25,20 @@ public class HomeController {
     	if (loginMember != null) {
 			model.addAttribute("loginMember", loginMember);
 		}
-        // 세션에 회원 데이터가 없으면 home
-        if (loginMember == null) {
+     /*   if (loginMember == null) {
             return "home";
-        }
+        }*/
         model.addAttribute("member", loginMember);
         return "home";
     }
 
 
-    @PostMapping("/logout")
+    @GetMapping("/logout")
     public String logout(HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         if (session != null) {
             session.invalidate();
         }
-        return "redirect:/";
+        return "home";
     }
 }

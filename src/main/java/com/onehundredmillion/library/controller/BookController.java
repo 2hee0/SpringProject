@@ -33,12 +33,12 @@ public class BookController {
     private final BookService bookService;
     private final BookRepository bookRepository;
 
-/*    @GetMapping(value = "/books")
+    @GetMapping(value = "/books")
     public String list(Model model) {
         List<Book> books = bookService.findBooks();
         model.addAttribute("books", books);
         return "book/bookList";
-    }*/
+    }
 
     @GetMapping(value = "/list/back")
     public String back(Model model) {

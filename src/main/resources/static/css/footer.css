@@ -3,7 +3,7 @@ body {
     display: block;
     font-family: "dotum", "sans-serif";
     color: #666;
-    line-height: 130%;
+    line-height: 100%;
 }
 
 .dl {
@@ -21,14 +21,15 @@ dd{
     margin: 0;
     padding: 0;
     display: block;
-    margin-inline-start: 40px;
+    margin-inline-start: 15px;
+    color: #acacac;
 }
 /* 풋터 */
 .footerWrap {
     clear: both;
     font-size: 11px;
     width: 1248px;
-    height: 230px;
+    height: 200px;
     text-align: center;
     margin: 0 auto;
     background: url(https://qi-b.qoo10cdn.com/renewPark/reBookpark/footer/bg_footerWrap.gif) no-repeat left top;
@@ -53,87 +54,73 @@ dd{
 .footer_info {
     width: 1000px;
     margin: 0 auto;
-    line-height: 16px;
+    line-height: 20px;
     font-size: 11px;
-
 }
 
-.cinfo01 {
+.info01 {
     float: left;
-    width: 335px;
-    height: 200px;
-    padding-bottom: 3px;
+    width: 300px;
+    height: 150px;
+    margin-left: 15px;
     border-right: 1px solid #e7e7e7;
-    letter-spacing: -1px;
+    margin-top: 18px;
+}
+
+.info01 .dot3, .info01 .dot4 {
+    margin-inline-start: 48px;
 }
 
 .name {
     clear: both;
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 10px;
     font-size: 12px;
-    letter-spacing: -1px;
-    color: #2a2a2a;
-    font-weight: normal;
+    color: #5D5D5D;
+    font-weight: bold;
 }
 
 .dot {
-   padding:  0 0 0 5px;
-   background: url(https://qi-b.qoo10cdn.com/renewPark/reBookpark/footer/bullet_mainDot.gif) no-repeat left center;
-   color: #acacac;
+    color: #acacac;
 }
 
-.dot {
-    width: 130px;
-}
-
-
-.cinfo02 {
+.info02 {
     float: left;
-    width: 255px;
+    width: 300px;
     height: 200px;
     margin-left: 15px;
-    border-right: 1px solid #e7e7e7;
-    letter-spacing: -1px;
 }
 
 .title1{
     position: relative;
     margin-left: 0;
-    font-weight: normal;
-    padding-bottom: 5px;
-    line-height: 40px;
-    font-size: 12px;
+    padding-bottom: 10px;
     height: 40px;
 }
 
 .title1 img {
-    width: 150px;
-    height: 40px;
-    float: left;
-}
-
-.cinfo03 {
-    float: left;
-    width: 355px;
-    height: 104px;
+    width: 180px;
+    height: 60px;
     margin-left: 15px;
-    letter-spacing: -1px;
+    margin-top: 5px;
 }
 
-.maponame {
-    font-weight: bold;
-    clear: both;
-    display: block;
-    margin-bottom: 4px;
-    font-size: 14px;
-    letter-spacing: -1px;
-    color: #2a2a2a;
+.info02 .dot1 {
+    margin-top: 40px; /* 원하는 값으로 조정하세요 */
+}
+
+
+.info03 {
+    float: left;
+    width: 300px;
+    height: 200px;
+    margin-left: 20px;
 }
 
 .map {
-    height: 200px;
-    width: 355px;
+    height: 145px;
+    width: 300px;
+    margin-top: 25px;
 }
 
 .dd1 {
