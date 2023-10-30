@@ -1,5 +1,6 @@
 package com.onehundredmillion.library.dto;
 
+import com.onehundredmillion.library.domain.Book;
 import lombok.*;
 
 import java.util.List;
@@ -14,5 +15,5 @@ public class NaverResult {
     private int total;
     private int start;
     private int display;
-    private List<Bookresult> items;
+    private List<Book> items;
 }

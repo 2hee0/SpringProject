@@ -4,6 +4,7 @@ import com.onehundredmillion.library.exception.NotEnoughStockException;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,11 +17,13 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "BOOK_ID", nullable = false)
     private Long id;
-    private String name;
-    private String authors;
     private String isbn;
-    private String contents;
+    private String title;
+    private String image;
+    private String author;
+    private String description;
     private String publisher;
+    private String pubdate;
     private int stockQuantity;
 
     @ManyToMany(mappedBy = "books")
