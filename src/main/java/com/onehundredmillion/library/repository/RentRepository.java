@@ -33,6 +33,7 @@ public class RentRepository {
                 "JOIN r.rentBookList rentBook " +
                 "WHERE r.member.id = :memberId " +
                 "AND rentBook.book.id = :bookId " +
+                "AND rentBook.book.stockQuantity = 0 " +
                 "AND r.status = :status", Long.class)
 		.setParameter("memberId", memberId)
 		.setParameter("bookId", bookId)

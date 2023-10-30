@@ -356,23 +356,30 @@
 	});
 	
 	// 클릭 이벤트 핸들러 설정
-	document.getElementById("cancelReservationButton").addEventListener("click", function sendReservationId(checkbox,reservationId) {
-	    // 체크박스 상태 확인
-	    if (checkbox.checked) {
-	        // 체크박스가 선택된 경우, reservationId를 추출
-	        sendReservationToServer(reservationId);
+	function sendSelectedReservations() {
+	    var selectedReservationIds = [];
+	    var checkboxes = document.querySelectorAll('input[name="wish-product"]');
+	    
+	    for (var i = 0; i < checkboxes.length; i++) {
+	        if (checkboxes[i].checked) {
+	            selectedReservationIds.push(checkboxes[i].getAttribute('data-reservationId'));
+	        }
+	    }
+	    
+	    if (selectedReservationIds.length > 0) {
+	        sendReservationToServer(selectedReservationIds);
 	    } else {
 	        alert("체크박스를 선택하세요.");
 	    }
-	});
-
-	function sendReservationToServer(reservationId) {
+	}
+	
+	function sendReservationToServer(selectedReservationIds) {
 	    // Ajax를 사용하여 서버로 데이터를 전송하는 코드를 작성
 	    // jQuery Ajax 예시:
 	    $.ajax({
 	        url: '/book/cancel', // 서버 엔드포인트 URL을 수정
-	        type: 'GET', // 또는 'GET'에 따라서 서버 요청 방식을 선택
-	        data: { reservationId: reservationId }, // 전송할 데이터 및 필요한 다른 매개변수
+	        type: 'POST', // 또는 'GET'에 따라서 서버 요청 방식을 선택
+	        data: { reservationIds: selectedReservationIds }, // 전송할 데이터 및 필요한 다른 매개변수
 	        success: function(response) {
 	            // 성공 시 실행할 코드
 	        },
@@ -381,6 +388,11 @@
 	        }
 	    });
 	}
+	
+	// 삭제 버튼 클릭 이벤트 핸들러 설정
+	document.getElementById("cancelReservationButton").addEventListener("click", sendSelectedReservations);
+
+
 </script>
 
 </html>
