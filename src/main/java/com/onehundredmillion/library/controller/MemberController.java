@@ -47,7 +47,7 @@ public class MemberController {
 		}
 		memberService.join(joinForm.toMember());
 
-		return "redirect:/";
+		return "redirect:/loginForm";
 	}
 
 	@GetMapping("/joinForm/{userId}/exists")

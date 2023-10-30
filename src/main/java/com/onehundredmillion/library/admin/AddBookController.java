@@ -3,6 +3,8 @@ package com.onehundredmillion.library.admin;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -39,10 +41,27 @@ public class AddBookController {
 //        book.setCategories(.);  //category 어떻게?
 		book.setIsbn(bookForm.getIsbn());
 		book.setStockQuantity(bookForm.getStockQuantity());
+		book.setPublisher(bookForm.getPublisher());
+//		book.setDatetime(bookForm.getDatetime());
+		book.setContents(bookForm.getContents());
+		book.setThumbnail(bookForm.getThumbnail());
 
 		bookService.saveBooks(book);
 
-		return "redirect:/bookList"; // 북 리스트로 경로 리다이렉트
+		return "redirect:/adminmain"; // 북 리스트로 경로 리다이렉트
 
+	}
+
+	@GetMapping(value = "/updateadmin/{bookId}")
+	public String updateForm(Model model, @PathVariable Long bookId) {
+		Book books = bookService.findOne(bookId);
+		model.addAttribute("book", books);
+		return "admin/admin_bookEdit";
+	}
+
+	@PostMapping(value = "/updateadmin/{bookId}")
+	public String updatebook(@PathVariable Long bookId, @ModelAttribute Book book) {
+		bookService.updateBook(bookId, book.getContents(), book.getStockQuantity());
+		return "redirect:/admin_bookEdi";
 	}
 }
