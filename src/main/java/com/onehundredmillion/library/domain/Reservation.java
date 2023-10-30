@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,14 +17,15 @@ public class Reservation {
     @Column(name = "RESRVATION_ID", nullable = false)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id")
+    @ManyToOne
+    @JoinColumn(name = "MEMBER_ID")
     private Member member;
 
-    @OneToMany(mappedBy = "reservation")
+    @OneToMany(mappedBy = "reservation", cascade = CascadeType.ALL)
     private List<ReservationBook> reservationBooks = new ArrayList<>();
-
-    private ReservationStatus status;
+    
+    @Enumerated(EnumType.STRING)
+    private BookStatus status;
 
     private String cancel;
 
@@ -46,16 +48,15 @@ public class Reservation {
         for (ReservationBook reservationBook : reservationBooks) {
             reservation.addReservation(reservationBook);
         }
-        reservation.setStatus(ReservationStatus.RESERVATION);
+        reservation.setStatus(BookStatus.RESERVATION);
         return reservation;
     }
-    //==비즈니스 로직==//
 
     /**
      * 주문 취소
      */
     public void cancel() {
-        this.setStatus(ReservationStatus.CANCEL);
+        this.setStatus(BookStatus.CANCEL);
         for (ReservationBook reservationBook : reservationBooks) {
             reservationBook.cancel();
         }

@@ -79,6 +79,30 @@ function cancelEdit3() {
     username.style.display = "";
 }
 
+function showEditForm4() {
+    // 숨겨진 <tr> 엘리먼트를 보이도록 설정
+    var password = document.querySelector(".password");
+    password.style.display = "";
+    var passwordin = document.querySelector(".passwordin");
+    passwordin.style.display = "";
+    
+    // 보이는 <tr> 엘리먼트를 숨김으로 설정
+    var userpassword = document.querySelector(".userpassword");
+    userpassword.style.display = "none";
+}
+
+function cancelEdit4() {
+    // 보이는 <tr> 엘리먼트를 숨김으로 설정
+    var password = document.querySelector(".password");
+    password.style.display = "none";
+    var passwordin = document.querySelector(".passwordin");
+    passwordin.style.display = "none";
+    
+    // 숨겨진 <tr> 엘리먼트를 보이도록 설정
+    var userpassword = document.querySelector(".userpassword");
+    userpassword.style.display = "";
+}
+
 function sample4_execDaumPostcode() {
     new daum.Postcode({
         oncomplete: function(data) {

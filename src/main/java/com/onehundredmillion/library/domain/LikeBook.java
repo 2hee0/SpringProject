@@ -20,7 +20,7 @@ public class LikeBook {
 	
 	// 좋아요 상태(LIKE,DISLIKE)
 	@Enumerated(EnumType.STRING)
-	private RentStatus status;
+	private BookStatus status;
 	
 	@ManyToOne
 	@JoinColumn(name="MEMBER_ID")
@@ -37,7 +37,7 @@ public class LikeBook {
 		LikeBook likeBook = new LikeBook();
 		likeBook.setBook(book);
 		likeBook.setMember(member);
-		likeBook.setStatus(RentStatus.LIKE);
+		likeBook.setStatus(BookStatus.LIKE);
 		
 		return likeBook;	
 	}

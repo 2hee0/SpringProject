@@ -24,14 +24,13 @@ public class Rent {
     private Member member;
 
     
-//    @OneToMany(mappedBy = "rent")
     @OneToMany(mappedBy = "rent", cascade = CascadeType.ALL)
     private List<RentBook> rentBookList = new ArrayList<>();
 
     private LocalDateTime rentDate;
 
     @Enumerated(EnumType.STRING)
-    private RentStatus status;
+    private BookStatus status;
 
     public void setMember(Member member) {
         this.member = member;
@@ -49,7 +48,7 @@ public class Rent {
         for (RentBook rentBook : rentBooks) {
             rent.addRentBook(rentBook);
         }
-        rent.setStatus(RentStatus.RENT);
+        rent.setStatus(BookStatus.RENT);
         rent.setRentDate(LocalDateTime.now());
         return rent;
     }
@@ -57,7 +56,7 @@ public class Rent {
     //==비즈니스 로직==//
 //    * 책 반납
     public void returnBook() {
-        this.setStatus(RentStatus.ReturnBook);
+        this.setStatus(BookStatus.ReturnBook);
         for (RentBook rentBook : rentBookList) {
             rentBook.returnBook();
         }
