@@ -22,17 +22,24 @@ public class HomeController {
     @GetMapping("/")
     public String homeLogin(@SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false)
                             Member loginMember, Model model) {
-        // 세션에 회원 데이터가 없으면 home
-        if (loginMember == null) {
+        if (loginMember != null) {
+            model.addAttribute("loginMember", loginMember);
+        }else{
+            model.addAttribute("member", loginMember);
             return "home";
+
         }
-        model.addAttribute("member", loginMember);
         return "home";
     }
 
+    @GetMapping("/booksearch")
+    public String search(Model model) {
+        return "/book/booksearh";
+    }
 
     @PostMapping("/logout")
     public String logout(HttpServletRequest request) {
+
         HttpSession session = request.getSession(false);
         if (session != null) {
             session.invalidate();

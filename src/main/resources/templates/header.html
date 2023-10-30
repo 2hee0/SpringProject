@@ -6,8 +6,10 @@
     <title>Document</title>
     <link rel="stylesheet" th:href="@{css/header.css}" >
     <script th:src="@{/js/header.js}"></script>
+
 </head>
 <body>
+
     <div class="header" th:fragment="header">
         <div class="geteGenbMain">
             <div class="geteCon">
@@ -50,9 +52,10 @@
 							</a>
                         </h1>
                         <div class="search">
-                            <input type="text" name="query" placeholder="" />
+<!--                            <input type="text" name="query" placeholder="" />-->
+                            <input type="text" id="query" placeholder="책 제목을 입력하세요">
                             <div class="btn">
-                                <a href="#"></a>
+                                <a th:href="@{bookid(bookid=${bookid})}"></a>
                             </div>
                         </div>
                         <div class="top_banner">
