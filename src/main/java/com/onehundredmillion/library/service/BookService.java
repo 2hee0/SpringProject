@@ -3,6 +3,7 @@ package com.onehundredmillion.library.service;
 import com.onehundredmillion.library.domain.Book;
 import com.onehundredmillion.library.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,6 +35,9 @@ public class BookService {
 	public Book rent() {
 		return bookRepository.rent();
 	}
+
+
+
     @Transactional
     public void updateBook(Long id, String title, int stockQuantity)
     {

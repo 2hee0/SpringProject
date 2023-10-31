@@ -2,6 +2,7 @@ package com.onehundredmillion.library.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.onehundredmillion.library.domain.Book;
+import com.onehundredmillion.library.domain.Booksearch;
 import com.onehundredmillion.library.dto.BookForm;
 import com.onehundredmillion.library.dto.NaverResult;
 import com.onehundredmillion.library.repository.BookRepository;
@@ -24,6 +25,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -32,6 +34,7 @@ import java.util.Map;
 public class BookController {
     private final BookService bookService;
     private final BookRepository bookRepository;
+    private final Booksearch booksearch;
 
     @GetMapping(value = "/books")
     public String list(Model model) {
@@ -41,38 +44,15 @@ public class BookController {
     }
 
     @GetMapping(value = "/list/back")
-    public String back(Model model) {
+    public String back(Model model, String query) {
         String clientId = "dGv6cZfFAFF4fYpxYN2X";
         String clientSecret = "VXAzS1syXt";
+        query = "JAVA";
 
+        ResponseEntity<String> resp = booksearch.callNaverApi(clientId, clientSecret, query);
 
-        URI uri = UriComponentsBuilder
-                .fromUriString("https://openapi.naver.com")
-                .path("/v1/search/book.json")
-                .queryParam("query", "JAVA")
-                .queryParam("display", 30)
-                .queryParam("start", 1)
-                .queryParam("sort", "sim")
-                .encode()
-                .build()
-                .toUri();
+        booksearch.resultBook(resp.getBody());
 
-        // Spring 요청 제공 클래스
-        RequestEntity<Void> req = RequestEntity
-                .get(uri)
-                .header("X-Naver-Client-Id", clientId)
-                .header("X-Naver-Client-Secret", clientSecret)
-                .build();
-
-        // Spring 제공 restTemplate
-        RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> resp = restTemplate.exchange(req, String.class);
-
-        // JSON 파싱 (Json 문자열을 객체로 만듦, 문서화)
-        ObjectMapper om = new ObjectMapper();
-        NaverResult result = null;
-
-        resultBook(resp.getBody());
         return "/book/booklist";
     }
 
@@ -82,112 +62,33 @@ public class BookController {
         String clientSecret = "VXAzS1syXt";
 
 
-        URI uri = UriComponentsBuilder
-                .fromUriString("https://openapi.naver.com")
-                .path("/v1/search/book.json")
-                .queryParam("query", "프론트엔드")
-                .queryParam("display", 30)
-                .queryParam("start", 1)
-                .queryParam("sort", "sim")
-                .encode()
-                .build()
-                .toUri();
+        Map<String, String> queryMap = new HashMap<>();
+        queryMap.put("query1", "javascript");
+        queryMap.put("query2", "홈페이지");
 
-        // Spring 요청 제공 클래스
-        RequestEntity<Void> req = RequestEntity
-                .get(uri)
-                .header("X-Naver-Client-Id", clientId)
-                .header("X-Naver-Client-Secret", clientSecret)
-                .build();
+        String query1 = queryMap.get("query1");
+        String query2 = queryMap.get("query2");
 
-        // Spring 제공 restTemplate
-        RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> resp = restTemplate.exchange(req, String.class);
+        ResponseEntity<String> resp1 = booksearch.callNaverApi(clientId, clientSecret, query1);
+        ResponseEntity<String> resp2 = booksearch.callNaverApi(clientId, clientSecret, query2);
 
-        // JSON 파싱 (Json 문자열을 객체로 만듦, 문서화)
-        ObjectMapper om = new ObjectMapper();
-        NaverResult result = null;
 
-        resultBook(resp.getBody());
+        booksearch.resultBook(resp1.getBody());
+        booksearch.resultBook(resp2.getBody());
         return "/book/booklist";
     }
 
     @GetMapping(value = "/list/it")
-    public String IT(Model model) {
+    public String IT(Model model, String query) {
         String clientId = "dGv6cZfFAFF4fYpxYN2X";
         String clientSecret = "VXAzS1syXt";
+        query = "IT";
 
+        ResponseEntity<String> resp = booksearch.callNaverApi(clientId, clientSecret, query);
 
-        URI uri = UriComponentsBuilder
-                .fromUriString("https://openapi.naver.com")
-                .path("/v1/search/book.json")
-                .queryParam("query", "IT")
-                .queryParam("display", 30)
-                .queryParam("start", 1)
-                .queryParam("sort", "sim")
-                .encode()
-                .build()
-                .toUri();
+        booksearch.resultBook(resp.getBody());
 
-        // Spring 요청 제공 클래스
-        RequestEntity<Void> req = RequestEntity
-                .get(uri)
-                .header("X-Naver-Client-Id", clientId)
-                .header("X-Naver-Client-Secret", clientSecret)
-                .build();
-
-        // Spring 제공 restTemplate
-        RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> resp = restTemplate.exchange(req, String.class);
-
-        // JSON 파싱 (Json 문자열을 객체로 만듦, 문서화)
-        ObjectMapper om = new ObjectMapper();
-        NaverResult result = null;
-
-        resultBook(resp.getBody());
         return "/book/booklist";
-    }
-
-    public void resultBook(String body) {
-        try {
-
-            JSONParser parser = new JSONParser();
-            JSONObject obj = (JSONObject) parser.parse(body);
-            System.out.println("resp: " + body);
-            JSONArray items = (JSONArray) obj.get("items");
-            for (int i = 0; i < items.size(); i++) {
-                obj = (JSONObject) items.get(i);
-                String title = (String) obj.get("title");
-                String isbn = (String) obj.get("isbn");
-                String image = (String) obj.get("image");
-                String author = (String) obj.get("author");
-                String publisher = (String) obj.get("publisher");
-                String pubdate = (String) obj.get("pubdate");
-                String description = (String) obj.get("description");
-                int maxLength = 200;
-
-                if (description.length() > maxLength) {
-                    description = description.substring(0, maxLength); // 최대 길이까지 자르기
-                }
-                Book book = new Book();
-                book.setStockQuantity(10);
-                book.setTitle(title);
-                book.setIsbn(isbn);
-                book.setImage(image);
-                book.setAuthor(author);
-                book.setPublisher(publisher);
-                book.setPubdate(pubdate);
-                book.setDescription(description);
-
-                bookRepository.save(book);
-
-                System.out.println("result : " + obj);
-            }
-
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
     }
 
     @GetMapping(value = "/books/reserve")
@@ -211,12 +112,12 @@ public class BookController {
         Book item = (Book) bookService.findOne(bookId);
         BookForm bookForm = new BookForm();
         bookForm.setId(item.getId());
-        bookForm.setTitle(item.getTitle());
-        bookForm.setStockQuantity(item.getStockQuantity());
-        bookForm.setAuthor(item.getAuthor());
         bookForm.setIsbn(item.getIsbn());
-        bookForm.setPublisher(item.getPublisher());
+        bookForm.setTitle(item.getTitle());
         bookForm.setImage(item.getImage());
+        bookForm.setAuthor(item.getAuthor());
+        bookForm.setPublisher(item.getPublisher());
+        bookForm.setStockQuantity(item.getStockQuantity());
         bookForm.setDescription(item.getDescription());
 
         model.addAttribute("bookForm", bookForm);
