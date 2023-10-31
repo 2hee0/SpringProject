@@ -16,12 +16,15 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "BOOK_ID", nullable = false)
     private Long id;
-    private String name;
-    private String authors;
+    private String title;
+    private String author;
     private String isbn;
-    private String contents;
+    private String image;
     private String publisher;
+    private String pubdate;
+    private String description;
     private int stockQuantity;
+
 
     @ManyToMany(mappedBy = "books")
     private List<Category> categories = new ArrayList<Category>();

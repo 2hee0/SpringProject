@@ -58,7 +58,7 @@ dd{
     font-size: 11px;
 }
 
-.info01 {
+.cinfo01 {
     float: left;
     width: 300px;
     height: 150px;
@@ -67,7 +67,7 @@ dd{
     margin-top: 18px;
 }
 
-.info01 .dot3, .info01 .dot4 {
+.cinfo01 .dot3, .cinfo01 .dot4 {
     margin-inline-start: 48px;
 }
 
@@ -81,10 +81,10 @@ dd{
 }
 
 .dot {
-    color: #acacac;
+   color: #acacac;
 }
 
-.info02 {
+.cinfo02 {
     float: left;
     width: 300px;
     height: 200px;
@@ -105,22 +105,30 @@ dd{
     margin-top: 5px;
 }
 
-.info02 .dot1 {
+.cinfo02 .dot1 {
     margin-top: 40px; /* 원하는 값으로 조정하세요 */
 }
 
 
-.info03 {
+.cinfo03 {
     float: left;
     width: 300px;
     height: 200px;
     margin-left: 20px;
 }
 
+.maponame {
+    font-weight: bold;
+    clear: both;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #2a2a2a;
+}
+
 .map {
-    height: 145px;
+    height: 150px;
     width: 300px;
-    margin-top: 25px;
 }
 
 .dd1 {

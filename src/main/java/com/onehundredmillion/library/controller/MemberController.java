@@ -40,8 +40,6 @@ public class MemberController {
     private final ReservationService reservationService;
     private final LikeService likeService;
 
-    
-
     @GetMapping(value = "/join")
     public String createForm(Model model) {
         model.addAttribute("joinForm", new JoinForm());
@@ -58,15 +56,17 @@ public class MemberController {
         if (!joinForm.isPasswordMatch()) {
             result.rejectValue("passwordConfirm", "passwordConfirm", "비밀번호와 비밀번호 확인이 일치하지 않습니다.");
         }
-
+        if (memberService.checkIdDuplicate(joinForm.getUserId())) {
+            result.rejectValue("userId", "userId", "사용중인 아이디입니다.");
+        }
         if (result.hasErrors()) {
             return "join/join";
         }
 
         memberService.join(joinForm.toMember());
         return "redirect:/login";
-    }
 
+    }
 
     @GetMapping("/joinForm/{userId}/exists")
     public ResponseEntity<Boolean> checkIdDuplicate(@PathVariable String userId) {
@@ -96,9 +96,10 @@ public class MemberController {
         HttpSession session = request.getSession();
         session.setAttribute(SessionConst.LOGIN_MEMBER, loginMember);
         return "redirect:/";
+
     }
 
-    @GetMapping("/join/mypage")
+    @GetMapping("/mypage")
     public String myPage(Model model) {
         return "member/mypage";
     }

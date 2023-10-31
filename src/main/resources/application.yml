@@ -17,7 +17,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: create
     properties:
       hibernate:
         format_sql: true
@@ -31,4 +31,3 @@ logging:
       hibernate:
         SQL: debug
         type: trace
-#        trace 는 모든 내용을 출력해준다

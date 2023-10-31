@@ -124,3 +124,129 @@ hr {
     background-color: #D5D5D5;
     height: 1px;
 }
+body {
+    max-width: 1300px; /* 페이지의 최대 너비를 1500px로 설정합니다. */
+    margin: 0 auto; /* 페이지를 가로 중앙에 배치합니다. */
+    display: flex;
+    margin-top: 130px;
+}
+
+@font-face {
+    font-family: 'SUITE-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+.content {
+    display: flex;
+    width: 100%;
+}
+
+/* titleWrap 부분과 bookList 부분 비율 주기 */
+.titleWrap {
+    font-family: 'SUITE-Regular';
+    flex: 2;
+    padding: 10px;
+    background-color: #f5f5f5;
+}
+
+.bookList {
+    flex: 8;
+    padding: 10px;
+    margin-left: 3%;
+}
+
+/* titleWrap 디자인 */
+.title_header {
+    font-size: 24px; /* 제목의 글꼴 크기를 설정 */
+    font-weight: bold;
+    margin: 40px 50px 20px 10px;
+}
+
+.title_list {
+    list-style: none; /* 리스트 마커 제거 */
+    padding: 2px;
+    font-size: 18px;
+}
+
+.in { text-indent: 25px; }
+
+.title_list a {
+    text-decoration: none; /* 링크의 밑줄을 제거 */
+    color: #333; /* 링크 텍스트 색상을 설정 */
+    display: block; /* 링크를 블록 레벨 요소로 만들어 전체 영역을 클릭 가능하게 */
+    padding: 5px;
+}
+
+.title_list a:hover {
+    background-color: #ddd; /* 링크에 마우스를 올렸을 때의 배경색을 설정 */
+}
+
+
+.list_body .product {
+    font-family: 'SUITE-Regular';
+    display: flex; /* .product를 Flex Container로 만듭니다. */
+    justify-content: center; /* 수평으로 가운데 정렬합니다. */
+    align-items: center; /* 수직으로 가운데 정렬합니다. */
+    margin-bottom: 5px; /* product 항목 사이의 간격을 설정 */
+}
+
+.list_body .product_cover {
+    flex: 0.5; /* .product_cover가 공간을 절반씩 나눠 가집니다. */
+    padding: 10px;
+    margin-right: 10px; /* product_cover와 product_detail 사이의 간격을 조정합니다. */
+}
+
+.list_body .product_detail {
+    flex: 1.5; /* .product_detail가 공간을 절반씩 나눠 가집니다. */
+    padding: 10px;
+}
+
+.list_body .product_button {
+    flex: 0.5;
+    display: flex;
+    flex-direction: column; /* 버튼들을 위아래로 배치합니다. */
+    justify-content: center; /* 버튼을 수직 중앙으로 정렬합니다. */
+    align-items: center; /* 버튼을 수평 중앙으로 정렬합니다. */
+}
+
+@font-face {
+    font-family: 'ONE-Mobile-Title';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-Title.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.list_header h1 {
+    font-family: 'ONE-Mobile-Title';
+    margin-left: 20px;
+}
+
+.product_cover img {
+    width: 150px;
+    height: 200px;
+}
+
+.button_sm1,
+.button_sm2 {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px; /* 버튼 모서리 둥글게 */
+    cursor: pointer; /* 커서 스타일 설정 */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button_sm1:hover,
+.button_sm2:hover {
+    background-color: #FF3636;
+    color: white;
+}
+
+hr {
+    border: none;
+    background-color: #D5D5D5;
+    height: 1px;
+}
