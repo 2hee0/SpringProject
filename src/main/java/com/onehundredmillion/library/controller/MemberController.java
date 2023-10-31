@@ -99,10 +99,10 @@ public class MemberController {
 
     }
 
-    @GetMapping("/mypage")
-    public String myPage(Model model) {
-        return "member/mypage";
-    }
+//    @GetMapping("/mypage")
+//    public String myPage(Model model) {
+//        return "member/mypage";
+//    }
 
     @GetMapping("/userinfoForm")
     public String userInfo(Model model, HttpSession session) {

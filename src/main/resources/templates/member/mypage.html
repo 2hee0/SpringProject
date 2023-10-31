@@ -79,9 +79,9 @@
 								<div class="prod_info_box">
 									<a href="#" class="prod_info">
 										<span class="prod_name" 
-										th:text="${like.likeBooks[0].book.name}">운명의 꼭두각시</span>
+										th:text="${like.likeBooks[0].book.title}">운명의 꼭두각시</span>
 										<span class="prod_author"
-										th:text="${like.likeBooks[0].book.authors}">윌리엄 트레버 외</span>
+										th:text="${like.likeBooks[0].book.author}">윌리엄 트레버 외</span>
 									</a>
 								</div>
 								<div class="right_area">
@@ -171,9 +171,9 @@
 								<div class="prod_info_box">
 									<a href="#" class="prod_info">
 										<span class="prod_name"
-											th:text="${reservation.reservationBooks[0].book.name}">운명의 꼭두각시</span>
+											th:text="${reservation.reservationBooks[0].book.title}">운명의 꼭두각시</span>
 										<span class="prod_author"
-											th:text="${reservation.reservationBooks[0].book.authors}">윌리엄 트레버 외</span>
+											th:text="${reservation.reservationBooks[0].book.author}">윌리엄 트레버 외</span>
 									</a>
 								</div>
 								<div class="right_area">
@@ -259,9 +259,9 @@
 								</div>
 								<div class="prod_info_box">
 									<a href="#" class="prod_info">
-										<span class="prod_name" th:text="${rent.rentBookList[0].book.name}">운명의
+										<span class="prod_name" th:text="${rent.rentBookList[0].book.title}">운명의
 											꼭두각시</span>
-										<span class="prod_author" th:text="${rent.rentBookList[0].book.authors}">윌리엄 트레버
+										<span class="prod_author" th:text="${rent.rentBookList[0].book.author}">윌리엄 트레버
 											외</span>
 										<span class="prod_author" th:text="'대여날짜: '+${rent.rentDate}">대여 기간</span>
 									</a>
