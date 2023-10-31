@@ -20,7 +20,11 @@ a {
 }
 
 .swiper-container1 {
+<<<<<<< HEAD
     margin: 0 auto;
+=======
+    margin: 0 237.5px 0 330px;
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     width: 1100px;
 	height:400px;
 }
@@ -93,10 +97,22 @@ a {
     top: 10px;
 }
 
+<<<<<<< HEAD
 .swiper-button-prev::after {
 	font-size: 0px !important;
 }
 
+=======
+
+
+.swiper-button-prev {
+    background-image: url(https://w7.pngwing.com/pngs/833/219/png-transparent-knight-frank-france-real-estate-commercial-property-blank-angle-rectangle-blank-thumbnail.png) !important;
+}
+
+.swiper-button-next {
+    background-image: url(https://w7.pngwing.com/pngs/833/219/png-transparent-knight-frank-france-real-estate-commercial-property-blank-angle-rectangle-blank-thumbnail.png) !important;
+}
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 
 /* 세번쨰 메인 배너 */
 /* 첫번쨰 배너 */
@@ -191,8 +207,13 @@ a {
 
 /* 오늘의 도서 */
 .todaybook {
+<<<<<<< HEAD
     margin: 0 auto;
     width: 1100px;
+=======
+    margin-left: 390PX;
+    width: 1000px;
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 	height:300px;
 }
 .todaybook h2 {

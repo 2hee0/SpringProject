@@ -149,7 +149,11 @@ tr {
     height: 100%;
 }
 
+<<<<<<< HEAD
 .name {
+=======
+.name1 {
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     font-weight: 300;
     font-size: 36px;
     color: #000;
@@ -479,6 +483,10 @@ tr {
 .userlist {
     width: 1200px;
     margin: 0 auto;
+<<<<<<< HEAD
+=======
+    margin-right: 320px;
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 }
 
 .tab_wrap {
@@ -543,7 +551,10 @@ tr {
     width: 100%;
     padding: 18px 0;
     border-top: 1px solid #000;
+<<<<<<< HEAD
     border-bottom: 1px solid #eaeaea;
+=======
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     box-sizing: border-box;
 }
 
@@ -580,7 +591,11 @@ tr {
 }
 
 .form_ip_pw {
+<<<<<<< HEAD
     width: 350px;
+=======
+    width: 450px;
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     position: relative;
 }
 
@@ -606,7 +621,11 @@ tr {
 .form_ip1 {
     padding: 0 14px 0 14px;
     display: inline-block;
+<<<<<<< HEAD
     width: 100%;
+=======
+    width: 300px;
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     height: 44px;
     padding: 0 14px 2px;
     color: #000;
@@ -809,6 +828,10 @@ tr {
 }
 
 .btn_wrap.page_bottom {
+<<<<<<< HEAD
+=======
+	margin-bottom: 20px;
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     margin-top: 40px;
 }
 
@@ -1047,4 +1070,46 @@ tr {
     margin: 0 30px;
     font-size: 23px;
     line-height: 23px;
+<<<<<<< HEAD
 }
+=======
+}
+
+.from_ip4 {
+	display: inline-block;
+    width: 260px;
+    height: 44px;
+    padding: 0 14px 2px;
+    color: #000;
+    font-size: 14px;
+    line-height: 42px;
+    letter-spacing: -0.01em;
+    font-family: "Noto Sans KR", sans-serif;
+    background-color: #fff;
+    border: 1px solid #d5d5d5;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease-out;
+    outline: none;
+}
+
+.field-error {
+	color: #ef544d !important;
+}
+
+.field-error2 {
+	color: #ef544d !important;
+}
+
+.field-error3 {
+	color: #ef544d !important;
+}
+
+.field-error4 {
+	color: #ef544d !important;
+}
+
+.field-error5 {
+	color: #ef544d !important;
+} 
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f

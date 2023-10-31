@@ -26,6 +26,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+<<<<<<< HEAD
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'com.googlecode.json-simple:json-simple:1.1.1'	//json 파싱용
 	implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
@@ -33,5 +34,12 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.oracle.database.jdbc:ojdbc8'
 	annotationProcessor 'org.projectlombok:lombok'
+=======
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.projectlombok:lombok:1.18.28'
+    compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	runtimeOnly 'com.oracle.database.jdbc:ojdbc8'
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

@@ -29,7 +29,11 @@ public class MemberController {
 
 	private final MemberService memberService;
 
+<<<<<<< HEAD
 	@GetMapping(value = "/join")
+=======
+	@GetMapping("/join")
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 	public String createForm(Model model) {
 		model.addAttribute("joinForm", new JoinForm());
 		return "join/join";
@@ -37,6 +41,7 @@ public class MemberController {
 
 	@PostMapping("/join")
 	public String processJoinForm(@Valid JoinForm joinForm, BindingResult result) {
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 		if (joinForm.getPasswordConfirm() == null) {
@@ -57,6 +62,19 @@ public class MemberController {
 		return "redirect:/login";
 
 =======
+		return "redirect:/loginForm";
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
+=======
+		if (result.hasErrors()) {
+			if (joinForm.getPasswordConfirm() == null) {
+				result.rejectValue("passwordConfirm", "passwordConfirm", "비밀번호확인을 해주세요.");
+			} else if (!joinForm.isPasswordMatch()) {
+				result.rejectValue("passwordConfirm", "passwordConfirm", "비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+				return "join/join";
+			}
+		}
+		memberService.join(joinForm.toMember());
+
 		return "redirect:/loginForm";
 >>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 	}
@@ -85,6 +103,7 @@ public class MemberController {
 			return "login/login";
 		}
 
+<<<<<<< HEAD
 		if ("admin".equals(loginMember.getUserId())) {
 			HttpSession session = request.getSession();
 			session.setAttribute(SessionConst.LOGIN_MEMBER, loginMember);
@@ -109,6 +128,29 @@ public class MemberController {
 		return "member/mypage";
 	}
 
+=======
+		HttpSession session = request.getSession();
+		session.setAttribute(SessionConst.LOGIN_MEMBER, loginMember);
+
+		return "redirect:/";
+	}
+
+	@GetMapping("/join/mypage")
+	public String myPage(Model model) {
+		return "member/mypage";
+	}
+
+	@GetMapping("/logout")
+	public String logOut(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+
+		session.removeAttribute(SessionConst.LOGIN_MEMBER);
+		session.removeAttribute("member.name");
+
+		return "redirect:/";
+	}
+
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 	@GetMapping("/userinfoForm")
 	public String userInfo(Model model, HttpSession session) {
 		Member loginMember = (Member) session.getAttribute(SessionConst.LOGIN_MEMBER);
@@ -124,6 +166,15 @@ public class MemberController {
 	public String updateMember(@PathVariable Long Id,
 			@ModelAttribute("loginMember") @Valid MemberUpdateForm loginMember, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
+<<<<<<< HEAD
+=======
+			if (!loginMember.isPasswordMatch()) {
+				bindingResult.rejectValue("passwordConfirm", "passwordConfirm", "비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+				return "/userinfoForm";
+			}
+		}
+		if (bindingResult.hasErrors()) {
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 			return "/userinfoForm";
 		}
 

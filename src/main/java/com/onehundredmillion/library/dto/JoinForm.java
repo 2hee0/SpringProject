@@ -12,17 +12,28 @@ import lombok.Setter;
 @Setter
 public class JoinForm {
     @NotEmpty(message = "아이디를 입력해주세요.")
+<<<<<<< HEAD
     @Size(min = 5, message = "아이디는 5자 이상으로 입력해주세요.")
     private String userId;
+=======
+    private String userid;
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 
     @Size(min = 8, message = "비밀번호는 최소 8자 이상이어야 합니다.")
     @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[@#$%^&+=!.]).*$", message = "비밀번호는 숫자,영어,특수문자를 포함해야 합니다.")
     private String password;
     @NotEmpty(message = "비밀번호확인을 해주세요.")
     private String passwordConfirm;
+<<<<<<< HEAD
 
     private String Rrn1; //주민번호
     private String Rrn2; //주민번호
+=======
+    private String Rrn1; //주민번호
+
+    private String Rrn2; //주민번호
+
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     @NotEmpty(message = "이름을 입력해주세요.")
     private String name;
     
@@ -41,7 +52,11 @@ public class JoinForm {
 
     public Member toMember() {
         Member member = new Member();
+<<<<<<< HEAD
         member.setUserId(this.getUserId());
+=======
+        member.setUserId(this.getUserid());
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
         member.setName(this.getName());
         member.setPassword(this.getPassword());
         member.setPasswordConfirm(this.getPasswordConfirm());

@@ -20,7 +20,11 @@ public class LikeBook {
 	
 	// 좋아요 상태(LIKE,DISLIKE)
 	@Enumerated(EnumType.STRING)
+<<<<<<< HEAD
 	private BookStatus status;
+=======
+	private RentStatus status;
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 	
 	@ManyToOne
 	@JoinColumn(name="MEMBER_ID")
@@ -37,7 +41,11 @@ public class LikeBook {
 		LikeBook likeBook = new LikeBook();
 		likeBook.setBook(book);
 		likeBook.setMember(member);
+<<<<<<< HEAD
 		likeBook.setStatus(BookStatus.LIKE);
+=======
+		likeBook.setStatus(RentStatus.LIKE);
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 		
 		return likeBook;	
 	}

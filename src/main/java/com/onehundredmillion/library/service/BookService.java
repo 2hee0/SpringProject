@@ -39,6 +39,7 @@ public class BookService {
 
 	@Transactional
 <<<<<<< HEAD
+<<<<<<< HEAD
 	public void updateBook(Long id, String title, int stockQuantity) {
 		Book book = bookRepository.findOne(id);
 		book.setTitle(title);
@@ -52,10 +53,15 @@ public class BookService {
 
 	}
 =======
+=======
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 	public void updateBook(Long id, String contents, int stockQuantity) {
 		Book book = bookRepository.findOne(id);
 		book.setContents(contents);
 		book.setStockQuantity(stockQuantity);
 	}
+<<<<<<< HEAD
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
+=======
 >>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 }

@@ -4,7 +4,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+<<<<<<< HEAD
 import java.time.LocalDateTime;
+=======
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +20,7 @@ public class Reservation {
     @Column(name = "RESRVATION_ID", nullable = false)
     private Long id;
 
+<<<<<<< HEAD
     @ManyToOne
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
@@ -26,6 +30,16 @@ public class Reservation {
     
     @Enumerated(EnumType.STRING)
     private BookStatus status;
+=======
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
+
+    @OneToMany(mappedBy = "reservation")
+    private List<ReservationBook> reservationBooks = new ArrayList<>();
+
+    private ReservationStatus status;
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 
     private String cancel;
 
@@ -48,15 +62,26 @@ public class Reservation {
         for (ReservationBook reservationBook : reservationBooks) {
             reservation.addReservation(reservationBook);
         }
+<<<<<<< HEAD
         reservation.setStatus(BookStatus.RESERVATION);
         return reservation;
     }
+=======
+        reservation.setStatus(ReservationStatus.RESERVATION);
+        return reservation;
+    }
+    //==비즈니스 로직==//
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 
     /**
      * 주문 취소
      */
     public void cancel() {
+<<<<<<< HEAD
         this.setStatus(BookStatus.CANCEL);
+=======
+        this.setStatus(ReservationStatus.CANCEL);
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
         for (ReservationBook reservationBook : reservationBooks) {
             reservationBook.cancel();
         }

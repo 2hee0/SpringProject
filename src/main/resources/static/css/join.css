@@ -37,7 +37,11 @@ header{
 #rrn1,
 #rrn2 {
     padding: 15px;
+<<<<<<< HEAD
     margin: 10px 0 5px 0; /* 수정 */
+=======
+    margin: 0; /* 입력 필드 사이의 여백을 제거합니다. */
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 }
 
 .hyphen {
@@ -53,6 +57,7 @@ header{
     padding: 15px;
     width: 100%;
     margin-bottom: 10px;
+<<<<<<< HEAD
     margin-top: 5px; /* 수정 */
 }
 
@@ -73,6 +78,14 @@ header{
     font-style: normal;
 }
 
+=======
+}
+
+.joinForm .input-box input[type=button] {
+    background-color: #EAEAEA;
+}
+
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 .joinForm button[type=submit] {
     background-color: #FF3636;
     width: 100%;
@@ -82,7 +95,10 @@ header{
     border: none;
     border-radius: 5px;
     margin-top: 20px;
+<<<<<<< HEAD
     font-family: 'SUITE-Regular'; /* 수정 */
+=======
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 }
 
 
@@ -119,5 +135,8 @@ input.join:active {
 
 .field-error{
     color: red;
+<<<<<<< HEAD
     margin-bottom: 10px; /* 수정 */
+=======
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 }

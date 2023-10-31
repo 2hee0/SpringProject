@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 HELP.md
 .gradle
 build/
@@ -57,4 +61,9 @@ rad.json
 #License-file
 *.flf
 #Test results file
+<<<<<<< HEAD
 TestResults.xml
+=======
+TestResults.xml
+>>>>>>> 556aa8a2b057bee5f4d217fa9f2e8f64d1f0b79a
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f

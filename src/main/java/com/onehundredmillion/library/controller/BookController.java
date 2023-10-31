@@ -1,5 +1,6 @@
 package com.onehundredmillion.library.controller;
 
+<<<<<<< HEAD
 import java.net.URI;
 import java.util.List;
 
@@ -9,12 +10,17 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
+=======
+import java.util.List;
+
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+<<<<<<< HEAD
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -23,6 +29,11 @@ import com.onehundredmillion.library.domain.Book;
 import com.onehundredmillion.library.dto.BookForm;
 import com.onehundredmillion.library.dto.NaverResult;
 import com.onehundredmillion.library.repository.BookRepository;
+=======
+
+import com.onehundredmillion.library.domain.Book;
+import com.onehundredmillion.library.dto.BookForm;
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 import com.onehundredmillion.library.service.BookService;
 
 import lombok.RequiredArgsConstructor;
@@ -31,7 +42,28 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class BookController {
 	private final BookService bookService;
+<<<<<<< HEAD
 	private final BookRepository bookRepository;
+=======
+
+//    //  책 추가 관리자용
+//    @GetMapping(value = "/admin/new")
+//    public String createForm(Model model) {
+//        model.addAttribute("form", new BookForm());
+//        return "admin/createItemForm";
+//    }
+//
+//    @PostMapping(value = "/admin/new")
+//    public String create(BookForm form) {
+//        Book book = new Book();
+//        book.setName(form.getTitle());
+//        book.setStockQuantity(form.getStockQuantity());
+//        book.setAuthor(form.getAuthors());
+//        book.setIsbn(form.getIsbn());
+//        bookService.saveBooks(book);
+//        return "redirect:/items";
+//    }
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 
 	@GetMapping(value = "/books")
 	public String list(Model model) {
@@ -40,6 +72,7 @@ public class BookController {
 		return "book/bookList";
 	}
 
+<<<<<<< HEAD
 	@GetMapping(value = "/list/back")
 	public String back(Model model) {
 		String clientId = "dGv6cZfFAFF4fYpxYN2X";
@@ -161,6 +194,8 @@ public class BookController {
 
 	}
 
+=======
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 	@GetMapping(value = "/books/reserve")
 	public String reserve(Model model) {
 		Book book = bookService.reserve();
@@ -180,6 +215,7 @@ public class BookController {
 		Book item = (Book) bookService.findOne(bookId);
 		BookForm bookForm = new BookForm();
 		bookForm.setId(item.getId());
+<<<<<<< HEAD
 		bookForm.setTitle(item.getTitle());
 		bookForm.setStockQuantity(item.getStockQuantity());
 		bookForm.setAuthor(item.getAuthor());
@@ -188,6 +224,12 @@ public class BookController {
 		bookForm.setImage(item.getImage());
 		bookForm.setDescription(item.getDescription());
 
+=======
+		bookForm.setTitle(item.getName());
+		bookForm.setStockQuantity(item.getStockQuantity());
+		bookForm.setAuthors(item.getAuthor());
+		bookForm.setIsbn(item.getIsbn());
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 		model.addAttribute("bookForm", bookForm);
 		return "admin/updateItemForm";
 	}
@@ -198,6 +240,7 @@ public class BookController {
 		return "redirect:/booklist";
 	}
 
+<<<<<<< HEAD
 	@GetMapping(value = "/book/{bookId}")
 	public String bookDetail(Model model, @PathVariable("bookId") Long bookId) {
 		Book book = bookService.findOne(bookId);
@@ -205,4 +248,6 @@ public class BookController {
 		return "book/detail";
 	}
 
+=======
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 }

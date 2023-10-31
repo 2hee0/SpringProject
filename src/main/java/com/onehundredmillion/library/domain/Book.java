@@ -21,6 +21,7 @@ import lombok.Setter;
 @Setter
 public class Book {
 <<<<<<< HEAD
+<<<<<<< HEAD
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "BOOK_ID", nullable = false)
@@ -34,6 +35,8 @@ public class Book {
     private String description;
     private int stockQuantity;
 =======
+=======
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "BOOK_ID", nullable = false)
@@ -46,6 +49,9 @@ public class Book {
 	private LocalDateTime datetime;
 	private String contents;
 	private String thumbnail;
+<<<<<<< HEAD
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
+=======
 >>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 
 	@ManyToMany(mappedBy = "books")
@@ -58,6 +64,7 @@ public class Book {
 	@OneToMany(mappedBy = "book")
 	List<ReservationBook> reservationBooks = new ArrayList<>();
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     @OneToMany(mappedBy = "book")
     List<ReservationBook> reservationBooks = new ArrayList<>();
@@ -74,6 +81,8 @@ public class Book {
         this.stockQuantity = restStock;
     }
 =======
+=======
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 	public void removeStock(int quantity) throws NotEnoughStockException {
 		int restStock = this.stockQuantity - quantity;
 		if (restStock < 0) {
@@ -81,5 +90,8 @@ public class Book {
 		}
 		this.stockQuantity = restStock;
 	}
+<<<<<<< HEAD
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
+=======
 >>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 }

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,10 +7,20 @@
     <link rel="stylesheet" th:href="@{/css/login.css}"/>
     <link href="https://font.elice.io/css?family=Elice+DX+Neolli" rel="stylesheet">
     <title>Document</title>
+=======
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/login.css}" />
+    <link href="https://font.elice.io/css?family=Elice+DX+Neolli" rel="stylesheet">
+    <title>로그인</title>
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 </head>
 <body>
 <div class="loginForm">
     <header>
+<<<<<<< HEAD
         <h2><a th:href="@{/}">로그인</a></h2>
     </header>
 
@@ -17,21 +28,44 @@
         <div class="input-box">
             <!-- 사용자 아이디 입력 필드 -->
             <input id="userid" type="text" name="userid" th:field="*{userId}" placeholder="ID"/>
+=======
+        <h2>로그인</h2>
+    </header>
+
+    <form action="/login" th:action="@{/login}" th:object="${loginForm}" method="post">
+        <!-- 전역 에러 메시지 -->
+        <div th:if="${#fields.hasGlobalErrors()}">
+            <p class="field-error" th:each="err : ${#fields.globalErrors()}"
+               th:text="${err}">전체 오류 메시지</p>
+        </div>
+        
+        <div class="input-box">
+            <!-- 사용자 아이디 입력 필드 -->
+            <input id="userid" type="text" name="userid" th:field="*{userId}" placeholder="ID" />
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
             <label for="userid">ID</label>
             <div class="field-error" th:errors="*{userId}"></div>
         </div>
 
         <div class="input-box">
+<<<<<<< HEAD
             <input id="password" type="password" name="password" th:field="*{password}" placeholder="Password"/>
+=======
+            <!-- 비밀번호 입력 필드 -->
+            <input id="password" type="password" name="password" th:field="*{password}" placeholder="Password" />
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
             <label for="password">Password</label>
             <div class="field-error" th:errors="*{password}"></div>
         </div>
 
+<<<<<<< HEAD
         <div class="input-box" th:if="${#fields.hasGlobalErrors()}">
             <p class="field-error" th:each="err : ${#fields.globalErrors()}"
                th:text="${err}">전체 오류 메시지</p>
         </div>
 
+=======
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
         <div>
             <!-- 로그인 버튼 -->
             <button type="submit">로그인</button>

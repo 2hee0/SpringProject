@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
@@ -161,4 +162,159 @@
 <script th:src="@{/js/detail.js}"></script>
 <script th:src="@{/js/header.js}"></script>
 <script th:src="@{/js/footer.js}"></script>
+=======
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../detail/detail.css" >
+    <title>Document</title>
+</head>
+<body>
+    <div class="detail_page">
+        <div class="book_detail_page">
+            <div class="book_image">
+                <img class="image" src="../image/backend_book3.jpg" alt="..." />
+            </div>
+            <div class="book_info">
+                <h1 class="bookName" >JAVA의 정석</h1>
+                <div class="bookAbout">
+                    <span>저 : 남궁성</span>
+                    <span class="bar">｜</span>
+                    <span>출판사 : 모아출판</span>
+                    <span class="bar">｜</span>
+                    <span>발행 : 2019.12.30</span>
+                </div>
+                
+                <p class="bookContents">자바의 기초부터 객제지향개념을 넘어 실전활용까지 수록한『Java의 정석』. <br> <br> 저자의 오랜 실무경험과 강의한 내용으로 구성되어 자바를 처음 배우는 초보자들의 궁금한 점을 빠짐없이 담고 있다. 더불어 기존의 경력자들을 위해 자바 최신기능인 람다와 스트림과 그 밖의 자바의 최신버젼 JAVA8의 새로운 기능까지 자세하게 설명하고 있다.</p>
+                
+                <div class="bookReserve">
+                    수량<input class="quantity" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
+                    <button class="rent" type="button">
+                        대여하기
+                    </button>
+                    <button class="reserve" type="button">
+                        예약하기
+                    </button>
+<!--                    좋아요 기능-->
+                    <svg id="like" xmlns="http://www.w3.org/2000/svg" height="1.4em" width="1.4em" viewBox="0 0 512 512" transform="translate(0, 4)"><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+                </div>
+            </div>
+        </div>
+        
+        <div class="book_detail_page_bottom">
+            <div class="basic_info">
+                <a href="#" class="basic_info">기본정보</a>
+            </div>
+            <span class="bar">｜</span>
+            <div class="review">
+                <a href="/">리뷰</a>
+            </div>
+            <span class="bar">｜</span>
+            <div class="regulation">
+                <a href="/">대여 및 예약</a>
+            </div>
+        </div>
+        <hr>
+
+        <div class="infoContents">
+            <table class="infoTable">
+                <colgroup>
+                    <col style="width: 20%;">
+                    <col style="width: 80%;">
+                </colgroup>
+                <tr>
+                    <th>
+                        저자
+                    </th>
+                    <td>
+                        남궁성
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        발행일자
+                    </th>
+                    <td>
+                        2019년 12월 30일
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        쪽수
+                    </th>
+                    <td>
+                        700쪽
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="comments" id="commentFormContainer">
+            <button id="showCommentForm">리뷰 작성하기</button>
+            <div class="comment_item">
+                <div class="comment_header">
+                    <div class="userInfoBox">
+                        <span class="info_item">이**</span>
+                        <spna class="info_item">(2023.06.30)</spna>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="comment_contents">
+                <div class="comment_contents_inner">
+                    <div class="comment_view_wrap">
+                        <div class="comment_text_box">
+                            <div class="comment_text">
+                                JAVA 공부에 많은 도움이 되었습니다.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div id="commentForm">
+            <h2>리뷰 작성</h2>
+            <form>
+                <div class="input-row">
+                    <input type="text" id="nameField" placeholder="이름">
+                    <input type="text" id="dateField" readonly disabled>
+                </div>
+                <textarea placeholder="내용을 작성해주세요."></textarea>
+                <button type="submit">리뷰 등록</button>
+            </form>
+        </div>
+
+        <div class="infoRegulation">
+            <ul>
+                <li>
+                    <div>
+                        <p>이용대상</p>
+                    </div>
+                    ✔️ 누구나 이용 가능 <br>
+                    ✔️ 온라인 도서관 이용을 위해서는 홈페이지 회원가입 및 회원 인증이 필요합니다.
+                </li>
+                <br>
+                <li>
+                    <div>
+                        <p>도서 대여</p>
+                    </div>
+                    ✔️ 개인 별 최대 대출권수 : 5종 이내<br>
+                    ✔️ 대출기간 : 7일 (1회 연장 가능)<br>
+                    　　※ 예약자 있을 경우, 도서 연장 불가
+                </li>
+                <br>
+                <li>
+                    <div>
+                        <p>도서 예약</p>
+                    </div>
+                    ✔️ 개일 별 최대 예약권수 : 5권 이내
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="../detail/detail.js"></script>
+</body>
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 </html>

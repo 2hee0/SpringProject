@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // 마이페이지 영역
 function showMlv(elementId) {
     var element = document.getElementById(elementId + "_arrow");
@@ -18,6 +19,21 @@ function hideMlv(elementId) {
         element.classList.remove("off");
         element.classList.add("on");
         mypgsub.style.display = 'none';
+=======
+
+function showMlv(elementId){
+    var element = document.getElementById(elementId);
+    if(element !=null){ 
+        document.getElementById(elementId+"_arrow").className="on" 
+        document.getElementById(elementId).style.display = '';
+    }
+}
+function hideMlv(elementId){
+     var element = document.getElementById(elementId);
+    if(element !=null){ 
+        document.getElementById(elementId+"_arrow").className="off" 
+        document.getElementById(elementId).style.display = 'none';
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     }
 }
 
@@ -30,12 +46,17 @@ document.addEventListener("DOMContentLoaded", function () {
     allNav.addEventListener("click", function (e) {
         e.preventDefault(); // Prevent the link from navigating
 
+<<<<<<< HEAD
         // Toggle the visibility of the bookAllCategoryWrap
         if (bookAllCategoryWrap.style.display === "none" || bookAllCategoryWrap.style.display === "") {
             bookAllCategoryWrap.style.display = "block";
         } else {
             bookAllCategoryWrap.style.display = "none";
         }
+=======
+        // Always set the display to "block" when clicking "전체 카테고리"
+        bookAllCategoryWrap.style.display = "block";
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     });
 
     // When you click on the "닫기" link
@@ -43,11 +64,16 @@ document.addEventListener("DOMContentLoaded", function () {
     closeCategories.addEventListener("click", function (e) {
         e.preventDefault(); // Prevent the link from navigating
 
+<<<<<<< HEAD
         // Hide the bookAllCategoryWrap
+=======
+        // Set the display to "none" when clicking "닫기"
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
         bookAllCategoryWrap.style.display = "none";
     });
 });
 
+<<<<<<< HEAD
 
 // 검색어 커서 클릭 시 placeholder 삭제
 document.addEventListener("DOMContentLoaded", function() {
@@ -61,3 +87,5 @@ document.addEventListener("DOMContentLoaded", function() {
         searchInput.setAttribute("placeholder", "검색할 도서를 입력해주세요");
     });
 });
+=======
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f

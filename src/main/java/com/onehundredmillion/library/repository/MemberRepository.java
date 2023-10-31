@@ -43,6 +43,17 @@ public class MemberRepository {
 	}
 
 	public boolean existsByuserId(String userId) {
+<<<<<<< HEAD
 		return findByLoginId(userId).isPresent();
 	}
+=======
+		if (userId == null) {
+
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 }

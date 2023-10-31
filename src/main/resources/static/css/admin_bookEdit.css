@@ -7,10 +7,13 @@
     margin-top: 150px;
     margin-bottom: 30px;
 }
+<<<<<<< HEAD
 a{
 	color: #000;
 	text-decoration: none;
 }
+=======
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 
 /* 폰트 설정 */
 @font-face {
@@ -138,4 +141,8 @@ button:hover {
 button:active {
     background-color: #EAEAEA;
     transition: 0;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f

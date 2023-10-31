@@ -1,6 +1,7 @@
 package com.onehundredmillion.library.controller;
 
 import lombok.RequiredArgsConstructor;
+<<<<<<< HEAD
 
 
 import org.springframework.stereotype.Controller;
@@ -15,12 +16,21 @@ import com.onehundredmillion.library.sessioin.SessionConst;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+=======
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.onehundredmillion.library.dto.JoinForm;
+import com.onehundredmillion.library.service.RentService;
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 
 @Controller
 @RequiredArgsConstructor
 public class RentController {
 	
 	private final RentService rentService;
+<<<<<<< HEAD
 	// 대여하기
 	@GetMapping(value = "/book/{bookId}/rent")
     public String rent(Model model, @PathVariable("bookId")Long bookId ,HttpServletRequest request) throws NotEnoughStockException {
@@ -45,5 +55,8 @@ public class RentController {
     	rentService.returnBook(rentId);
 		return "redirect:/mypage";
     }
+=======
+	
+>>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 	
 }
