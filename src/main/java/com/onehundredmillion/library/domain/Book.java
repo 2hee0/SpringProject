@@ -35,6 +35,9 @@ public class Book {
     
     @OneToMany(mappedBy = "book")
     List<RentBook> rentBooks = new ArrayList<>();
+    
+    @OneToMany(mappedBy = "book")
+    List<LikeBook> likeBooks = new ArrayList<>();
 
 
     public void removeStock(int quantity) throws NotEnoughStockException {

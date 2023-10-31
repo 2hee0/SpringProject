@@ -11,13 +11,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.onehundredmillion.library.domain.Like;
 import com.onehundredmillion.library.domain.Member;
 import com.onehundredmillion.library.domain.Rent;
 import com.onehundredmillion.library.domain.Reservation;
 import com.onehundredmillion.library.dto.JoinForm;
 import com.onehundredmillion.library.dto.LoginForm;
 import com.onehundredmillion.library.dto.MemberUpdateForm;
-import com.onehundredmillion.library.service.BookService;
+import com.onehundredmillion.library.service.LikeService;
 import com.onehundredmillion.library.service.MemberService;
 import com.onehundredmillion.library.service.RentService;
 import com.onehundredmillion.library.service.ReservationService;
@@ -37,6 +38,8 @@ public class MemberController {
     private final MemberService memberService;
     private final RentService rentService;
     private final ReservationService reservationService;
+    private final LikeService likeService;
+
     
 
     @GetMapping(value = "/join")
@@ -137,6 +140,8 @@ public class MemberController {
     		model.addAttribute("rents", rents);
     		List<Reservation> reservations = reservationService.findAll(saveMember);
     		model.addAttribute("reservations", reservations);
+    		List<Like> likes = likeService.findAll(saveMember);
+    		model.addAttribute("likes", likes);
         }
         return "member/mypage";
     }

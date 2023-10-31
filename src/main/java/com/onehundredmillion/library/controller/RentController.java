@@ -45,7 +45,7 @@ public class RentController {
     }
 	
 	// 반납하기
-    @GetMapping(value = "/book/{rentId}/cancel")
+    @GetMapping(value = "/book/{rentId}/returnbook")
     public String returnBook(@PathVariable("rentId")Long rentId) {
     	rentService.returnBook(rentId);
 		return "redirect:/mypage";

@@ -61,20 +61,13 @@
 						</span>
 						<div class="right_area">
 							<div class="item_group">
-								<button type="button" class="btn_sm btn_line_gray" id="cancelReservationButton">
-									<span class="text">삭제</span>
-								</button>
+								
 							</div>
 						</div>
 					</div>
 					<div class="prod_list type_box">
-						<div class="prod_item" th:each="reservation:${reservations}">
+						<div class="prod_item" th:each="like:${likes}">
 							<div class="prod_area horizontal">
-								<div class="form_chk no_label">
-									<input id="wish-prod-S000209614996-0" name="wish-product" type="checkbox" 
-									onchange="sendReservationId(this, ${reservation.id})">
-									<label for="wish-prod-S000209614996-0"><span class="hidden">상품선택</span></label>
-								</div>
 								<div class="prod_thumb_box type_bookcover">
 									<a href="#" class="prod_link">
 										<span class="img_box">
@@ -86,66 +79,70 @@
 								<div class="prod_info_box">
 									<a href="#" class="prod_info">
 										<span class="prod_name" 
-										th:text="${reservation.reservationBooks[0].book.name}">운명의 꼭두각시</span>
+										th:text="${like.likeBooks[0].book.name}">운명의 꼭두각시</span>
 										<span class="prod_author"
-										th:text="${reservation.reservationBooks[0].book.authors}">윌리엄 트레버 외</span>
+										th:text="${like.likeBooks[0].book.authors}">윌리엄 트레버 외</span>
 									</a>
 								</div>
 								<div class="right_area">
-									<button type="button" class="btn_my_delete"></button>
+									<button type="button" class="btn_sm btn_line_gray"
+									th:onclick="|location.href='@{/book/{likeId}/dislike(likeId=${like.id})}'|">
+										<span class="text">삭제</span>
+									</button>
 								</div>
+								
 							</div>
 						</div>
-						<div class="prod_item">
-							<div class="prod_area horizontal">
-								<div class="form_chk no_label">
-									<input id="wish-prod-S000209614996-0" name="wish-product" type="checkbox">
-									<label for="wish-prod-S000209614996-0"><span class="hidden">상품선택</span></label>
-								</div>
-								<div class="prod_thumb_box type_bookcover">
-									<a href="#" class="prod_link">
-										<span class="img_box">
-											<img src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791160405835.jpg"
-												alt="">
-										</span>
-									</a>
-								</div>
-								<div class="prod_info_box">
-									<a href="#" class="prod_info">
-										<span class="prod_name">운명의 꼭두각시</span>
-										<span class="prod_author">윌리엄 트레버 외</span>
-									</a>
-								</div>
-								<div class="right_area">
-									<button type="button" class="btn_my_delete"></button>
-								</div>
-							</div>
-						</div>
-						<div class="prod_item">
-							<div class="prod_area horizontal">
-								<div class="form_chk no_label">
-									<input id="wish-prod-S000209614996-0" name="wish-product" type="checkbox">
-									<label for="wish-prod-S000209614996-0"><span class="hidden">상품선택</span></label>
-								</div>
-								<div class="prod_thumb_box type_bookcover">
-									<a href="#" class="prod_link">
-										<span class="img_box">
-											<img src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791160405835.jpg"
-												alt="">
-										</span>
-									</a>
-								</div>
-								<div class="prod_info_box">
-									<a href="#" class="prod_info">
-										<span class="prod_name">운명의 꼭두각시</span>
-										<span class="prod_author">윌리엄 트레버 외</span>
-									</a>
-								</div>
-								<div class="right_area">
-									<button type="button" class="btn_my_delete"></button>
-								</div>
-							</div>
-						</div>
+<!--						<div class="prod_item">-->
+<!--							<div class="prod_area horizontal">-->
+<!--								<div class="form_chk no_label">-->
+<!--									<input id="wish-prod-S000209614996-0" name="wish-product" type="checkbox">-->
+<!--									<label for="wish-prod-S000209614996-0"><span class="hidden">상품선택</span></label>-->
+<!--								</div>-->
+<!--								<div class="prod_thumb_box type_bookcover">-->
+<!--									<a href="#" class="prod_link">-->
+<!--										<span class="img_box">-->
+<!--											<img src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791160405835.jpg"-->
+<!--												alt="">-->
+<!--										</span>-->
+<!--									</a>-->
+<!--								</div>-->
+<!--								<div class="prod_info_box">-->
+<!--									<a href="#" class="prod_info">-->
+<!--										<span class="prod_name">운명의 꼭두각시</span>-->
+<!--										<span class="prod_author">윌리엄 트레버 외</span>-->
+<!--									</a>-->
+<!--								</div>-->
+<!--								<div class="right_area">-->
+<!--									<button type="button" class="btn_my_delete"></button>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--						<div class="prod_item">-->
+<!--							<div class="prod_area horizontal">-->
+<!--								<div class="form_chk no_label">-->
+<!--									<input id="wish-prod-S000209614996-0" name="wish-product" type="checkbox">-->
+<!--									<label for="wish-prod-S000209614996-0"><span class="hidden">상품선택</span></label>-->
+<!--								</div>-->
+<!--								<div class="prod_thumb_box type_bookcover">-->
+<!--									<a href="#" class="prod_link">-->
+<!--										<span class="img_box">-->
+<!--											<img src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791160405835.jpg"-->
+<!--												alt="">-->
+<!--										</span>-->
+<!--									</a>-->
+<!--								</div>-->
+<!--								<div class="prod_info_box">-->
+<!--									<a href="#" class="prod_info">-->
+<!--										<span class="prod_name">운명의 꼭두각시</span>-->
+<!--										<span class="prod_author">윌리엄 트레버 외</span>-->
+<!--									</a>-->
+<!--								</div>-->
+<!--								<div class="right_area">-->
+<!--									<button type="button" class="btn_my_delete"></button>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
 					</div>
 				</div>
 				<div class="libary_item" style="display: none;">
@@ -155,19 +152,14 @@
 						</span>
 						<div class="right_area">
 							<div class="item_group">
-								<button type="button" class="btn_sm btn_line_gray"
-									th:onclick="|location.href='@{/book/{reservationId}/cancel(reservationId=)}'|"><span
-										class="text">예약취소</span></button>
+								
 							</div>
 						</div>
 					</div>
 					<div class="prod_list type_box" >
 						<div class="prod_item" th:each="reservation:${reservations}">
 							<div class="prod_area horizontal">
-								<div class="form_chk no_label">
-									<input id="wish-prod-S000209614996-0" name="wish-product" type="checkbox">
-									<label for="wish-prod-S000209614996-0"><span class="hidden">상품선택</span></label>
-								</div>
+								
 								<div class="prod_thumb_box type_bookcover">
 									<a href="#" class="prod_link">
 										<span class="img_box">
@@ -185,7 +177,9 @@
 									</a>
 								</div>
 								<div class="right_area">
-									<button type="button" class="btn_my_delete"></button>
+									<button type="button" class="btn_sm btn_line_gray"
+									th:onclick="|location.href='@{/book/{reservationId}/cancel(reservationId=${reservation.id})}'|"><span
+										class="text">삭제</span></button>
 								</div>
 							</div>
 						</div>
@@ -248,8 +242,7 @@
 						</span>
 						<div class="right_area">
 							<div class="item_group">
-								<button type="button" class="btn_sm btn_line_gray"><span class="text">반납
-										하기</span></button>
+								
 							</div>
 						</div>
 					</div>
@@ -272,6 +265,11 @@
 											외</span>
 										<span class="prod_author" th:text="'대여날짜: '+${rent.rentDate}">대여 기간</span>
 									</a>
+								</div>
+								<div class="right_area">
+									<button type="button" class="btn_sm btn_line_gray"
+									th:onclick="|location.href='@{/book/{rentId}/returnbook(rentId=${rent.id})}'|"><span
+										class="text">삭제</span></button>
 								</div>
 							</div>
 						</div>
@@ -355,42 +353,7 @@
 		});
 	});
 	
-	// 클릭 이벤트 핸들러 설정
-	function sendSelectedReservations() {
-	    var selectedReservationIds = [];
-	    var checkboxes = document.querySelectorAll('input[name="wish-product"]');
-	    
-	    for (var i = 0; i < checkboxes.length; i++) {
-	        if (checkboxes[i].checked) {
-	            selectedReservationIds.push(checkboxes[i].getAttribute('data-reservationId'));
-	        }
-	    }
-	    
-	    if (selectedReservationIds.length > 0) {
-	        sendReservationToServer(selectedReservationIds);
-	    } else {
-	        alert("체크박스를 선택하세요.");
-	    }
-	}
 	
-	function sendReservationToServer(selectedReservationIds) {
-	    // Ajax를 사용하여 서버로 데이터를 전송하는 코드를 작성
-	    // jQuery Ajax 예시:
-	    $.ajax({
-	        url: '/book/cancel', // 서버 엔드포인트 URL을 수정
-	        type: 'POST', // 또는 'GET'에 따라서 서버 요청 방식을 선택
-	        data: { reservationIds: selectedReservationIds }, // 전송할 데이터 및 필요한 다른 매개변수
-	        success: function(response) {
-	            // 성공 시 실행할 코드
-	        },
-	        error: function(error) {
-	            // 에러 발생 시 실행할 코드
-	        }
-	    });
-	}
-	
-	// 삭제 버튼 클릭 이벤트 핸들러 설정
-	document.getElementById("cancelReservationButton").addEventListener("click", sendSelectedReservations);
 
 
 </script>

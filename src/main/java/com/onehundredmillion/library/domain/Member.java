@@ -37,6 +37,9 @@ public class Member {
 
     @OneToMany(mappedBy = "member")
     private List<Reservation> reservation = new ArrayList<>();
+    
+    @OneToMany(mappedBy = "member")
+    private List<Like> like = new ArrayList<>();
 
 
 }

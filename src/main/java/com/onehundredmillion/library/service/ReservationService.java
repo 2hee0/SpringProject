@@ -38,8 +38,6 @@ public class ReservationService {
         	return (long)0;
         }
         		
-
-
     }
     
     //예약 취소

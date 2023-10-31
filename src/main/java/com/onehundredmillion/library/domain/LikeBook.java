@@ -1,10 +1,12 @@
 package com.onehundredmillion.library.domain;
 
+import org.hibernate.annotations.ColumnDefault;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -14,36 +16,32 @@ import lombok.Setter;
 @Entity
 @Getter @Setter
 public class LikeBook {
-	@Id @GeneratedValue
-	@Column(name ="LIKE_BOOK_ID")
-	private Long id;
-	
-	// 좋아요 상태(LIKE,DISLIKE)
-	@Enumerated(EnumType.STRING)
-	private BookStatus status;
-	
-	@ManyToOne
-	@JoinColumn(name="MEMBER_ID")
-	private Member member;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "LIKE_BOOK", nullable = false)
+    private Long id;
+    
+    @ColumnDefault("1")
+    private int count;
 
-	@ManyToOne
-	@JoinColumn(name = "BOOK_ID")
-	private Book book;	
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "BOOK_ID")
+    private Book book;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "LIKE_ID")
+    private Like like;
 
-	// =========== 비지스로직 ================
-	
-	public static LikeBook setLike(Member member, Book book) {
-		LikeBook likeBook = new LikeBook();
-		likeBook.setBook(book);
-		likeBook.setMember(member);
-		likeBook.setStatus(BookStatus.LIKE);
-		
-		return likeBook;	
-	}
-	
-	public static void setDislike() {
-		
-	}
+    public static LikeBook createLikeBook(Book book, int count){
+    	LikeBook likeBook = new LikeBook();
+    	likeBook.setBook(book);
+    	likeBook.setCount(count);
+
+        return likeBook;
+    }
+
+    public void dislike() {
+    	count = 0;
+    }
 	
 }
