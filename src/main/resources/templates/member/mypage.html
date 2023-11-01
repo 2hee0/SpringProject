@@ -6,38 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" th:href="@{css/mypage.css}">
-    <link rel="stylesheet" th:href="@{css/header.css}" >
-    <link rel="stylesheet" th:href="@{css/footer.css}" >
+    <link rel="stylesheet" th:href="@{css/header.css}">
+    <link rel="stylesheet" th:href="@{css/footer.css}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 
 <body>
-<div th:replace="header :: header" />
+<div th:replace="header :: header"/>
 <main class="container_wrapper">
     <section class="contents_wrap elib">
         <div class="elib_head">
             <div class="innner">
                 <div class="elib_profile">
                     <div class="photo">
-                        <img src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/img_no_profile@2x.png"
-                             alt="">
+                        <img th:src="@{img/library.png}" alt="">
                     </div>
-                    <p class="name">
-                        <strong>OO</strong>
+                    <p class="name1">
+                        <strong th:if="${loginMember != null}" th:text="${loginMember.name}">Member Name</strong>
                         님의
                         <b>라이브러리</b>
                     </p>
                 </div>
                 <ul class="elib_quick">
                     <li>
-                        <a href="#" class="active1">
+                        <a th:href="@{/mypage}" class="active1">
                             <i class="ic_elib_own"></i>
-                            <span class="text">MY도서</span>
+                            <span class="text"> MY 서재</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="active2">
+                        <a th:href="@{/userinfoForm}" class="active2">
                             <i class="ic_elib_two"></i>
                             <span class="text">회원정보</span>
                         </a>
@@ -48,7 +47,7 @@
         <div class="libary_all">
             <div class="libary_contents">
                 <div class="contWrap">
-                    <h4>MY도서</h4>
+                    <h4>MY 서재</h4>
                     <div class="list_search">
                         <button type="button" class="current">찜</button>
                         <button type="button" class="reservation">예약</button>
@@ -81,15 +80,14 @@
                             <div class="prod_info_box">
                                 <a href="#" class="prod_info">
 										<span class="prod_name"
-                                              th:text="${like.likeBooks[0].book.title}">운명의 꼭두각시</span>
+                                              th:text="${like.likeBooks[0].book.title}"></span>
                                     <span class="prod_author"
-                                          th:text="${like.likeBooks[0].book.author}">윌리엄 트레버 외</span>
+                                          th:text="${like.likeBooks[0].book.author}"></span>
                                 </a>
                             </div>
                             <div class="right_area">
-                                <button type="button" class="btn_sm btn_line_gray"
+                                <button type="button" class="btn_my_delete"
                                         th:onclick="|location.href='@{/book/{likeId}/dislike(likeId=${like.id})}'|">
-                                    <span class="text">삭제</span>
                                 </button>
                             </div>
 
@@ -115,22 +113,22 @@
                             <div class="prod_thumb_box type_bookcover">
                                 <a href="#" class="prod_link">
 										<span class="img_box">
-											<img class="image" th:src="${reservation.reservationBooks[0].book.image} " alt="..."/>
+											<img class="image" th:src="${reservation.reservationBooks[0].book.image} "
+                                                 alt="..."/>
 										</span>
                                 </a>
                             </div>
                             <div class="prod_info_box">
                                 <a href="#" class="prod_info">
 										<span class="prod_name"
-                                              th:text="${reservation.reservationBooks[0].book.title}">운명의 꼭두각시</span>
+                                              th:text="${reservation.reservationBooks[0].book.title}"></span>
                                     <span class="prod_author"
-                                          th:text="${reservation.reservationBooks[0].book.author}">윌리엄 트레버 외</span>
+                                          th:text="${reservation.reservationBooks[0].book.author}"></span>
                                 </a>
                             </div>
                             <div class="right_area">
-                                <button type="button" class="btn_sm btn_line_gray"
-                                        th:onclick="|location.href='@{/book/{reservationId}/cancel(reservationId=${reservation.id})}'|"><span
-                                        class="text">삭제</span></button>
+                                <button type="button" class="btn_my_delete"
+                                        th:onclick="|location.href='@{/book/{reservationId}/cancel(reservationId=${reservation.id})}'|"></button>
                             </div>
                         </div>
                     </div>
@@ -153,23 +151,20 @@
                             <div class="prod_thumb_box type_bookcover">
                                 <a href="#" class="prod_link">
 										<span class="img_box">
-                                            <img class="image" th:src="${rent.rentBookList[0].book.image}"  alt="..."/>
+                                            <img class="image" th:src="${rent.rentBookList[0].book.image}" alt="..."/>
 										</span>
                                 </a>
                             </div>
                             <div class="prod_info_box">
                                 <a href="#" class="prod_info">
-										<span class="prod_name" th:text="${rent.rentBookList[0].book.title}">운명의
-											꼭두각시</span>
-                                    <span class="prod_author" th:text="${rent.rentBookList[0].book.author}">윌리엄 트레버
-											외</span>
+                                    <span class="prod_name" th:text="${rent.rentBookList[0].book.title}"></span>
+                                    <span class="prod_author" th:text="${rent.rentBookList[0].book.author}"></span>
                                     <span class="prod_author" th:text="'대여날짜: '+${rent.rentDate}">대여 기간</span>
                                 </a>
                             </div>
                             <div class="right_area">
-                                <button type="button" class="btn_sm btn_line_gray"
-                                        th:onclick="|location.href='@{/book/{rentId}/returnbook(rentId=${rent.id})}'|"><span
-                                        class="text">삭제</span></button>
+                                <button type="button" class="btn_my_delete"
+                                        th:onclick="|location.href='@{/book/{rentId}/returnbook(rentId=${rent.id})}'|"></button>
 
                             </div>
                         </div>
@@ -180,7 +175,7 @@
         </div>
     </section>
 </main>
-<div th:replace="footer :: footer" />
+<div th:replace="footer :: footer"/>
 </body>
 <script th:src="@{/js/detail.js}"></script>
 <script th:src="@{/js/header.js}"></script>

@@ -1,4 +1,3 @@
-// Get references to the active1 and active2 links
 const active1Link = document.querySelector('.active1');
 const active2Link = document.querySelector('.active2');
 
@@ -25,70 +24,22 @@ function showEditForm () {
   // 숨겨진 <tr> 엘리먼트를 보이도록 설정
   var usernamein = document.querySelector('.usernamein');
   usernamein.style.display = '';
-
-  // 보이는 <tr> 엘리먼트를 숨김으로 설정
-  var username = document.querySelector('.username');
-  username.style.display = 'none';
-}
-
-function cancelEdit () {
-  // 보이는 <tr> 엘리먼트를 숨김으로 설정
-  var usernamein = document.querySelector('.usernamein');
-  usernamein.style.display = 'none';
-
-  // 숨겨진 <tr> 엘리먼트를 보이도록 설정
-  var username = document.querySelector('.username');
-  username.style.display = '';
-}
-
-function showEditForm2 () {
-  // 숨겨진 <tr> 엘리먼트를 보이도록 설정
   var usernamein = document.querySelector('.userphonein');
   usernamein.style.display = '';
-
-  // 보이는 <tr> 엘리먼트를 숨김으로 설정
-  var username = document.querySelector('.userphone');
-  username.style.display = 'none';
-}
-
-function cancelEdit2 () {
-  // 보이는 <tr> 엘리먼트를 숨김으로 설정
-  var usernamein = document.querySelector('.userphonein');
-  usernamein.style.display = 'none';
-
-  // 숨겨진 <tr> 엘리먼트를 보이도록 설정
-  var username = document.querySelector('.userphone');
-  username.style.display = '';
-}
-
-function showEditForm3 () {
-  // 숨겨진 <tr> 엘리먼트를 보이도록 설정
   var usernamein = document.querySelector('.addressin');
   usernamein.style.display = '';
-
-  // 보이는 <tr> 엘리먼트를 숨김으로 설정
-  var username = document.querySelector('.address');
-  username.style.display = 'none';
-}
-
-function cancelEdit3 () {
-  // 보이는 <tr> 엘리먼트를 숨김으로 설정
-  var usernamein = document.querySelector('.addressin');
-  usernamein.style.display = 'none';
-
-  // 숨겨진 <tr> 엘리먼트를 보이도록 설정
-  var username = document.querySelector('.address');
-  username.style.display = '';
-}
-
-function showEditForm4 () {
-  // Make the password elements visible
   var passwordnew = document.querySelector('.passwordnew');
   var passwordin = document.querySelector('.passwordin');
   passwordnew.style.display = '';
   passwordin.style.display = '';
 
-  // Hide the userpassword element
+  // 보이는 <tr> 엘리먼트를 숨김으로 설정
+  var username = document.querySelector('.username');
+  username.style.display = 'none';
+  var username = document.querySelector('.userphone');
+  username.style.display = 'none';
+  var username = document.querySelector('.address');
+  username.style.display = 'none';
   var userpassword = document.querySelector('.userpassword');
   userpassword.style.display = 'none';
 
@@ -102,14 +53,26 @@ function showEditForm4 () {
   });
 }
 
-function cancelEdit4 () {
-  // Make the password elements hidden
+function cancelEdit () {
+  // 보이는 <tr> 엘리먼트를 숨김으로 설정
+  var usernamein = document.querySelector('.usernamein');
+  usernamein.style.display = 'none';
+  var usernamein = document.querySelector('.userphonein');
+  usernamein.style.display = 'none';
+  var usernamein = document.querySelector('.addressin');
+  usernamein.style.display = 'none';
   var passwordnew = document.querySelector('.passwordnew');
   var passwordin = document.querySelector('.passwordin');
   passwordnew.style.display = 'none';
   passwordin.style.display = 'none';
 
-  // Show the userpassword element
+  // 숨겨진 <tr> 엘리먼트를 보이도록 설정
+  var username = document.querySelector('.username');
+  username.style.display = '';
+  var username = document.querySelector('.userphone');
+  username.style.display = '';
+  var username = document.querySelector('.address');
+  username.style.display = '';
   var userpassword = document.querySelector('.userpassword');
   userpassword.style.display = '';
 }
