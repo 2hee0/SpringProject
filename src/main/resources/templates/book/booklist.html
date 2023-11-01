@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../list/bookList.css">
     <link rel="stylesheet" th:href="@{css/bookList.css}">
+    <link rel="stylesheet" th:href="@{css/header.css}">
+    <link rel="stylesheet" th:href="@{css/footer.css}">
     <title>Document</title>
 </head>
 <body>
+<div th:replace="header :: header" />
     <div class="content">
         <aside class="titleWrap">
             <div class="title_header">
@@ -113,7 +115,7 @@
 			alert("대여실패(잔여수량이 없습니다.)");
 		}
 		if (success === "reservetrue") {
-			alert("예약성공(대기번호:)");
+			alert("예약성공");
 		}
 		if (success === "reservefalse") {
 			alert("예약실패(이미 예약하였습니다.)");
@@ -126,5 +128,9 @@
 		}
 
 	</script>
+<div th:replace="footer :: footer" />
 </body>
+<script th:src="@{/js/detail.js}"></script>
+<script th:src="@{/js/header.js}"></script>
+<script th:src="@{/js/footer.js}"></script>body>
 </html>

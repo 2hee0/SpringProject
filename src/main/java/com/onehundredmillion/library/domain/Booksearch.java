@@ -52,24 +52,13 @@ public class Booksearch {
 
                 bookRepository.save(book);
 
-                System.out.println("result : " + obj);
             }
 
         } catch (ParseException e) {
             e.printStackTrace();
         }
     }
-/*
-    public ResponseEntity<String> existData(String clientId, String clientSecret, String query) {
-        if (!bookRepository.existQuery(query)) {
-            ResponseEntity<String> response = callNaverApi(clientId, clientSecret, query);
-            resultBook(response.getBody());
-            bookRepository.existQuery(query);
-            return response;
-        }
-        return null;
-    }
-*/
+
 
 
 

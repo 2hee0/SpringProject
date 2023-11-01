@@ -170,6 +170,7 @@
                                 <button type="button" class="btn_sm btn_line_gray"
                                         th:onclick="|location.href='@{/book/{rentId}/returnbook(rentId=${rent.id})}'|"><span
                                         class="text">삭제</span></button>
+
                             </div>
                         </div>
                     </div>
@@ -179,7 +180,11 @@
         </div>
     </section>
 </main>
+<div th:replace="footer :: footer" />
 </body>
+<script th:src="@{/js/detail.js}"></script>
+<script th:src="@{/js/header.js}"></script>
+<script th:src="@{/js/footer.js}"></script>
 <script>
     // Get the necessary elements
     const likeItem = document.querySelector('.like_item');
@@ -217,5 +222,6 @@
 
 
 </script>
+
 
 </html>

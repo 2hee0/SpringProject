@@ -32,53 +32,40 @@ public class BookController {
         return "/book/booklist";
     }
 
-    @GetMapping(value = "/list/back")
-    public String back(Model model, String query) {
-        String clientId = "dGv6cZfFAFF4fYpxYN2X";
-        String clientSecret = "VXAzS1syXt";
-        query = "JAVA";
-
-        ResponseEntity<String> resp = booksearch.callNaverApi(clientId, clientSecret, query);
-
-        booksearch.resultBook(resp.getBody());
-
-        return "/book/booklist";
-    }
-
-    @GetMapping(value = "/list/front")
-    public String front(Model model) {
+    //관리자로 로그인 시 책 추가
+    @GetMapping(value = "/adminmain")
+    public String addBook(Model model) {
         String clientId = "dGv6cZfFAFF4fYpxYN2X";
         String clientSecret = "VXAzS1syXt";
 
 
         Map<String, String> queryMap = new HashMap<>();
-        queryMap.put("query1", "javascript");
+        queryMap.put("query1", "자바스크립트");
         queryMap.put("query2", "홈페이지");
+        queryMap.put("query3", "JAVA");
+        queryMap.put("query4", "IT");
+
 
         String query1 = queryMap.get("query1");
         String query2 = queryMap.get("query2");
+        String query3 = queryMap.get("query3");
+        String query4 = queryMap.get("query4");
 
         ResponseEntity<String> resp1 = booksearch.callNaverApi(clientId, clientSecret, query1);
         ResponseEntity<String> resp2 = booksearch.callNaverApi(clientId, clientSecret, query2);
+        ResponseEntity<String> resp3 = booksearch.callNaverApi(clientId, clientSecret, query3);
+        ResponseEntity<String> resp4 = booksearch.callNaverApi(clientId, clientSecret, query4);
 
 
         booksearch.resultBook(resp1.getBody());
         booksearch.resultBook(resp2.getBody());
-        return "/book/booklist";
+        booksearch.resultBook(resp3.getBody());
+        booksearch.resultBook(resp4.getBody());
+        return "admin/admin_main";
     }
 
-    @GetMapping(value = "/list/it")
-    public String IT(Model model, String query) {
-        String clientId = "dGv6cZfFAFF4fYpxYN2X";
-        String clientSecret = "VXAzS1syXt";
-        query = "IT";
 
-        ResponseEntity<String> resp = booksearch.callNaverApi(clientId, clientSecret, query);
 
-        booksearch.resultBook(resp.getBody());
-
-        return "/book/booklist";
-    }
 
     @GetMapping(value = "/books/reserve")
     public String reserve(Model model) {
