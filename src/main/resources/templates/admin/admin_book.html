@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -8,110 +7,55 @@
     <title>Document</title>
 </head>
 <body>
-     <div class="container">
-        <h1><img src="/img/book.png" class="bookImage">도서 정보</h1>
-            <div class="radioButton">
-                <label><img src="/img/check.png" class="checkIcon">도서 분류</label>
-=======
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../admin/admin_book.css">
-    <title>Document</title>
-</head>
-<body>
-    <div class="container">
-        <h1><img src="../image/book.png" class="bookImage">도서 정보</h1>
-        <form method="post">
-            <div class="radioButton">
-                <label><img src="../image/check.png" class="checkIcon">도서 분류</label>
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
-                    <input type="radio" name="chk_info" value="back">백엔드
-                    <input type="radio" name="chk_info" value="front">프론트엔드
-                    <input type="radio" name="chk_info" value="자격증">자격증
-            </div>
-            <div class="registForm">
-<<<<<<< HEAD
-                <label><img src="/img/check.png" class="checkIcon">ISBN</label>
-                <input type="text" name="isbn" id="registControl1" placeholder="도서 번호를 입력하세요"  th:value="${book.isbn}" readonly>
-            </div>
-            <div class="registForm">
-                <label><img src="/img/check.png" class="checkIcon">도서명</label>
-                <input type="text" name="title" id="registControl2" placeholder="책 제목을 입력하세요" th:value="${book.title}" readonly>
-            </div>
-            <div class="registForm">
-                <label><img src="/img/check.png" class="checkIcon">작가</label>
-                <input type="text" name="authors" id="registControl3" placeholder="작가 이름을 입력하세요" th:value="${book.author}" readonly>
-            </div>
-            <div class="registForm">
-                <label><img src="/img/check.png" class="checkIcon">출판사</label>
-                <input type="text" name="publisher" id="registControl4" placeholder="출판사를 입력하세요" th:value="${book.publisher}" readonly>
-            </div>
-            <div class="registForm">
-                <label><img src="/img/check.png" class="checkIcon">출간일</label>
-                <input type="text" name="pubdate" id="registControl5" th:value="${book.pubdate}" readonly>
-            </div>
-            <div class="registForm">
-                <label><img src="/img/check.png" class="checkIcon">내용</label>
-                <input type="text" name="description" id="registControl6" placeholder="도서 내용을 입력하세요" th:value="${book.description}"  readonly>
-            </div>
-            <div class="registForm">
-                <label><img src="/img/check.png" class="checkIcon">수량</label>
-                <input type="text"  name="stockQuantity" id="registControl7" placeholder="도서 수량을 입력하세요" th:value="${book.stockQuantity}" readonlys>
-            </div>
-            <div class="registForm">
-                <label><img src="/img/check.png" class="checkIcon">도서 표지</label>
-                <input type="file" accept="image/*" name="thumbnail" readonly>
-            </div>
-            <button type="button" class="registButton">
-				<a th:href="@{'/admin/updateadmin/' + ${book.id}}">
-					수정
-				</a>
-			</button>
-            <button type="button" class="cancel">
-				<a th:href="@{/admin/bookList}">취소</a>
-			</button>
+<div class="container">
+    <h1><img src="/img/book.png" class="bookImage">도서 정보</h1>
+    <div class="radioButton">
+        <label><img src="/img/check.png" class="checkIcon">도서 분류</label>
+        <input type="radio" name="chk_info" value="back">백엔드
+        <input type="radio" name="chk_info" value="front">프론트엔드
+        <input type="radio" name="chk_info" value="자격증">자격증
     </div>
+    <div class="registForm">
+        <label><img src="/img/check.png" class="checkIcon">ISBN</label>
+        <input type="text" name="isbn" id="registControl1" placeholder="도서 번호를 입력하세요"  th:value="${book.isbn}" readonly>
+    </div>
+    <div class="registForm">
+        <label><img src="/img/check.png" class="checkIcon">도서명</label>
+        <input type="text" name="title" id="registControl2" placeholder="책 제목을 입력하세요" th:value="${book.title}" readonly>
+    </div>
+    <div class="registForm">
+        <label><img src="/img/check.png" class="checkIcon">작가</label>
+        <input type="text" name="authors" id="registControl3" placeholder="작가 이름을 입력하세요" th:value="${book.author}" readonly>
+    </div>
+    <div class="registForm">
+        <label><img src="/img/check.png" class="checkIcon">출판사</label>
+        <input type="text" name="publisher" id="registControl4" placeholder="출판사를 입력하세요" th:value="${book.publisher}" readonly>
+    </div>
+    <div class="registForm">
+        <label><img src="/img/check.png" class="checkIcon">출간일</label>
+        <input type="text" name="pubdate" id="registControl5" th:value="${book.pubdate}" readonly>
+    </div>
+    <div class="registForm">
+        <label><img src="/img/check.png" class="checkIcon">내용</label>
+        <input type="text" name="description" id="registControl6" placeholder="도서 내용을 입력하세요" th:value="${book.description}"  readonly>
+    </div>
+    <div class="registForm">
+        <label><img src="/img/check.png" class="checkIcon">수량</label>
+        <input type="text"  name="stockQuantity" id="registControl7" placeholder="도서 수량을 입력하세요" th:value="${book.stockQuantity}" readonlys>
+    </div>
+    <div class="registForm">
+        <label><img src="/img/check.png" class="checkIcon">도서 표지</label>
+        <input type="file" accept="image/*" name="thumbnail" readonly>
+    </div>
+    <button type="button" class="registButton">
+        <a th:href="@{'/admin/updateadmin/' + ${book.id}}">
+            수정
+        </a>
+    </button>
+    <button type="button" class="cancel">
+        <a th:href="@{/admin/bookList}">취소</a>
+    </button>
+</div>
 </body>
 <script th:src="@{/js/admin_bookEdit.js}"></script>
-=======
-                <label><img src="../image/check.png" class="checkIcon">ISBN</label>
-                <input type="text" id="registControl1" placeholder="도서 번호를 입력하세요">
-            </div>
-            <div class="registForm">
-                <label><img src="../image/check.png" class="checkIcon">도서명</label>
-                <input type="text" id="registControl2" placeholder="책 제목을 입력하세요">
-            </div>
-            <div class="registForm">
-                <label><img src="../image/check.png" class="checkIcon">작가</label>
-                <input type="text" id="registControl3" placeholder="작가 이름을 입력하세요">
-            </div>
-            <div class="registForm">
-                <label><img src="../image/check.png" class="checkIcon">출판사</label>
-                <input type="text" id="registControl4" placeholder="출판사를 입력하세요">
-            </div>
-            <div class="registForm">
-                <label><img src="../image/check.png" class="checkIcon">출간일</label>
-                <input type="date" id="registControl5">
-            </div>
-            <div class="registForm">
-                <label><img src="../image/check.png" class="checkIcon">내용</label>
-                <input type="text" id="registControl6" placeholder="도서 내용을 입력하세요">
-            </div>
-            <div class="registForm">
-                <label><img src="../image/check.png" class="checkIcon">수량</label>
-                <input type="text" id="registControl7" placeholder="도서 수량을 입력하세요">
-            </div>
-            <div class="registForm">
-                <label><img src="../image/check.png" class="checkIcon">도서 표지</label>
-                <input type="file" accept="image/*">
-            </div>
-            <button type="submit" class="registButton">수정</button>
-            <button type="button" class="cancel">취소</button>
-        </form>
-    </div>
-    <script src="../admin/admin_book.js"></script>
-</body>
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 </html>

@@ -1,15 +1,11 @@
-<<<<<<< HEAD
 /* header.css */
 
-=======
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 body {
     font-size: 12px;
     font-family: "dotum", "sans-serif";
     color: #666;
     margin: 0;
     padding: 0;
-<<<<<<< HEAD
 }
 
 div {
@@ -20,17 +16,6 @@ ul {
     list-style: none;
     display: block;
     margin-block-start: 1em;
-=======
-    line-height: 130%;
-}
-div{
-    display: block;
-}
-ul {
-    list-style: none;
-    display: block;
-    margin-block-start: 1em;;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0ox;
@@ -49,7 +34,6 @@ a {
     color: #777;
 }
 
-<<<<<<< HEAD
 /* 헤더 CSS */
 .header {
     width: 100%;
@@ -58,16 +42,6 @@ a {
     position: relative;
 }
 
-=======
-/* 헤더 css */
-.header{
-    width: 1025px;
-    height: 181px;
-    z-index: 100;
-    position: relative;
-    width: 100%;
-}
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 .geteGenbMain {
     z-index: 10001;
     position: relative;
@@ -87,37 +61,25 @@ a {
     height: 34px;
     margin: 0 auto;
 }
-<<<<<<< HEAD
 
 .geteCon::after {
-=======
-.geteCon::after{
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     content: "";
     display: block;
     clear: both;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 .geteRight {
     float: right;
     height: 34px;
 }
 
-<<<<<<< HEAD
 .geteRight ul li {
-=======
-.geteRight ul li{
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     bottom: 12px;
     position: relative;
     float: left;
     padding: 10px 8px;
 }
 
-<<<<<<< HEAD
 
 .on,
 .off {
@@ -148,42 +110,11 @@ a {
     align-items: center;
     padding: 10px 13px 11px 14px;
     width: 60px;
-=======
-.on {
-    color: #777;
-    text-decoration: noen;
-    padding-right: 15px;
-    padding-top: 1px;
-    width: 13px;
-    height: 13px;
-    background: url(https://qi-b.qoo10cdn.com/UI/pc/main/2016/gnb/arrow_down.png) no-repeat
-    right 2px;
-}
-
-.off {
-    color: #777;
-    text-decoration: none;
-    padding-top: 1px;
-    padding-right: 15px;
-    background: url(https://qi-b.qoo10cdn.com/UI/pc/main/2016/gnb/arrow_up.png) no-repeat
-    right 2px;
-}
-.mypgsub {
-    position: absolute;
-    top: 27px;
-    right: 8px;
-    padding: 10px 13px 11px 14px;
-    width: 60px;
-    border: 1px solid #333;
-    background: #fff;
-    box-shadow: 0 5px 7px 0 rgba(0, 0, 0, 0.2);
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     z-index: 10;
     height: 40px;
 }
 
 .mlv_Ly dl {
-<<<<<<< HEAD
     position: absolute;
     top: -20px;
     left: 0;
@@ -195,27 +126,13 @@ a {
     box-sizing: border-box;
     box-shadow: 0 5px 7px 0 rgba(0, 0, 0, 0.2);
     text-align: center;
-=======
-    position: relative;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 }
 
 .mlv_Ly dd {
     width: 100%;
     line-height: 15px;
-<<<<<<< HEAD
     margin-top: 10px;
     margin-bottom: 10px;
-=======
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-
-
-.mlv_Ly dd a {
-    font-weight: bold;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     position: relative;
     color: #000;
     font-size: 12px;
@@ -229,27 +146,17 @@ a {
     top: -1000em;
     left: 0;
 }
-<<<<<<< HEAD
 
 .headerWrapper {
     background: #fff;
 }
 
-=======
-.headerWrapper {
-    background: #fff;
-    border-bottom: 2px solid #282a34;
-}
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 .headerBox {
     position: relative;
     width: 1000px;
     margin: 0 auto;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 .header_logosearch {
     padding: 29px 0 0 1px;
     height: 70px;
@@ -266,11 +173,7 @@ a {
     background-size: 100%;
 }
 
-<<<<<<< HEAD
 .header_logosearch > h1 > a > img {
-=======
-.header_logosearch > h1  > a > img{
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     bottom: 10px;
     margin: 0;
     float: left;
@@ -293,14 +196,9 @@ a {
     background: #fff;
     width: 417px;
     height: 31px;
-<<<<<<< HEAD
     border-bottom: 1px solid #ef544d;
     margin-left: 277px;
     margin-top: 11px;
-=======
-    border-bottom: 2px solid #ef544d;
-    margin-left: 277px;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 }
 
 .search input {
@@ -309,19 +207,11 @@ a {
     height: 20px;
     margin: 6px 0 0 12px;
     padding: 0;
-<<<<<<< HEAD
     border: none;
     outline: none;
     background: transparent;
     font-size: 14px;
     color: #666;
-=======
-    border: 0 none;
-    background: transparent;
-    font-size: 14px;
-    color: #666;
-    font-weight: bold;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     line-height: 18px;
 }
 
@@ -337,7 +227,6 @@ a {
     background: url(https://qi-b.qoo10cdn.com/UI/pc/main/2017/gnb/btn_search.png) no-repeat center center;
 }
 
-<<<<<<< HEAD
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 .notosanskr * {
@@ -347,13 +236,6 @@ a {
 .bookGNBWrapper {
     background-color: #FF3636;
     font-family: 'Noto Sans KR', sans-serif;
-=======
-.bookGNBWrapper {
-    background-color: #ef544d;
-    border-bottom: 1px solid #d74b45;
-    font-family: "맑은 고딕", "Malgun Gothic", "Dotum", sans-serif;
-    letter-spacing: -1px;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 }
 
 .bookGNB {
@@ -368,30 +250,17 @@ a {
     width: 152px;
     height: 44px;
     float: left;
-<<<<<<< HEAD
     text-align: left;
 }
 
 .allNav {
-=======
-    text-align: left;   
-}
-
-.allNav {
-    
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     position: absolute;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
     padding: 12px 0 0 34px;
-<<<<<<< HEAD
     background: #c43730 url(https://qi-b.qoo10cdn.com/UI/pc/main/2017/gnb/icon_allView.png) no-repeat 13px 17px;
-=======
-    background: #c43730 url(https://qi-b.qoo10cdn.com/UI/pc/main/2017/gnb/icon_allView.png) no-repeat
-     13px 17px;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     font-size: 14px;
     line-height: 1.3;
     font-weight: bold;
@@ -400,12 +269,8 @@ a {
 
 .allNav span {
     position: absolute;
-<<<<<<< HEAD
     padding-top: 3px;
     margin-left: 3px;
-=======
-    padding-top: 2px;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 }
 
 .allNav::before {
@@ -418,7 +283,6 @@ a {
     background: url(https://qi-b.qoo10cdn.com/UI/pc/main/2017/gnb/icon_navArrow.png) no-repeat 0 -6px;
 }
 
-<<<<<<< HEAD
 
 .bookAllCategoryWrap {
     position: absolute;
@@ -429,68 +293,15 @@ a {
     overflow: hidden;
     background: #fff;
     border: 1px solid #c43730;
-=======
-.bookAllCategoryWrap {
-    position: absolute;
-    top: 45px;
-    left: -3px;
-    z-index: 3px;
-    width: 420px;
-    height: 420px;
-    overflow: hidden;
-}
-
-.shadow {
-    position: absolute;
-    top: 0;
-    left: 3px;
-    z-index: 1;
-    width: 400px;
-    height: 400px;
-    box-shadow: 0 0 6px 0 #000;
-    opacity: .2;
-    pointer-events: none;
-}
-
-.bookAllCategories {
-    position: absolute;
-    top: 0;
-    left: 3px;
-    z-index: 2;
-    width: 400px;
-    height: 400px;
-    background: #fff;
-    border: 2px solid #d74b45;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     border-top: 0;
 }
 
 .mainNav {
-<<<<<<< HEAD
     padding: 10px;
 }
 
 .col {
     width: 210px;
-=======
-    height: 360px;
-    border-bottom: 1px solid #33353d;
-}
-
-.category1 {
-    width: 220px;
-    border-left: 0;
-    padding-left: 28px;
-}
-
-.col {
-    position: relative;
-    float: left;
-    width: 210px;
-    height: 400px;
-    border-left: 1px solid #e5e5e5;
-    padding: 16px 0 0 30px;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 }
 
 .bookAllCategories h3 {
@@ -499,7 +310,6 @@ a {
     color: #3c3c3c;
 }
 
-<<<<<<< HEAD
 .categoryNav ul {
     list-style: none;
     padding: 10px;
@@ -507,17 +317,6 @@ a {
 
 .categoryNav ul li {
     margin-bottom: 20px;
-=======
-.categoryNav {
-    font-size: 12px;
-    line-height: 20px;
-    color: #444;
-}
-
-.categoryNav ul {
-    float: left;
-    width: 116px;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 }
 
 .categoryNav ul li a {
@@ -526,32 +325,6 @@ a {
     text-align: left;
 }
 
-<<<<<<< HEAD
-=======
-.bottomADWrap {
-    clear: both;
-    height: 45px;
-    line-height: 44px;
-    padding: 0 40px 0 17px;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.closeCategories {
-    position: absolute;
-    bottom: 8px;
-    right: 14px;
-}
-
-.closeCategories a {
-    display: block;
-    width: 27px;
-    height: 28px;
-    background: url(https://qi-b.qoo10cdn.com/UI/pc/main/2016/gnb/icon_closeX.png) no-repeat center center;
-    text-indent: -9999px;
-}
-
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 .bookGnBLeft {
     float: left;
     height: 44px;
@@ -572,21 +345,14 @@ a {
     display: inline-block;
     height: 44px;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 .gnbleft a {
     padding: 12px 15px 0;
     display: block;
     height: 32px;
     font-size: 14px;
     line-height: 1.3;
-<<<<<<< HEAD
     letter-spacing: 0;
-=======
-    letter-spacing: -1px;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     font-weight: bold;
     text-align: center;
     color: #fff;
@@ -595,18 +361,13 @@ a {
 .top_banner {
     display: flex;
     align-items: center;
-<<<<<<< HEAD
     width: 210px;
-=======
-    width: 200px;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     position: absolute;
     top: 22px;
     right: 17px;
 }
 
 .top_banner_img {
-<<<<<<< HEAD
     margin-right: 10px;
 }
 
@@ -627,14 +388,6 @@ a {
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
-=======
-    margin-right: 10px; /* Add margin between image and text */
-}
-
-.top_banner_img img {
-    width: 40px;
-    height: 64px;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 }
 
 .top_banner_text {
@@ -643,24 +396,14 @@ a {
 }
 
 .top_banner_tip {
-<<<<<<< HEAD
     font-family: 'NanumSquareNeo-Variable';
     font-size: 24px;
-=======
-    font-size: 20px;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     font-weight: bold;
     color: #000;
 }
 
 .top_banner_tip2 {
-<<<<<<< HEAD
     font-family: 'omyu_pretty';
     font-size: 14px;
     color: #A6A6A6;
-=======
-    font-weight: bold;
-    font-size: 15px;
-    color: #666;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 }

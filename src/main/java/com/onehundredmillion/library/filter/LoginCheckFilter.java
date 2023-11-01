@@ -1,3 +1,4 @@
+/*
 package com.onehundredmillion.library.filter;
 
 import com.onehundredmillion.library.sessioin.SessionConst;
@@ -46,4 +47,4 @@ public class LoginCheckFilter implements Filter {
         return !PatternMatchUtils.simpleMatch(whitelist, requestURI);
 
     }
-}
+}*/

@@ -10,25 +10,19 @@ header{
     font-family: "Elice DX Neolli", sans-serif;
 }
 
-<<<<<<< HEAD
 h2 a {
     color: black;
     text-decoration: none;
 }
 
-=======
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 form{
     padding: 10px;
 }
 
-<<<<<<< HEAD
 .field-error{
 	padding-top: 10px;
 }
 
-=======
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 .input-box{
     position: relative;
     margin: 10px 0;

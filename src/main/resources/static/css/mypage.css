@@ -124,6 +124,7 @@ tr {
     align-items: flex-end;
     height: 300px;
     background: url(https://contents.kyobobook.co.kr/resources/dig-fo/dig/images/ink/library/bg_top.png) repeat-x 50% 0;
+	margin-bottom: 80px;
 }
 
 .elib .innner {
@@ -138,10 +139,10 @@ tr {
 }
 
 .photo {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
+    width: 100px;
+    height: 100px;
     overflow: hidden;
+    margin-left: 40px;
 }
 
 .photo img {
@@ -149,11 +150,8 @@ tr {
     height: 100%;
 }
 
-<<<<<<< HEAD
 .name {
-=======
-.name1 {
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
+	font-family: 'SUITE-Regular';
     font-weight: 300;
     font-size: 36px;
     color: #000;
@@ -161,7 +159,24 @@ tr {
     padding-left: 40px;
 }
 
+.elib_profile .name {
+		font-family: 'SUITE-Regular';
+    font-weight: 300;
+    font-size: 36px;
+    color: #000;
+    line-height: 54px;
+    padding-left: 40px;
+}
+
+@font-face {
+    font-family: 'SUITE-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
 .elib_quick {
+	font-family: 'SUITE-Regular';
     flex: 0 0;
     display: flex;
     justify-content: space-around;
@@ -171,6 +186,7 @@ tr {
     border-radius: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.08);
+    text-align: center;
 }
 
 .elib_quick > * {
@@ -206,6 +222,7 @@ tr {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    margin-right: 5px;
 }
 
 .elib_quick li:first-child::after {
@@ -227,17 +244,16 @@ tr {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    margin-right: 5px;
 }
 
 .libary_contents {
     margin: 60px auto 60px;
     width: 1200px;
-    display: flex;
-    justify-content: space-between;
 }
 
 .contWrap {
-    padding: 25px 40px 60px 40;
+    padding: 20px 20px 20px 20px;
     width: 1200px;
     box-sizing: border-box;
     border-radius: 20px;
@@ -245,30 +261,21 @@ tr {
 }
 
 .contWrap h4 {
-    margin-left: 20px;
-    display: flex;
-    align-items: center;
-    font-weight: 600;
+	font-family: 'SUITE-Regular';
+    margin-left: 35px;
     font-size: 30px;
-    line-height: 45px;
     color: #000;
 }
 
 .list_search {
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin-top: 45px;
+    margin-bottom: 20px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #eaeaea;
     transition: all 0.3s;
 }
 
 .list_search button:first-child {
     margin: 0 30px;
-    font-size: 23px;
     color: #ef544d;
-    line-height: 23px;
 }
 
 .list_search button {
@@ -276,23 +283,31 @@ tr {
     font-size: 23px;
     color: #000;
     line-height: 23px;
+    align-items: center;
 }
 
 .current {
-    font-weight: 600;
+    font-weight: bold;
 }
 
 .list_search > button + button:before {
-    display: inline-block;
     margin-right: 30px;
     width: 1px;
     height: 1.5rem;
     background-color: rgba(122, 122, 122, 0.3);
     content: "";
+    align-items: center;
+}
+
+.list_search span {
+	margin-right: 30px;
+    width: 1px;
+    height: 1.5rem;
+    color: darkgray;
 }
 
 .prod_list.type_box {
-    width: 1000px;
+    width: 1200px;
     height: 220px;
     margin-top: 30px;
     padding-bottom: 30px;
@@ -311,7 +326,7 @@ tr {
 }
 
 .prod_list.type_box > .prod_item {
-    width: 450px !important;
+    width: 550px !important;
     width: calc(50% - 12px);
     vertical-align: top;
     border: solid 1px #eaeaea;
@@ -319,7 +334,7 @@ tr {
     border-radius: 16px;
 }
 .prod_list.type_box > .prod_item .prod_area.horizontal {
-    width: 420px !important;
+    width: 530px !important;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -345,7 +360,7 @@ tr {
 }
 
 .prod_area.horizontal {
-    width: 420px !important;
+    width: 530px !important;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -366,8 +381,9 @@ tr {
     -webkit-flex-direction: row;
     flex-direction: row;
 }
+
 .prod_thumb_box {
-    margin-left: 10px;
+    margin-left: 30px;
     overflow: hidden;
     flex-shrink: 0;
     width: 100px;
@@ -404,16 +420,23 @@ tr {
     width: 1200px;
 }
 
+@font-face {
+    font-family: 'SUITE-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
 .prod_info_box {
+    font-family: 'SUITE-Regular';
     align-self: center;
     overflow: hidden;
-    margin-left: 16px;
+    margin-left: 50px;
 }
 
 .prod_info {
     display: block;
     height: 100%;
-    font-size: 0;
 }
 
 .prod_name {
@@ -427,16 +450,17 @@ tr {
     text-overflow: -o-ellipsis-lastline;
     white-space: normal;
     word-break: break-all;
-    font-size: 15px;
-    line-height: 23px;
+    font-size: 20px;
+    line-height: 40px;
     letter-spacing: -0.01em;
     font-weight: 500;
 }
 
 .prod_author {
     display: block;
+    margin-left: 3px;
     margin-top: 5px;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 19px;
     letter-spacing: -0.01em;
     display: block;
@@ -458,9 +482,10 @@ tr {
     padding-left: 16px;
 }
 
+
 .btn_my_delete {
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     display: inline-block;
     box-sizing: border-box;
     vertical-align: top;
@@ -469,11 +494,11 @@ tr {
 .btn_my_delete::before {
     content: "";
     display: inline-block;
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 15px 15px;
+    background-size: 20px 20px;
     background-image: url(https://contents.kyobobook.co.kr/resources/fo/images/common/ink/btn_delete@2x.png);
     font-size: 0;
     vertical-align: top;
@@ -483,10 +508,6 @@ tr {
 .userlist {
     width: 1200px;
     margin: 0 auto;
-<<<<<<< HEAD
-=======
-    margin-right: 320px;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 }
 
 .tab_wrap {
@@ -531,7 +552,8 @@ tr {
 }
 
 .title_heading {
-    font-size: 24px;
+	font-family: 'SUITE-Regular';
+    font-size: 25px;
     line-height: 36px;
     letter-spacing: -0.01em;
     display: inline-block;
@@ -547,21 +569,17 @@ tr {
 }
 
 .tbl_row_wrap {
+	font-family: 'SUITE-Regular';
     display: block;
     width: 100%;
     padding: 18px 0;
-    border-top: 1px solid #000;
-<<<<<<< HEAD
-    border-bottom: 1px solid #eaeaea;
-=======
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
+    border-top: 1px solid darkgray;
     box-sizing: border-box;
 }
 
 .tbl_row {
     width: 100%;
     table-layout: fixed;
-    border-bottom: 1px solid #eaeaea;
 }
 
 .tbl_row_wrap .tbl_row tbody th {
@@ -591,11 +609,7 @@ tr {
 }
 
 .form_ip_pw {
-<<<<<<< HEAD
     width: 350px;
-=======
-    width: 450px;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     position: relative;
 }
 
@@ -621,11 +635,7 @@ tr {
 .form_ip1 {
     padding: 0 14px 0 14px;
     display: inline-block;
-<<<<<<< HEAD
     width: 100%;
-=======
-    width: 300px;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     height: 44px;
     padding: 0 14px 2px;
     color: #000;
@@ -633,8 +643,9 @@ tr {
     line-height: 42px;
     letter-spacing: -0.01em;
     font-family: "Noto Sans KR", sans-serif;
-    border: 1px solid #d5d5d5;
-    border-radius: 6px;
+    border: none;
+    border-bottom: 1px solid #d5d5d5;
+    border-radius: 0px;
     box-sizing: border-box;
     transition: border-color 0.2s ease-out;
     outline: none;
@@ -675,10 +686,8 @@ tr {
 }
 
 .btn_line_primary {
-    color: #ef544d;
-    border: 1px solid #ef544d;
+    color: darkgray;
     background: #fff;
-    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
     margin-left: 12px;
 }
 
@@ -709,11 +718,43 @@ tr {
     font-size: 13px;
     line-height: 19px;
     letter-spacing: -0.01em;
+    position: absolute; /* 취소 버튼 위치를 고정 */
+    right: 0; /* 원래 위치로 이동 (오른쪽 끝) */
+    top: 0; /* 원래 위치로 이동 (상단) */
 }
 
-.form_col_group {
-    width: 450px;
+.btn_sm1 {
+	display: -ms-inline-flexbox;
+    display: inline-flex;
+    display: -webkit-inline-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    height: 38px;
+    padding: 0 13px 1px;
+    border-radius: 6px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    color: #000;
+    border: 1px solid #999;
+    margin-left: 30px;
 }
+
 .valid_check {
     width: 100%;
 }
@@ -758,8 +799,9 @@ tr {
     letter-spacing: -0.01em;
     font-family: "Noto Sans KR", sans-serif;
     background-color: #fff;
-    border: 1px solid #d5d5d5;
-    border-radius: 6px;
+    border: none;
+    border-bottom: 1px solid #d5d5d5;
+    border-radius: 0px;
     box-sizing: border-box;
     transition: border-color 0.2s ease-out;
     outline: none;
@@ -777,13 +819,15 @@ tr {
     font-size: 14px;
     line-height: 42px;
     letter-spacing: -0.01em;
-    font-family: "Noto Sans KR", sans-serif;
+    font-family: 'SUITE-Regular';
     background-color: #fff;
-    border: 1px solid #d5d5d5;
-    border-radius: 6px;
+    border: none;
+    border-bottom: 1px solid #d5d5d5;
+    border-radius: 0px;
     box-sizing: border-box;
     transition: border-color 0.2s ease-out;
     outline: none;
+    margin-bottom: 20px;
 }
 
 .from_ip3 {
@@ -794,32 +838,36 @@ tr {
     font-size: 14px;
     line-height: 42px;
     letter-spacing: -0.01em;
-    font-family: "Noto Sans KR", sans-serif;
+    font-family: 'SUITE-Regular';
     background-color: #fff;
-    border: 1px solid #d5d5d5;
-    border-radius: 6px;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #d5d5d5; /* 하단 밑줄 추가 */
     box-sizing: border-box;
     transition: border-color 0.2s ease-out;
     outline: none;
+    margin-bottom: 10px;
 }
 
 .from_ip4 {
     display: inline-block;
     height: 44px;
-    width: 300px;
+    width: 398px;
     padding: 0 14px 2px;
     color: #000;
     font-size: 14px;
     line-height: 42px;
     letter-spacing: -0.01em;
-    font-family: "Noto Sans KR", sans-serif;
+    font-family: 'SUITE-Regular';
     background-color: #fff;
-    border: 1px solid #d5d5d5;
-    border-radius: 6px;
+    border: none; /* 기존의 border 제거 */
+    border-bottom: 1px solid #d5d5d5; /* 하단 밑줄 추가 */
+    border-radius: 0; /* border-radius 제거 */
     box-sizing: border-box;
     transition: border-color 0.2s ease-out;
     outline: none;
 }
+
 
 .btn_wrap {
     display: block;
@@ -828,11 +876,8 @@ tr {
 }
 
 .btn_wrap.page_bottom {
-<<<<<<< HEAD
-=======
-	margin-bottom: 20px;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     margin-top: 40px;
+    margin-bottom: 80px;
 }
 
 .btn_light_gray {
@@ -840,6 +885,7 @@ tr {
     background: #767676;
     border: 1px solid #767676;
     transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+	margin-left: 40px;
 }
 
 .btn_lg {
@@ -880,7 +926,7 @@ tr {
 }
 
 .btn_wrap .btn_lg + .btn_lg {
-    margin-left: 10px;
+    margin-left: 30px;
 }
 
 .form_chk {
@@ -1023,9 +1069,6 @@ tr {
 
 .rental {
     font-weight: bold;
-    margin: 0 30px;
-    font-size: 23px;
-    line-height: 23px;
 }
 
 .right_area {
@@ -1067,49 +1110,4 @@ tr {
 
 .reservation {
     font-weight: bold;
-    margin: 0 30px;
-    font-size: 23px;
-    line-height: 23px;
-<<<<<<< HEAD
 }
-=======
-}
-
-.from_ip4 {
-	display: inline-block;
-    width: 260px;
-    height: 44px;
-    padding: 0 14px 2px;
-    color: #000;
-    font-size: 14px;
-    line-height: 42px;
-    letter-spacing: -0.01em;
-    font-family: "Noto Sans KR", sans-serif;
-    background-color: #fff;
-    border: 1px solid #d5d5d5;
-    border-radius: 6px;
-    box-sizing: border-box;
-    transition: border-color 0.2s ease-out;
-    outline: none;
-}
-
-.field-error {
-	color: #ef544d !important;
-}
-
-.field-error2 {
-	color: #ef544d !important;
-}
-
-.field-error3 {
-	color: #ef544d !important;
-}
-
-.field-error4 {
-	color: #ef544d !important;
-}
-
-.field-error5 {
-	color: #ef544d !important;
-} 
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f

@@ -1,19 +1,13 @@
 package com.onehundredmillion.library.repository;
 
-<<<<<<< HEAD
 import com.onehundredmillion.library.domain.BookStatus;
-=======
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 import com.onehundredmillion.library.domain.Rent;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
-<<<<<<< HEAD
 import java.util.List;
 
-=======
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 @Repository
 @RequiredArgsConstructor
 public class RentRepository {
@@ -26,7 +20,6 @@ public class RentRepository {
     public Rent findOne(Long id) {
         return em.find(Rent.class, id);
     }
-<<<<<<< HEAD
 
     public List<Rent> findAll(Long id, BookStatus status){
         return em.createQuery("select r from Rent r where r.member.id = :memberId and r.status = :status", Rent.class)
@@ -52,6 +45,4 @@ public class RentRepository {
         em.persist(rent);
     }
     
-=======
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 }

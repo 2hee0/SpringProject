@@ -3,15 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" th:href="@{css/mypage.css}" >
+<link rel="stylesheet" th:href="@{/css/mypage.css}" >
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<<<<<<< HEAD
 <link rel="stylesheet" th:href="@{/css/footer.css}" >
 <link rel="stylesheet" th:href="@{/css/header.css}" >
-=======
-<link rel="stylesheet" th:href="@{css/footer.css}" >
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f93d75b47dd331c83de73a293e351e45"></script>
 </head>
@@ -23,10 +19,9 @@
                 <div class="innner">
                     <div class="elib_profile">
                         <div class="photo">
-                            <img src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/img_no_profile@2x.png"
-                                alt="">
+                            <img th:src="@{img/library.png}" alt="">
                         </div>
-                        <p class="name1">
+                        <p class="name">
 						    <strong th:if="${loginMember != null}" th:text="${loginMember.name}">Member Name</strong>
 						    님의
 						    <b>라이브러리</b>
@@ -34,13 +29,13 @@
                     </div>
                     <ul class="elib_quick">
                         <li>
-                            <a href="#" class="active1" style="color: #000;">
+                            <a th:href="@{/mypage}" class="active1" style="color: #000;">
                                 <i class="ic_elib_own"></i>
-                                <span class="text">보유도서</span>
+                                <span class="text"> MY 서재</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="active2" style="color: #ef544d;">
+                            <a th:href="@{/userinfoForm}" class="active2" style="color: #ef544d;">
                                 <i class="ic_elib_two"></i>
                                 <span class="text">회원정보</span>
                             </a>
@@ -53,10 +48,10 @@
                     <div class="tab_content">
                         <div class="title_wrap title_size_lg">
                            <p class="title_heading">회원정보 수정</p>
-                        </div>
-                        <div class="title_wrap title_size_md">
-                            <p class="title_heading1">기본 정보</p>
-                        </div>
+	                        <button type="button" class="btn_line_primary btn_sm" onclick="showEditForm()">
+	                        	<span class="text">변경</span>
+	                        </button>
+	                    </div>
                     	<form th:action="@{'/userinfo/' + ${loginMember.Id}}" method="post" onsubmit="return validateForm()">
                         <div class="tbl_row_wrap">
                             <table class="tbl_row">
@@ -72,30 +67,22 @@
                                         </td>
                                     </tr>
                                     <tr class="userpassword">
-                                        <th scope="row">새 비밀번호</th>
+                                        <th scope="row">비밀번호</th>
                                         <td>
                                             <div class="btn_next_box between">
-                                                <span class="text fc_black">새 비밀번호</span>
-                                                <button type="button" class="btn_line_primary btn_sm"
-                                                    onclick="showEditForm4()">
-                                                    <span class="text">변경</span>
-                                                </button>
+                                                <span class="text fc_black">비밀번호 변경을 원할 경우 '변경'을 눌러 수정해주세요.</span>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr class="passwordnew" style="display:none;">
-                                        <th scope="row">새 비밀번호</th>
+                                        <th scope="row">비밀번호</th>
                                         <td>
                                             <div class="form_col_group form_box">
                                                 <div class="valid_check">
                                                     <div class="input_btn_box">
                                                         <div class="awesomplete">
-                                                            <input type="password" placeholder="새 비밀번호를 입력해주세요" maxlength="15"
+                                                            <input type="password" placeholder="새로운 비밀번호를 입력해주세요" maxlength="15"
 									                class="form_ip2 password" id="password" name="password">
-                                                            <button type="button" class="cancel btn_line_primary btn_sm"
-                                                                onclick="cancelEdit4()">
-                                                                <span class="text">취소</span>
-                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -104,10 +91,10 @@
                                         </td>
                                     </tr>
                                     <tr class="passwordin" style="display: none;">
-                                        <th scope="row">새 비밀번호 확인</th>
+                                        <th scope="row">비밀번호 확인</th>
                                         <td>
                                             <div class="form_ip_pw">
-                                                <input type="password" placeholder="새 비밀번호를 한번더 입력해주세요" maxlength="15"
+                                                <input type="password" placeholder="새로운 비밀번호를 다시 입력해주세요" maxlength="15"
                                                     class="form_ip1 passwordConfirm" id="passwordConfirm" disabled=true name="passwordConfirm" >
                                             </div>
                                             <div class="field-error2"></div>
@@ -118,9 +105,6 @@
 								    <td>
 								        <div class="btn_next_box between">
 								            <span class="text fc_black" th:text="${loginMember.name}">유저 이름</span>
-								            <button type="button" class="btn_line_primary btn_sm" onclick="showEditForm()">
-								                <span class="text">변경</span>
-								            </button>
 								        </div>
 								    </td>
 								</tr>
@@ -132,9 +116,6 @@
 								                <div class="input_btn_box">
 								                    <div class="awesomplete">
 								                        <input type="text" class="form_ip2" placeholder="이름을 입력해주세요." id="name" name="name" th:field="*{loginMember.name}">
-								                        <button type="button" class="cancel btn_line_primary btn_sm" onclick="cancelEdit()">
-								                            <span class="text">취소</span>
-								                        </button>
 								                    </div>
 								                </div>
 								            </div>
@@ -155,9 +136,6 @@
 									    <td>
 									        <div class="btn_next_box between">
 									            <span class="text fc_black" th:text="${loginMember.phoneNo}">010-1234-5678</span>
-									            <button type="button" class="btn_line_primary btn_sm" onclick="showEditForm2()">
-									                <span class="text">변경</span>
-									            </button>
 									        </div>
 									    </td>
 									</tr>
@@ -169,9 +147,6 @@
 									                <div class="input_btn_box">
 									                    <div class="awesomplete">
 									                        <input type="tel" class="form_ip2" placeholder="새 전화번호를 입력해주세요." name="phoneNo" id="phoneNo" th:field="*{loginMember.phoneNo}">
-									                        <button type="button" class="cancel btn_line_primary btn_sm" onclick="cancelEdit2()">
-									                            <span class="text">취소</span>
-									                        </button>
 									                    </div>
 									                </div>
 									            </div>
@@ -186,17 +161,13 @@
                                                 <div class="col_box">
                                                     <div class="valid_check">
                                                         <input type="text" class="from_ip3" id="sample4_postcode" placeholder="우편번호" readonly
-														    th:value="${loginMember.address.zipcode}" />
+														    th:value="${loginMember.address.zipcode}" /> <br>
 														<input type="text" class="from_ip3" id="sample4_jibunAddress" placeholder="지번주소" readonly
 														    th:value="${loginMember.address.addr}" />
-														<input type="text" class="from_ip" id="sample4_roadAddress" placeholder="도로명주소" readonly
-														    th:value="${loginMember.address.addr_etc}" />
+														<input type="text" class="from_ip3" id="sample4_roadAddress" placeholder="도로명주소" readonly
+														    th:value="${loginMember.address.addr_etc}" />   
 														<input type="text" class="from_ip4" id="sample4_detailAddress" placeholder="상세주소" readonly
-														    th:value="${loginMember.address.addr_detail}" /> 
-                                                            <button type="button" class="btn_line_primary btn_sm"
-                                                            onclick="showEditForm3()">
-                                                            <span class="text">변경</span>
-                                                        </button>
+														    th:value="${loginMember.address.addr_detail}" />  
                                                     </div>
                                                 </div>
                                             </div>
@@ -210,7 +181,7 @@
                                                     <div class="valid_check">
                                                         <input type="text" name="zipcode" class="from_ip3 postcode"
                                                             id="sample4_postcode" placeholder="우편번호">
-                                                        <input type="button" class="btn_line_primary btn_sm"
+                                                        <input type="button" class="btn_line_primary1 btn_sm1"
                                                             onclick="sample4_execDaumPostcode()" value="우편번호 찾기">
                                                         <input type="text" name="addr_detail" class="from_ip jibunAddress"
                                                             id="sample4_jibunAddress" placeholder="지번주소">
@@ -222,10 +193,6 @@
                                                             id="sample4_detailAddress" placeholder="상세주소">
                                                         <input type="text" class="from_ip4 extraAddress"
                                                             id="sample4_extraAddress" placeholder="참고항목">
-                                                        <button type="button" class="cancel btn_line_primary btn_sm"
-                                                            onclick="cancelEdit3()">
-                                                            <span class="text">취소</span>
-                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -236,12 +203,12 @@
                             </table>
                         </div>
                         <div class="btn_wrap page_bottom">
-                          <button type="button" class="btn_lg btn_light_gray"   th:onclick="'javascript:location.href = \'' + @{/} + '\''">
+						  <button type="submit" class="btn_lg btn_primary">
+						        <span class="text">저장</span>
+						   </button>
+                          <button type="button" class="btn_lg btn_light_gray"   onclick="cancelEdit()">
 							    <span class="text">취소</span>
-							</button>
-                            <button type="submit" class="btn_lg btn_primary">
-						        <span class="text">확인</span>
-						    </button>
+						  </button>
                         </div>
                         </form>
                     </div>
@@ -253,9 +220,6 @@
 </body>
 <script th:src="@{/js/mypage.js}"></script>
 <script th:src="@{/js/footer.js}"></script>
-<<<<<<< HEAD
 <script th:src="@{/js/header.js}"></script>
 
-=======
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 </html>

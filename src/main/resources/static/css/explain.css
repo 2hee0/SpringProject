@@ -1,7 +1,7 @@
 .explain_page {
     width: 1000px;
     margin: 0 auto;
-    margin-top: 180px;
+    margin-top: 100px;
     margin-bottom: 30px;
     background-color: #F6F6F6; /* 배경 색상을 원하는 색상으로 설정 */
     padding: 20px; /* 내용 주변에 간격을 줍니다 */  
@@ -109,11 +109,11 @@ p {
 }
 
 .map {
-    width: 45%;
-    height: 440px;
+    width: 45% !important;
+    height: 440px !important;
     border: 0;
     float: right;
-    margin-top: -450px;
+    margin-top: -450px !important;
     margin-right: 20px;
 }
 

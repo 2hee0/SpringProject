@@ -44,12 +44,4 @@ document.addEventListener("DOMContentLoaded", function () {
             inputElement.placeholder = placeholderText[inputElement.id];
         });
     });
-<<<<<<< HEAD
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
-=======
-});
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f

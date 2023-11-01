@@ -17,11 +17,7 @@ spring:
 
   jpa:
     hibernate:
-<<<<<<< HEAD
-      ddl-auto: none
-=======
       ddl-auto: create
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     properties:
       hibernate:
         format_sql: true
@@ -34,9 +30,4 @@ logging:
     org:
       hibernate:
         SQL: debug
-<<<<<<< HEAD
         type: trace
-=======
-        type: trace
-#        trace 는 모든 내용을 출력해준다
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f

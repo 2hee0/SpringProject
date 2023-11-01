@@ -6,20 +6,11 @@ body {
 .book_detail_page {
     width: 1000px;
     margin: 0 auto;
-<<<<<<< HEAD
     margin-top: 100px;
-=======
-    margin-top: 180px;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     display: flex; /* 부모 요소를 플렉스 컨테이너로 설정 */
     align-items: center; /* 수직 가운데 정렬 */
 }
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 .book_image {
     flex: 1; /* 이미지 컨테이너를 확장하여 나머지 공간을 채움 */
 }
@@ -333,8 +324,4 @@ a {
 
 #commentForm button:hover {
     background-color: #FF0000;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f

@@ -3,10 +3,6 @@ body {
     display: block;
     font-family: "dotum", "sans-serif";
     color: #666;
-<<<<<<< HEAD
-=======
-    line-height: 130%;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 }
 
 .dl {
@@ -24,23 +20,15 @@ dd{
     margin: 0;
     padding: 0;
     display: block;
-<<<<<<< HEAD
     margin-inline-start: 15px;
     color: #acacac;
-=======
-    margin-inline-start: 40px;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 }
 /* 풋터 */
 .footerWrap {
     clear: both;
     font-size: 11px;
     width: 1248px;
-<<<<<<< HEAD
     height: 200px;
-=======
-    height: 230px;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     text-align: center;
     margin: 0 auto;
     background: url(https://qi-b.qoo10cdn.com/renewPark/reBookpark/footer/bg_footerWrap.gif) no-repeat left top;
@@ -65,7 +53,6 @@ dd{
 .footer_info {
     width: 1000px;
     margin: 0 auto;
-<<<<<<< HEAD
     line-height: 20px;
     font-size: 11px;
 }
@@ -81,26 +68,11 @@ dd{
 
 .info01 .dot3, .info01 .dot4 {
     margin-inline-start: 48px;
-=======
-    line-height: 16px;
-    font-size: 11px;
-
-}
-
-.cinfo01 {
-    float: left;
-    width: 335px;
-    height: 200px;
-    padding-bottom: 3px;
-    border-right: 1px solid #e7e7e7;
-    letter-spacing: -1px;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 }
 
 .name {
     clear: both;
     display: block;
-<<<<<<< HEAD
     margin-bottom: 10px;
     font-size: 12px;
     color: #5D5D5D;
@@ -116,51 +88,16 @@ dd{
     width: 300px;
     height: 200px;
     margin-left: 15px;
-=======
-    margin-bottom: 4px;
-    font-size: 12px;
-    letter-spacing: -1px;
-    color: #2a2a2a;
-    font-weight: normal;
-}
-
-.dot {
-   padding:  0 0 0 5px;
-   background: url(https://qi-b.qoo10cdn.com/renewPark/reBookpark/footer/bullet_mainDot.gif) no-repeat left center;
-   color: #acacac;
-}
-
-.dot {
-    width: 130px;
-}
-
-
-.cinfo02 {
-    float: left;
-    width: 255px;
-    height: 200px;
-    margin-left: 15px;
-    border-right: 1px solid #e7e7e7;
-    letter-spacing: -1px;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 }
 
 .title1{
     position: relative;
     margin-left: 0;
-<<<<<<< HEAD
     padding-bottom: 10px;
-=======
-    font-weight: normal;
-    padding-bottom: 5px;
-    line-height: 40px;
-    font-size: 12px;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
     height: 40px;
 }
 
 .title1 img {
-<<<<<<< HEAD
     width: 180px;
     height: 60px;
     margin-left: 15px;
@@ -183,42 +120,10 @@ dd{
     height: 145px;
     width: 300px;
     margin-top: 25px;
-=======
-    width: 150px;
-    height: 40px;
-    float: left;
-}
-
-.cinfo03 {
-    float: left;
-    width: 355px;
-    height: 104px;
-    margin-left: 15px;
-    letter-spacing: -1px;
-}
-
-.maponame {
-    font-weight: bold;
-    clear: both;
-    display: block;
-    margin-bottom: 4px;
-    font-size: 14px;
-    letter-spacing: -1px;
-    color: #2a2a2a;
-}
-
-.map {
-    height: 200px;
-    width: 355px;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
 }
 
 .dd1 {
     padding: 0;
     display: block;
     margin-left: 0;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f

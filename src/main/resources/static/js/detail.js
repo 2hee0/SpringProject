@@ -162,8 +162,4 @@ commentSubmitButton.addEventListener('click', function (e) {
     const minutes = String(now.getMinutes()).padStart(2, '0');
     return `${year}.${month}.${day} ${hours}:${minutes}`;
   }
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f

@@ -6,38 +6,59 @@ a {
     text-decoration: none;
     color: #000;
 }
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
 /* 상단 배너 */
+.homemain {
+	width: 100%;
+}
 .container {
-    position: relative;
-    width: 100%;
+    width: 1900px;
     margin: 0 auto;
 }
+
 .mainContent {
-    position: relative;
     font-family: "맑은 고딕", "Malgun Gothic", "Dotum", sans-serif;
     letter-spacing: -1px;
-    margin-right: 100px; /* 100px 왼쪽으로 이동 */
+    margin-top: 50px;
+    margin-bottom: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
 }
 
 .swiper-container1 {
-<<<<<<< HEAD
-    margin: 0 auto;
-=======
-    margin: 0 237.5px 0 330px;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
-    width: 1100px;
+    width: 60%;
 	height:400px;
+	margin: 0 auto;
 }
+
+.homeBanner {
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    margin-bottom: 50px;
+}
+
+.homeBanner img {
+	width: 1140px;
+    height: auto;
+}
+
 
 .maincon {
-    margin-top: 40px;
-    margin-left: 37;
-    margin-right: auto;
+    margin-top: 80px;
 }
 
-.mainbanner {
-    position: relative;
-}
 
 .book {
     width: 250px !important;
@@ -65,8 +86,12 @@ a {
     display: block;
     box-shadow:0 0 5px #555;
 }
-.bookMeta {
-    margin-top: 3px;
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
 }
 
 .title {
@@ -79,87 +104,108 @@ a {
     white-space: nowrap;
     font-size: 12px;
     color: #262626;
+    font-family: 'Pretendard-Regular';
+}
+
+@font-face {
+    font-family: 'ONE-Mobile-Title';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-Title.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 .maintitle {
-    position: relative;
-    margin: auto;
-    padding: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    color: black;
+    font-family: 'ONE-Mobile-Title';
     text-align: center;
-    font-size: 30px;
-    color: gold;
+}
+
+.maintitle::before,
+.maintitle::after {
+    content: '';
+    flex: 1;
+    height: 1px; /* 라인의 높이 조절 */
+    background: lightgray;
+    margin: 0 10px; /* 라인과 텍스트 간격 조절 */
 }
 
 .mainbannerimage {
-    width: 70px;
+    width: 40px;
     height: 40px;
-    position: relative;
-    top: 10px;
+    text-align: center;
+    margin-right: 10px;
 }
-
-<<<<<<< HEAD
-.swiper-button-prev::after {
-	font-size: 0px !important;
-}
-
-=======
 
 
 .swiper-button-prev {
-    background-image: url(https://w7.pngwing.com/pngs/833/219/png-transparent-knight-frank-france-real-estate-commercial-property-blank-angle-rectangle-blank-thumbnail.png) !important;
+    background-image: url(/img/back.png) !important;
+	background-size: 44px !important;
 }
 
 .swiper-button-next {
-    background-image: url(https://w7.pngwing.com/pngs/833/219/png-transparent-knight-frank-france-real-estate-commercial-property-blank-angle-rectangle-blank-thumbnail.png) !important;
+    background-image: url(/img/next.png) !important;
+	background-size: 44px !important;
 }
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
+
+
+.swiper-button-next::after, .swiper-button-prev::after {
+    content: ""; /* 내용 제거 */
+    font-size: 0 !important; /* 폰트 크기를 0으로 설정하여 숨김 */
+}
+
 
 /* 세번쨰 메인 배너 */
 /* 첫번쨰 배너 */
+
 .choiceSection {
     display: flex;
-    width: 1000px;
-    margin: 50px auto 0;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    width: 1150px;
+    height: 360px;
+    margin: 0 auto;
     overflow: hidden;
-    border-top: 1px solid #dcdcdc;
+    margin-top: 30px;
 }
+
 .publisherChoice {
     position: relative;
     float: left;
-    width: 365px;
 }
+
 .publisherHeader{
     position: relative;
+    margin-bottom: 20px;
 }
-.publisherHeader1 {
-    height: 27px;
-}
+
 .publisherHeader h2{
-    margin-top: 20px;
-    margin-bottom: 0;
-    padding: 0 0 9px 3px;
-    padding-bottom: 9px;
+	font-family: 'ONE-Mobile-Title';
+	color: black;
+	font-size: 20px;
+    display: inline; /* 요소를 인라인 요소로 변경 */
+    margin-right: 5px; /* 원하는 간격으로 조절 */
 }
-.publisherHeader h2 img {
-    display: block;
-}
+
 .sliderWrap{
     display: flex;
-    width: 363px;
-    height: 334px;
+    width: 350px;
+    height: 300px;
     border: 1px solid #dcdcdc;
 }
 .sliderWrap img {
     width: 363px;
     height: 334px;
 }
+
 /* 두번쨰 배너 */
 .rederRecommend {
-    width: 365px;
-    height: 361px;
     position: relative;
     float: left;
-    margin-left: 15px;
+    margin-left: 35px;
 }
 
 .readeRecommendTitle {
@@ -170,16 +216,16 @@ a {
 
 /* 세번쨰 배너 */
 .readMymind{
+    position: relative;
+    width: 33%;
     float: left;
-    margin-left: 15px;
-    width: 220px;
-    height: 362px;
+    margin-left: 35px;
 }
 
-.sliderWrap13{
-    width: 100%;
-    height: 334px;
-    border: 1px solid #dcdcdc;
+Choicetitle2{
+	margin-bottom: 0;
+    margin-top: 20px;
+    padding: 0 0 0px 3px;
 }
 
 .bx-wrapper{
@@ -207,27 +253,22 @@ a {
 
 /* 오늘의 도서 */
 .todaybook {
-<<<<<<< HEAD
-    margin: 0 auto;
-    width: 1100px;
-=======
-    margin-left: 390PX;
-    width: 1000px;
->>>>>>> 563f2705796f23ccf25b0bbcd00d241a9f34bd7f
+   margin: 0 auto;
+    width: 1120px;
 	height:300px;
+	margin-bottom: 30px;
 }
 .todaybook h2 {
+	font-family: 'ONE-Mobile-Title';
     margin: 40px 0 16px;
-    font-size: 1.125rem;
+    font-size: 18px;
     word-spacing: -0.5px;
     letter-spacing: -0.75px;
     font-weight: 500;
     color: #000;
-    font-weight: bold;
 }
 
 .todaySwiper {
-    width: 100%;
     margin-bottom: 60px;
     background: #f1f3f2;
     overflow: hidden;
@@ -240,28 +281,17 @@ a {
     color: #505050;
     text-align: left;
 }
-.todaySwiper .swiper-slide a {
-    color: #333;
-    text-decoration: none;
-    cursor: pointer;
-}
 
 .todaySwiper .swiper-slide a ul {
     display: flex;
-    justify-content: space-between;
     color: #6d6b6b;
     list-style: none;
     margin: 0px;
     padding: 0px;
 }
-.bookIMG {
-    margin: 0px;
-    padding: 0px;
-}
 
 .todaySwiper .swiper-slide a ul img {
-    margin-top: 10px;
-    margin-right: 10px;
+    margin : 30px;
     height: 195px;
     overflow: hidden;
     display: block;
@@ -270,13 +300,18 @@ a {
     backface-visibility: hidden;
     box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
 }
+
 .today_subTit{
+	font-family: 'Pretendard-Regular';
     font-size: 12px;
     color: #4d7658!important;
     word-spacing: -2px;
     margin-bottom: 2px;
+    margin-top: 40px;
 }
+
 .today_tit {
+	font-family: 'Pretendard-Regular';
     font-size: 20px;
     font-weight: bold;
     color: #222;
@@ -284,20 +319,18 @@ a {
     letter-spacing: -1px;
     margin-top: 6px;
 }
-.today_bookInfol {
-    font-size: 12px;
-    margin-top: 8px;
-    color: #6d6b6b;
-}
+
 .today_bookInfo2 {
-    font-size: 13px;
+	font-family: 'GangwonEdu_OTFBoldA';
+    font-size: 14px;
     line-height: 1.6;
     word-spacing: -0.5px;
     letter-spacing: -.5px;
-    margin-top: 15px;
+    margin-top: 35px;
     text-align: justify;
-    word-break: break-word;
 }
+
+
 
 /* 중간 배너 */
 /* 기본css */
@@ -305,39 +338,54 @@ li{
     list-style: none;
 }
 
-/* 배너 */
-.tendSection{
-    width: 980px;
-    height: 356px;
-    margin: 25px auto 0;
+.container2 {
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬합니다. */
+    align-items: center; /* 수직 가운데 정렬합니다. */
 }
 
-.interparkRecmmend {
-    float: left;
-    width: 745px;
+/* 배너 */
+.tendSection{
+    width: 60%;
+    height: 400px;
+    display: flex;
+    justify-content: space-between; /* 수평 정렬을 위해 간격을 둡니다. */
+    align-items: center; /* 내용을 수직 정렬합니다. */
+}
+
+.recommend {
+    width: 70%;
     margin-right: -745px;
 }
 
-.interparkRecommendHeader {
+.recommendHeader {
     position: relative;
     padding-top: 11px;
+    margin-bottom: 15px;
+    
 }
 
-.interparkRecommendHeader h2 {
+.recommendHeader h2 {
+	font-family: 'ONE-Mobile-Title';
+	color: black;
+	font-size: 20px;
     position: relative;
-    z-index: 1;
-    margin: 0 auto -13px;
-    width: 159px;
-    height: 25px;
-    background: url(https://qi-b.qoo10cdn.com/UI/pc/main/2017/text/h2_interparkRecommend.png) no-repeat;
-    text-indent: -9999px;
+    display: inline; /* 요소를 인라인 요소로 변경 */
+    margin-right: 5px; /* 원하는 간격으로 조절 */
 }
+
+.recommendHeader .kic,
+.publisherChoice .choice,
+.rederRecommend .recommend {
+	color: #ef544d;
+}
+
 .sliderWrap1 {
     position: relative;
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #eee;
+    border-top: 1px solid #EAEAEA;
     padding: 38px 50px 22px 55px;
     height: 271px;
+    background-color: #EAEAEA;
 }
 
 .sliderArea1 {
@@ -356,6 +404,13 @@ li{
     height: 248px;
 }
 
+.bx-viewport img {
+    display: block; /* 이미지를 블록 요소로 만들어야 중앙 정렬이 제대로 동작합니다. */
+    margin: 0 auto; /* 이미지를 수평으로 가운데 정렬합니다. */
+    width: 170px;
+    height: 220px;
+}
+
 .sliders1 {
     width: 615%;
     position: relative;
@@ -365,7 +420,7 @@ li{
 .slider1 {
     list-style: none;
     position: relative;
-    width: 457px;
+    width: 100%;
 }
 
 .slider1 a {
@@ -380,7 +435,7 @@ li{
 .bookCover1 {
     position: absolute;
     bottom: 0;
-    width: 162px;
+    width: 150px;
     height: 237px;
     display: table;
     width: 100%;
@@ -459,75 +514,61 @@ li{
 
 .bookMeta1 {
     position: absolute;
-    left: 162px;
+    left: 150px;
     padding: 11px 2px 0 23px;
-    width: 270px;
+    margin-left: 30px;
+    width: 300px;
 }
 
 .title2 {
+	font-family: 'Pretendard-Regular';
     margin-top: 5px;
     display: block;
+    width: 300px;
     height: 40px;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 20px;
     color: #444;
 }
 
-.bookDetail1 {
-    margin-top: 15px;
-    font-size: 11px;
-    font-weight: bold;
-    line-height: 20px;
-    color: #444;
-}
 
-.category1 {
-    margin-top: 15px;
-    font-size: 11px;
-    font-weight: bold;
-    line-height: 20px;
-    color: #444;
-}
-
-.recommender1 {
-    margin-top: 15px;
-    font-size: 11px;
-    font-weight: bold;
-    line-height: 20px;
-    color: #444;
+@font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 .desc1 {
-    margin-top: 16px;
-    background: #f7f7f7;
-    padding: 9px 10px 13px;
+    margin-top: 5px;
+    background: #EAEAEA;
 }
 
 .desc1 p {
-    height: 120px;
-    font-size: 12px;
+	font-family: 'GangwonEdu_OTFBoldA';
+	width: 240px;
+    height: 100px;
+    font-size: 14px;
     line-height: 19px;
     color: #444;
+    white-space: normal;
 }
 
 .tendIssue {
-    margin-left: 745px;
-    padding-left: 15px;
+    width:27%;
 }
 
 .tendIssueHeader h2 {
     padding: 1px 0 4px;
-    margin: 0;
-    font-size: 14px;
-    font-family: tahoma, sans-serif;
-    color: #555;
+    margin-bottom: 8px;
+    font-size: 20px;
+	font-family: 'Pretendard-Regular';
+    color: black;
 }
 
 .sliderWrap2 {
     display: flex;
     position: relative;
-    border-top: 1px solid #000;
-    background: #f7f7f7;
     height: 332px;
 }
 
@@ -541,62 +582,51 @@ li{
     height: 332px;
 }
 
-.bannerType2 iframe {
-    display: block;
-    width: 219px;
-    height: 332px;
-}
-
-.bannerType2 iframe a img {
-    width: 219px;
-    aspect-ratio: auto 219 / 332;
-    height: 332px;
-    border-top-width: 0px;
-    border-bottom-width: 0px;
-    border-left-width: 0px;
-    border-right-width: 0px;
-    border-top-style: solid;
-    border-bottom-style: solid;
-    border-left-style: solid;
-    border-right-style: solid;
-}
-
 :root {
     --swiper-theme-color: #ef544d !important;
 }
 
 .Choiceimage {
-    width: 160px;
-    height: 250px;
+    width: 150px;
+    height: 170px;
     display: block;
-    margin: 40px 10px;
+    margin: 0 auto; /* 가로 중앙 정렬 */
 }
 
 .Choiceimage img {
     width: 150px;
-    height: 230px;
+    height: 200px;
     border: 1px solid #f7f7f7;
+    margin-top: 20px;
 }
 
 .Choiceinfo {
     position: relative;
     bottom: 0;
     padding: 0px 2px 0 11px;
-    width: 160px;
+    width: 100%;
+    text-align: center;
 }
 
 .Choicetitle {
+	font-family: 'Pretendard-Regular';
     font-size: 18px;
-    margin-top: 60px;
-}
-
-.Choicetitle span {
-    font-weight: bold;
-}
-
-.middleTitle {
     margin-top: 20px;
-    font-size: 12px;
+    color: black;
+}
+
+@font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.middleTitle, .Choicetitle2 {
+    font-family: 'GangwonEdu_OTFBoldA';
+    line-height: 20px;
+    margin-top: 70px;
+    font-size: 18px;
     color: #6d6b6b;
 }
 
@@ -614,11 +644,11 @@ li{
 }
 
 .bx-viewport img{
-    margin: 10px 20px 10px 20px;
-    width: 180px;
-    height: 250px;
-    border: 1px solid #f7f7f7
+    width: 170px;
+    height: 220px;
+    margin: 0 auto; /* 가로 중앙 정렬 */
 }
+
 
 .Choicetitle2 {
     color: #6d6b6b;
@@ -636,25 +666,35 @@ li{
 
 .imageTrend {
     background-color: #fff;
-    width: 220px;
+    width: 140%;
     height: 332px;
     border: 1px solid #dcdcdc;
 }
 
 .imageTrend img {
+	display: block; /* 이미지를 블록 요소로 만듭니다. */
+    margin: 20px auto; /* 위아래 10px의 마진을 가로 중앙 정렬과 함께 적용 */
     height: 220px;
     width: 180px;
-    margin: 10px 20px 10px 20px;
+}
+
+@font-face {
+    font-family: 'omyu_pretty';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
 
 .Trendsub p{
+    font-family: 'omyu_pretty';
     margin: 0;
     text-align: center;
-    font-size: 12px;
+    font-size: 18px;
     color: #6d6b6b;
 }
 
 .Trendmain {
+	font-family: 'Pretendard-Regular';
     text-align: center;
     font-size: 18px;
     color: #000;
