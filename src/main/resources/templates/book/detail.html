@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/detail.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}" >
+    <link rel="stylesheet" th:href="@{/css/footer.css}" >
     <title>Document</title>
 </head>
 <body>
+<div th:replace="header :: header" />
 <div class="detail_page">
     <div class="book_detail_page">
         <div class="book_image">
-            <img class="image" th:src="@{/img/backend_book3.jpg}" alt="..."/>
+            <img class="image" th:src="${book.image}" alt="..."/>
         </div>
         <div class="book_info">
-            <h1 class="bookName">JAVA의 정석</h1>
+            <h1 class="bookName">[[${book.title}]]</h1>
             <div class="bookAbout">
-                <span>저 : 남궁성</span>
+                <span>저 : [[${book.author}]]</span>
                 <span class="bar">｜</span>
-                <span>출판사 : 모아출판</span>
+                <span>출판사 : [[${book.publisher}]]</span>
                 <span class="bar">｜</span>
-                <span>발행 : 2019.12.30</span>
+                <span>발행 : [[${book.pubdate}]]</span>
             </div>
 
-            <p class="bookContents">자바의 기초부터 객제지향개념을 넘어 실전활용까지 수록한『Java의 정석』. <br> <br> 저자의 오랜 실무경험과 강의한 내용으로 구성되어 자바를
-                처음 배우는 초보자들의 궁금한 점을 빠짐없이 담고 있다. 더불어 기존의 경력자들을 위해 자바 최신기능인 람다와 스트림과 그 밖의 자바의 최신버젼 JAVA8의 새로운 기능까지 자세하게
-                설명하고 있다.</p>
+            <p class="bookContents">[[${book.description}]]</p>
 
             <div class="bookReserve">
                 수량<input class="quantity" id="inputQuantity" type="num" value="1" style="max-width: 3rem"/>
@@ -71,7 +70,7 @@
                     저자
                 </th>
                 <td>
-                    남궁성
+                    [[${book.title}]]
                 </td>
             </tr>
             <tr>
@@ -79,15 +78,15 @@
                     발행일자
                 </th>
                 <td>
-                    2019년 12월 30일
+                    [[${book.pubdate}]]
                 </td>
             </tr>
             <tr>
                 <th>
-                    쪽수
+                    ISBN
                 </th>
                 <td>
-                    700쪽
+                    [[${book.isbn}]]
                 </td>
             </tr>
         </table>
@@ -157,6 +156,9 @@
         </ul>
     </div>
 </div>
-<script th:src="@{/js/detail.js}"></script>
+<div th:replace="footer :: footer" />
 </body>
+<script th:src="@{/js/detail.js}"></script>
+<script th:src="@{/js/header.js}"></script>
+<script th:src="@{/js/footer.js}"></script>
 </html>

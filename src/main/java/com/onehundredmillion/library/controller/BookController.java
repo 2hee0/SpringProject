@@ -1,18 +1,11 @@
 package com.onehundredmillion.library.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.onehundredmillion.library.domain.Book;
 import com.onehundredmillion.library.domain.Booksearch;
 import com.onehundredmillion.library.dto.BookForm;
-import com.onehundredmillion.library.dto.NaverResult;
 import com.onehundredmillion.library.repository.BookRepository;
 import com.onehundredmillion.library.service.BookService;
 import lombok.RequiredArgsConstructor;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,11 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponentsBuilder;
 
-import java.net.URI;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,7 +29,7 @@ public class BookController {
     public String list(Model model) {
         List<Book> books = bookService.findBooks();
         model.addAttribute("books", books);
-        return "book/bookList";
+        return "/book/booklist";
     }
 
     @GetMapping(value = "/list/back")
@@ -132,7 +121,7 @@ public class BookController {
     }
 
 
-    @GetMapping(value = "/book/{bookId}")
+    @GetMapping(value = "book/{bookId}/detail")
     public String bookDetail(Model model, @PathVariable("bookId") Long bookId) {
         Book book = bookService.findOne(bookId);
         model.addAttribute("book", book);

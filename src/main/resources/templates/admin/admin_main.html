@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/admin_main.css}" >
-    <link rel="stylesheet" th:href="@{css/admin_main.css}" >
     <title>Document</title>
 </head>
 <body>
-    <div class="admin_page">
-        <h1>관리자 페이지</h1>
-        <div class="admin_button">
-                <button class="bookRegistration">
-                    <a th:href="@{/admin/new}">도서 등록</a>
-                </button>
-                <button class="bookManage">
-                    <a th:href="@{/admin/updateadmin/1}">도서 관리</a>
-                </button>
-        </div>
+<div class="admin_page">
+    <h1>관리자 페이지</h1>
+    <div class="admin_button">
+        <button class="bookRegistration">
+            <a th:href="@{/admin/new}">도서 등록</a>
+        </button>
+        <button class="bookManage">
+            <a th:href="@{/admin/bookList}">도서 관리</a>
+            <a th:href="@{/admin/updateadmin/1}">도서 관리</a>
+        </button>
     </div>
+</div>
 </body>
 </html>

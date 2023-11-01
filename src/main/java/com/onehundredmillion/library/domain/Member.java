@@ -17,8 +17,7 @@ public class Member {
     @GeneratedValue
     @Column(name = "MEMBER_ID")
     private Long id;
-
-    @NotEmpty(message = "")
+    @NotEmpty
     private String userId;
     @NotEmpty
     private String name;
@@ -37,6 +36,9 @@ public class Member {
 
     @OneToMany(mappedBy = "member")
     private List<Reservation> reservation = new ArrayList<>();
+
+    @OneToMany(mappedBy = "member")
+    private List<Like> like = new ArrayList<>();
 
 
 }

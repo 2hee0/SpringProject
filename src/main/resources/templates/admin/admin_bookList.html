@@ -3,91 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../admin/admin_bookList.css">
-    <link rel="stylesheet" th:href="@{css/admin_bookList.css}" >
+    <link rel="stylesheet" th:href="@{/css/admin_bookList.css}" >
     <title>Document</title>
 </head>
 <body>
-    <div class="content">
-        <aside class="titleWrap">
-            <div class="title_header">
-                <span class="title_heading">도서 분류</span>
-            </div>
-            <div class="title_body">
-                <ul class="title_list">
-                    <li>
-                        <a href="#">
-                            <p class="in">백엔드</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <p class="in">프론트엔드</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <p class="in">자격증</p>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </aside>
+<div class="content">
+    <aside class="titleWrap">
+        <div class="title_header">
+            <span class="title_heading">도서 분류</span>
+        </div>
+        <div class="title_body">
+            <ul class="title_list">
+                <li>
+                    <a href="#">
+                        <p class="in">백엔드</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p class="in">프론트엔드</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p class="in">자격증</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
 
-        <div class="bookList">
-            <div class="list_header">
-                <h1>전체보기</h1>
-                <hr>
-            </div>
-            <div class="list_body">
-                <div class="product">
-                    <div class="product_cover">
-                            <img src="../image/backend_book1.jpg" alt="">
-                    </div>
-                    <div class="product_detail">
-                        <h3>처음 해보는 Servlet&JSP 웹 프로그래밍</h3>
-                        <P class="product_info">
-                            <span>오정임</span>
-                            <span>｜</span>
-                            <span>루비페이퍼</span>
-                            <span>｜</span>
-                            <span>2017.03.22</span>
-                    </div>
-                    <div class="product_button">
-                        <button type="button" class="button_sm1">
-                            <span class="text">상세보기</span>
-                        </button>
-                        <button type="button" class="button_sm2">
-                            <span class="text">수정하기</span>
-                        </button>
-                    </div>
+    <div class="bookList">
+        <div class="list_header">
+            <h1>전체보기</h1>
+            <hr>
+        </div>
+        <div class="list_body">
+            <div class="product" th:each="book : ${books}">
+                <div class="product_cover">
+                    <img th:src="${book.image}" th:alt="${book.title}">
                 </div>
-                <hr>
-                <div class="product">
-                    <div class="product_cover">
-                            <img src="../image/backend_book2.jpg" alt="">
-                    </div>
-                    <div class="product_detail">
-                        <h3>자바 ORM 표준 JPA 프로그래밍</h3>
-                        <p class="product_info">
-                            <span>김영한</span>
-                            <span>｜</span>
-                            <span>에이콘출판</span>
-                            <span>｜</span>
-                            <span>2015.07.28</span>
-                        </p>
-                    </div>
-                    <div class="product_button">
-                        <button type="button" class="button_sm1">
-                            <span class="text">상세보기</span>
-                        </button>
-                        <button type="button" class="button_sm2">
-                            <span class="text">수정하기</span>
-                        </button>
-                    </div>
+                <div class="product_detail">
+                    <h3>[[${book.title}]]</h3>
+                    <P class="product_info">
+                        <span>[[${book.author}]]</span>
+                        <span>｜</span>
+                        <span>[[${book.publisher}]]</span>
+                        <span>｜</span>
+                        <span>[[${book.pubdate}]]</span>
+                </div>
+                <div class="product_button">
+                    <button type="button" class="button_sm1">
+                            <span class="text">
+                                <a th:href="@{'/admin/update/' + ${book.id}}">
+                                    상세보기
+                                </a>
+                            </span>
+                    </button>
+                    <button type="button" class="button_sm2">
+                            <span class="text">
+                                <a th:href="@{'/admin/updateadmin/' + ${book.id}}">
+                                    수정하기
+                                </a>
+                            </span>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>

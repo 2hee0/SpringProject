@@ -24,10 +24,8 @@ public class HomeController {
     {
     	if (loginMember != null) {
 			model.addAttribute("loginMember", loginMember);
-		}
-     /*   if (loginMember == null) {
             return "home";
-        }*/
+		}
         model.addAttribute("member", loginMember);
         return "home";
     }

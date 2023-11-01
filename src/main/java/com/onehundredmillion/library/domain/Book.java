@@ -19,12 +19,12 @@ public class Book {
     private String title;
     private String author;
     private String isbn;
+    private String contents;
     private String image;
-    private String publisher;
-    private String pubdate;
     private String description;
+    private String pubdate;
+    private String publisher;
     private int stockQuantity;
-
 
     @ManyToMany(mappedBy = "books")
     private List<Category> categories = new ArrayList<Category>();
@@ -35,9 +35,12 @@ public class Book {
 
     @OneToMany(mappedBy = "book")
     List<ReservationBook> reservationBooks = new ArrayList<>();
-    
+
     @OneToMany(mappedBy = "book")
     List<RentBook> rentBooks = new ArrayList<>();
+
+    @OneToMany(mappedBy = "book")
+    List<LikeBook> likeBooks = new ArrayList<>();
 
 
     public void removeStock(int quantity) throws NotEnoughStockException {

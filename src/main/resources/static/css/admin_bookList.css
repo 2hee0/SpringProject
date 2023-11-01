@@ -4,6 +4,10 @@ body {
     display: flex;
     margin-top: 130px;
 }
+a{
+    color: #000;
+    text-decoration: none;
+}
 
 @font-face {
     font-family: 'SUITE-Regular';

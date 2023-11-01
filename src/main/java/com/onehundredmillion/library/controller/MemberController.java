@@ -1,5 +1,9 @@
 package com.onehundredmillion.library.controller;
 
+import com.onehundredmillion.library.domain.*;
+import com.onehundredmillion.library.service.LikeService;
+import com.onehundredmillion.library.service.RentService;
+import com.onehundredmillion.library.service.ReservationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,7 +13,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.onehundredmillion.library.domain.Member;
 import com.onehundredmillion.library.dto.JoinForm;
 import com.onehundredmillion.library.dto.LoginForm;
 import com.onehundredmillion.library.dto.MemberUpdateForm;
@@ -22,12 +25,17 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.List;
+
 @Controller
 @RequiredArgsConstructor
 @Slf4j
 public class MemberController {
 
     private final MemberService memberService;
+    private final RentService rentService;
+    private final ReservationService reservationService;
+    private final LikeService likeService;
 
     @GetMapping(value = "/join")
     public String createForm(Model model) {
@@ -89,7 +97,17 @@ public class MemberController {
     }
 
     @GetMapping("/mypage")
-    public String myPage(Model model) {
+    public String myBook(Model model, HttpSession session) {
+        Member loginMember = (Member) session.getAttribute(SessionConst.LOGIN_MEMBER);
+        if (loginMember != null) {
+            Member saveMember = memberService.findOne(loginMember.getId());
+            List<Rent> rents = rentService.findAll(saveMember);
+            model.addAttribute("rents", rents);
+            List<Reservation> reservations = reservationService.findAll(saveMember);
+            model.addAttribute("reservations", reservations);
+            List<Like> likes = likeService.findAll(saveMember);
+            model.addAttribute("likes", likes);
+        }
         return "member/mypage";
     }
 
@@ -121,4 +139,9 @@ public class MemberController {
         return "redirect:/userinfoForm";
     }
 
+    @GetMapping("/explain")
+    public String explainPage() {
+
+        return "explain/explain";
+    }
 }

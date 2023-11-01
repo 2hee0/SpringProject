@@ -7,6 +7,10 @@
     margin-top: 150px;
     margin-bottom: 30px;
 }
+a{
+    color: #000;
+    text-decoration: none;
+}
 
 /* 폰트 설정 */
 @font-face {
