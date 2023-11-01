@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/detail.css}">
-    <link rel="stylesheet" th:href="@{/css/header.css}" >
-    <link rel="stylesheet" th:href="@{/css/footer.css}" >
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
     <title>Document</title>
 </head>
 <body>
-<div th:replace="header :: header" />
+<div th:replace="header :: header"/>
 <div class="detail_page">
     <div class="book_detail_page">
         <div class="book_image">
@@ -29,16 +29,20 @@
 
             <div class="bookReserve">
                 수량<input class="quantity" id="inputQuantity" type="num" value="1" style="max-width: 3rem"/>
-                <button class="rent" type="button" th:onclick="|location.href='@{/book/{bookId}/rent(bookId=${book.id})}'|">
+                <button class="rent" type="button"
+                        th:onclick="|location.href='@{/book/{bookId}/rent(bookId=${book.id})}'|">
                     대여하기
                 </button>
-                <button class="reserve" type="button" th:onclick="|location.href='@{/book/{bookId}/reserve(bookId=${book.id})}'|">
+                <button class="reserve" type="button"
+                        th:onclick="|location.href='@{/book/{bookId}/reserve(bookId=${book.id})}'|">
                     예약하기
                 </button>
                 <!--                    좋아요 기능-->
                 <svg id="like" xmlns="http://www.w3.org/2000/svg" height="1.4em" width="1.4em" viewBox="0 0 512 512"
                      transform="translate(0, 4)">
-                    <path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/>
+                    <path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"
+                          th:onclick="|location.href='@{/book/{bookId}/like(bookId=${book.id})}'|">
+                    </path>
                 </svg>
             </div>
         </div>
@@ -156,7 +160,7 @@
         </ul>
     </div>
 </div>
-<div th:replace="footer :: footer" />
+<div th:replace="footer :: footer"/>
 </body>
 <script th:src="@{/js/detail.js}"></script>
 <script th:src="@{/js/header.js}"></script>
