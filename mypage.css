@@ -159,6 +159,15 @@ tr {
     padding-left: 40px;
 }
 
+.elib_profile .name {
+		font-family: 'SUITE-Regular';
+    font-weight: 300;
+    font-size: 36px;
+    color: #000;
+    line-height: 54px;
+    padding-left: 40px;
+}
+
 @font-face {
     font-family: 'SUITE-Regular';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
@@ -543,7 +552,8 @@ tr {
 }
 
 .title_heading {
-    font-size: 24px;
+	font-family: 'SUITE-Regular';
+    font-size: 25px;
     line-height: 36px;
     letter-spacing: -0.01em;
     display: inline-block;
@@ -559,18 +569,17 @@ tr {
 }
 
 .tbl_row_wrap {
+	font-family: 'SUITE-Regular';
     display: block;
     width: 100%;
     padding: 18px 0;
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #eaeaea;
+    border-top: 1px solid darkgray;
     box-sizing: border-box;
 }
 
 .tbl_row {
     width: 100%;
     table-layout: fixed;
-    border-bottom: 1px solid #eaeaea;
 }
 
 .tbl_row_wrap .tbl_row tbody th {
@@ -634,8 +643,9 @@ tr {
     line-height: 42px;
     letter-spacing: -0.01em;
     font-family: "Noto Sans KR", sans-serif;
-    border: 1px solid #d5d5d5;
-    border-radius: 6px;
+    border: none;
+    border-bottom: 1px solid #d5d5d5;
+    border-radius: 0px;
     box-sizing: border-box;
     transition: border-color 0.2s ease-out;
     outline: none;
@@ -676,10 +686,8 @@ tr {
 }
 
 .btn_line_primary {
-    color: #ef544d;
-    border: 1px solid #ef544d;
+    color: darkgray;
     background: #fff;
-    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
     margin-left: 12px;
 }
 
@@ -710,11 +718,43 @@ tr {
     font-size: 13px;
     line-height: 19px;
     letter-spacing: -0.01em;
+    position: absolute; /* 취소 버튼 위치를 고정 */
+    right: 0; /* 원래 위치로 이동 (오른쪽 끝) */
+    top: 0; /* 원래 위치로 이동 (상단) */
 }
 
-.form_col_group {
-    width: 450px;
+.btn_sm1 {
+	display: -ms-inline-flexbox;
+    display: inline-flex;
+    display: -webkit-inline-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    height: 38px;
+    padding: 0 13px 1px;
+    border-radius: 6px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    color: #000;
+    border: 1px solid #999;
+    margin-left: 30px;
 }
+
 .valid_check {
     width: 100%;
 }
@@ -759,8 +799,9 @@ tr {
     letter-spacing: -0.01em;
     font-family: "Noto Sans KR", sans-serif;
     background-color: #fff;
-    border: 1px solid #d5d5d5;
-    border-radius: 6px;
+    border: none;
+    border-bottom: 1px solid #d5d5d5;
+    border-radius: 0px;
     box-sizing: border-box;
     transition: border-color 0.2s ease-out;
     outline: none;
@@ -778,13 +819,15 @@ tr {
     font-size: 14px;
     line-height: 42px;
     letter-spacing: -0.01em;
-    font-family: "Noto Sans KR", sans-serif;
+    font-family: 'SUITE-Regular';
     background-color: #fff;
-    border: 1px solid #d5d5d5;
-    border-radius: 6px;
+    border: none;
+    border-bottom: 1px solid #d5d5d5;
+    border-radius: 0px;
     box-sizing: border-box;
     transition: border-color 0.2s ease-out;
     outline: none;
+    margin-bottom: 20px;
 }
 
 .from_ip3 {
@@ -795,32 +838,36 @@ tr {
     font-size: 14px;
     line-height: 42px;
     letter-spacing: -0.01em;
-    font-family: "Noto Sans KR", sans-serif;
+    font-family: 'SUITE-Regular';
     background-color: #fff;
-    border: 1px solid #d5d5d5;
-    border-radius: 6px;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #d5d5d5; /* 하단 밑줄 추가 */
     box-sizing: border-box;
     transition: border-color 0.2s ease-out;
     outline: none;
+    margin-bottom: 10px;
 }
 
 .from_ip4 {
     display: inline-block;
     height: 44px;
-    width: 300px;
+    width: 398px;
     padding: 0 14px 2px;
     color: #000;
     font-size: 14px;
     line-height: 42px;
     letter-spacing: -0.01em;
-    font-family: "Noto Sans KR", sans-serif;
+    font-family: 'SUITE-Regular';
     background-color: #fff;
-    border: 1px solid #d5d5d5;
-    border-radius: 6px;
+    border: none; /* 기존의 border 제거 */
+    border-bottom: 1px solid #d5d5d5; /* 하단 밑줄 추가 */
+    border-radius: 0; /* border-radius 제거 */
     box-sizing: border-box;
     transition: border-color 0.2s ease-out;
     outline: none;
 }
+
 
 .btn_wrap {
     display: block;
@@ -830,6 +877,7 @@ tr {
 
 .btn_wrap.page_bottom {
     margin-top: 40px;
+    margin-bottom: 80px;
 }
 
 .btn_light_gray {
@@ -837,6 +885,7 @@ tr {
     background: #767676;
     border: 1px solid #767676;
     transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+	margin-left: 40px;
 }
 
 .btn_lg {
@@ -877,7 +926,7 @@ tr {
 }
 
 .btn_wrap .btn_lg + .btn_lg {
-    margin-left: 10px;
+    margin-left: 30px;
 }
 
 .form_chk {
