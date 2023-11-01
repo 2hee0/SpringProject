@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="mypage.css">
     <link rel="stylesheet" th:href="@{css/mypage.css}">
+    <link rel="stylesheet" th:href="@{css/header.css}" >
+    <link rel="stylesheet" th:href="@{css/footer.css}" >
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 
 <body>
+<div th:replace="header :: header" />
 <main class="container_wrapper">
     <section class="contents_wrap elib">
         <div class="elib_head">
@@ -71,7 +73,7 @@
                             <div class="prod_thumb_box type_bookcover">
                                 <a href="#" class="prod_link">
 										<span class="img_box">
-											<img src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791160405835.jpg"
+                                            <img class="image" th:src="${like.likeBooks[0].book.image}" alt="..."/>
                                                  alt="">
 										</span>
                                 </a>
@@ -113,8 +115,7 @@
                             <div class="prod_thumb_box type_bookcover">
                                 <a href="#" class="prod_link">
 										<span class="img_box">
-											<img src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791160405835.jpg"
-                                                 alt="">
+											<img class="image" th:src="${reservation.reservationBooks[0].book.image} " alt="..."/>
 										</span>
                                 </a>
                             </div>
@@ -152,8 +153,7 @@
                             <div class="prod_thumb_box type_bookcover">
                                 <a href="#" class="prod_link">
 										<span class="img_box">
-											<img src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791160405835.jpg"
-                                                 alt="">
+                                            <img class="image" th:src="${rent.rentBookList[0].book.image}"  alt="..."/>
 										</span>
                                 </a>
                             </div>

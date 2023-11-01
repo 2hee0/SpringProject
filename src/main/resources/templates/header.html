@@ -14,7 +14,7 @@
             <div class="geteRight">
                 <ul>
                     <li>
-                        <a th:href="@{/login/login}" id="topLogin" th:if="${loginMember == null}">로그인</a>
+                        <a th:href="@{/login}" id="topLogin" th:if="${loginMember == null}">로그인</a>
                         <span th:if="${loginMember != null}" th:text="${loginMember.name + '님'}">Member Name</span>
                     </li>
                     <li class="memberJoin">
