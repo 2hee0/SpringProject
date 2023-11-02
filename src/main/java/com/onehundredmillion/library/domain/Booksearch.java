@@ -21,13 +21,12 @@ public class Booksearch {
 
     public void resultBook(String body) {
         try {
-
             JSONParser parser = new JSONParser();
             JSONObject obj = (JSONObject) parser.parse(body);
             System.out.println("resp: " + body);
             JSONArray items = (JSONArray) obj.get("items");
-            for (int i = 0; i < items.size(); i++) {
-                obj = (JSONObject) items.get(i);
+            for (Object item : items) {
+                obj = (JSONObject) item;
                 String title = (String) obj.get("title");
                 String isbn = (String) obj.get("isbn");
                 String image = (String) obj.get("image");

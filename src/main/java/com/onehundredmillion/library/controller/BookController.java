@@ -64,9 +64,6 @@ public class BookController {
         return "admin/admin_main";
     }
 
-
-
-
     @GetMapping(value = "/books/reserve")
     public String reserve(Model model) {
         Book book = bookService.reserve();
@@ -81,39 +78,11 @@ public class BookController {
         return "book/rent";
     }
 
-
-    @GetMapping(value = "/book/{bookId}/edit")
-    public String updateBookForm(@PathVariable("bookId") Long bookId, Model
-            model) {
-        Book item = (Book) bookService.findOne(bookId);
-        BookForm bookForm = new BookForm();
-        bookForm.setId(item.getId());
-        bookForm.setIsbn(item.getIsbn());
-        bookForm.setTitle(item.getTitle());
-        bookForm.setImage(item.getImage());
-        bookForm.setAuthor(item.getAuthor());
-        bookForm.setPublisher(item.getPublisher());
-        bookForm.setStockQuantity(item.getStockQuantity());
-        bookForm.setDescription(item.getDescription());
-
-        model.addAttribute("bookForm", bookForm);
-        return "admin/updateItemForm";
-    }
-
-    @PostMapping(value = "/book/{bookId}/edit")
-    public String updateItem(@PathVariable Long bookId, @ModelAttribute("bookForm")
-    BookForm bookForm) {
-        bookService.updateBook(bookId, bookForm.getTitle(), bookForm.getStockQuantity());
-        return "redirect:/booklist";
-    }
-
-
     @GetMapping(value = "book/{bookId}/detail")
     public String bookDetail(Model model, @PathVariable("bookId") Long bookId) {
         Book book = bookService.findOne(bookId);
         model.addAttribute("book", book);
         return "book/detail";
     }
-
 
 }

@@ -2,9 +2,7 @@ package com.onehundredmillion.library.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import com.onehundredmillion.library.domain.Book;
 import com.onehundredmillion.library.dto.BookForm;
@@ -12,36 +10,72 @@ import com.onehundredmillion.library.service.BookService;
 
 import lombok.RequiredArgsConstructor;
 
+import java.util.List;
+
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/admin")
 public class AddBookController {
 
-	private final BookService bookService;
+    private final BookService bookService;
 
-	@GetMapping("/adminmain")
-	public String adminForm() {
-		return "admin/admin_main";
-	}
+    @RequestMapping("/adminmain")
+    public String adminForm() {
+        return "admin/admin_main";
+    }
 
-	@GetMapping(value = "/new")
-	public String createForm(Model model) {
-		model.addAttribute("bookForm", new BookForm());
-		return "admin/admin_bookRegist";
-	}
+    @GetMapping("/bookList")
+    public String adminList(Model model) {
+        List<Book> books = bookService.findBooks();
+        model.addAttribute("books", books);
+        return "admin/admin_bookList";
+    }
 
-	@PostMapping(value = "/new")
-	public String create(BookForm bookForm) {
+    @GetMapping(value = "/new")
+    public String createForm(Model model) {
+        model.addAttribute("bookForm", new BookForm());
+        return "admin/admin_bookRegist";
+    }
 
-		Book book = new Book();
-		book.setTitle(bookForm.getTitle());
-		book.setAuthor(bookForm.getAuthor());
-		book.setIsbn(bookForm.getIsbn());
-		book.setStockQuantity(bookForm.getStockQuantity());
+    @PostMapping(value = "/new")
+    public String create(BookForm bookForm) {
 
-		bookService.saveBooks(book);
+        Book book = new Book();
+        book.setTitle(bookForm.getTitle());
+        book.setAuthor(bookForm.getAuthor());
+        book.setIsbn(bookForm.getIsbn());
+        book.setStockQuantity(bookForm.getStockQuantity());
+        book.setPublisher(bookForm.getPublisher());
+        book.setPubdate(bookForm.getPubdate());
+        book.setImage(bookForm.getImage());
+        book.setDescription(bookForm.getDescription());
 
-		return "redirect:/bookList"; // 북 리스트로 경로 리다이렉트
+        bookService.saveBooks(book);
 
-	}
+        return "/admin/bookList";
+
+    }
+
+    @GetMapping(value = "/update/{bookId}")
+    public String updatemainForm(Model model, @PathVariable Long bookId) {
+        Book books = bookService.findOne(bookId);
+        model.addAttribute("book", books);
+
+        return "admin/admin_book";
+}
+
+    @GetMapping(value = "/updateadmin/{bookId}")
+    public String updateForm(Model model, @PathVariable Long bookId) {
+        Book books = bookService.findOne(bookId);
+        model.addAttribute("book", books);
+        return "admin/admin_bookEdit";
+    }
+
+    @PostMapping(value = "/updateadmin/{bookId}")
+    public String updatebook(@PathVariable Long bookId, @ModelAttribute Book book, Model model) {
+        bookService.updateBook(bookId, book.getDescription(), book.getStockQuantity());
+        Book books = bookService.findOne(bookId);
+        model.addAttribute("book", books);
+        return "admin/admin_book";
+    }
 }

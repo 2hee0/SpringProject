@@ -47,6 +47,7 @@ public class MemberController {
     @GetMapping(value = "/join")
     public String createForm(Model model) {
         model.addAttribute("joinForm", new JoinForm());
+
         String clientId = "dGv6cZfFAFF4fYpxYN2X";
         String clientSecret = "VXAzS1syXt";
 
@@ -129,16 +130,14 @@ public class MemberController {
     @PostMapping("/join")
     public String processJoinForm(@Valid JoinForm joinForm, BindingResult result) {
 
+        if (memberService.checkIdDuplicate(joinForm.getUserId())) {
+            result.rejectValue("userId", "userId", "사용중인 아이디입니다.");
+        }
         if (joinForm.getPasswordConfirm() == null) {
             result.rejectValue("passwordConfirm", "passwordConfirm", "비밀번호 재입력을 해주세요.");
         }
-
         if (!joinForm.isPasswordMatch()) {
             result.rejectValue("passwordConfirm", "passwordConfirm", "비밀번호와 비밀번호 확인이 일치하지 않습니다.");
-        }
-
-        if (memberService.checkIdDuplicate(joinForm.getUserId())) {
-            result.rejectValue("userId", "userId", "사용중인 아이디입니다.");
         }
 
         if (result.hasErrors()) {

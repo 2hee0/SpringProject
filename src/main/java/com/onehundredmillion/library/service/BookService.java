@@ -28,21 +28,20 @@ public class BookService {
         return bookRepository.findOne(bookId);
     }
 
-	public Book reserve() {
-		return bookRepository.reserve();
-	}
+    public Book reserve() {
+        return bookRepository.reserve();
+    }
 
-	public Book rent() {
-		return bookRepository.rent();
-	}
-
+    public Book rent() {
+        return bookRepository.rent();
+    }
 
 
     @Transactional
-    public void updateBook(Long id, String title, int stockQuantity)
-    {
-        Book book = bookRepository.findOne(id);
-        book.setTitle(title);
+    public void updateBook(Long bookId, String description, int stockQuantity) {
+        Book book = bookRepository.findOne(bookId);
         book.setStockQuantity(stockQuantity);
+        book.setDescription(description);
+
     }
 }
