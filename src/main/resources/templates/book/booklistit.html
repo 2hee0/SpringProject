@@ -6,7 +6,7 @@
     <link rel="stylesheet" th:href="@{/css/bookList.css}">
     <link rel="stylesheet" th:href="@{/css/header.css}" >
     <link rel="stylesheet" th:href="@{/css/footer.css}" >
-    <title>자격증 및 관련도서</title>
+    <title>IT·CS</title>
 </head>
 <body>
 <div th:replace="header :: header" />
@@ -34,7 +34,7 @@
                 </li>
                 <li>
                     <a th:href="@{/bookit}">
-                        <p class="in" id="it">자격증</p>
+                        <p class="in" id="it">IT·CS</p>
                     </a>
                 </li>
             </ul>
@@ -43,11 +43,11 @@
 
     <div class="bookList">
         <div class="list_header">
-            <h1>자격증 및 관련도서</h1>
+            <h1>IT·CS</h1>
             <hr>
         </div>
         <div class="list_body">
-            <div class="product" th:each="book, iterStat : ${books}" th:if="${iterStat.index >= 147 && iterStat.index < 180}">
+            <div class="product" th:each="book, iterStat : ${books}" th:if="${iterStat.index >= 150 && iterStat.index < 180}">
                 <div class="product_cover">
                     <img th:src="${book.image}" th:alt="${book.title}"  >
                 </div>

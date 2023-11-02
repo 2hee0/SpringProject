@@ -59,17 +59,17 @@ public class MemberController {
         queryMap.put("query4", "면접을 위한 CS 전공지식 노트");
         queryMap.put("query5", "웹디자인기능사 실기 7일 완성");
         queryMap.put("query6", "2023 이기적 정보처리기능사 필기 기출문제집");
-        queryMap.put("query7", "레트로의 유니티 게임 프로그래밍 에센스 (C#으로 배우는 입문부터 4가지 게임 제작까지)");
+        queryMap.put("query7", "레트로의 유니티 게임 프로그래밍 에센스");
         queryMap.put("query8", "피, 땀, 픽셀");
         queryMap.put("query9", "진짜 쓰는 프리미어 프로 영상 편집");
-        queryMap.put("query10", "디버깅을 통해 배우는 리눅스 커널의 구조와 원리(2)");
+        queryMap.put("query10", "디버깅을 통해 배우는 리눅스 커널의 구조와 원리");
         queryMap.put("query11", "모두를 위한 클라우드 컴퓨팅");
         queryMap.put("query12", "IT 엔지니어를 위한 네트워크 입문");
-        queryMap.put("query13", "세상에서 가장 쉬운 코딩책 (6개월 만에 비전공자에서 개발자가 된 위캔코딩의 기초 코딩 수업)");
+        queryMap.put("query13", "세상에서 가장 쉬운 코딩책 ");
         queryMap.put("query14", "혼자 공부하는 컴퓨터구조");
         queryMap.put("query15", "진짜 챗GPT 활용법 (엑셀 활용법부터 블로그 자동화, 유튜브 콘텐츠 생성, 미드저니와 ChatGPT API 사용법까지)");
         queryMap.put("query16", "누구나 가능한 유닉스&리눅스 2편");
-        queryMap.put("query17", "웹 개발자 로드맵 (수치와 데이터로 증명하는 가이드북)");
+        queryMap.put("query17", "웹 개발자 로드맵");
 
         String query1 = queryMap.get("query1");
         String query2 = queryMap.get("query2");
@@ -234,8 +234,13 @@ public class MemberController {
     }
 
     @GetMapping("/explain")
-    public String explainPage() {
-
+    public String explainPage(Model model, HttpSession session) {
+        Member loginMember = (Member) session.getAttribute(SessionConst.LOGIN_MEMBER);
+        if (loginMember != null) {
+            Member userDataFromDatabase = memberService.findOne(loginMember.getId());
+            model.addAttribute("loginMember", userDataFromDatabase);
+            return "explain/explain";
+        }
         return "explain/explain";
     }
 }

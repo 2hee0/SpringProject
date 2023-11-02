@@ -38,6 +38,6 @@ public class HomeController {
         if (session != null) {
             session.invalidate();
         }
-        return "home";
+        return "redirect:/";
     }
 }

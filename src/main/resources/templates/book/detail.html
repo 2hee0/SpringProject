@@ -28,7 +28,7 @@
             <p class="bookContents">[[${book.description}]]</p>
 
             <div class="bookReserve">
-                수량<input class="quantity" id="inputQuantity" type="num" value="1" style="max-width: 3rem"/>
+                수량<input class="quantity" id="inputQuantity" type="num" th:value="${book.stockQuantity}" style="max-width: 3rem"/>
                 <button class="rent" type="button"
                         th:onclick="|location.href='@{/book/{bookId}/rent(bookId=${book.id})}'|">
                     대여하기

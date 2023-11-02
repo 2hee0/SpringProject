@@ -1,8 +1,5 @@
 package com.onehundredmillion.library.controller;
 
-import lombok.RequiredArgsConstructor;
-
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +12,7 @@ import com.onehundredmillion.library.sessioin.SessionConst;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
@@ -24,24 +22,28 @@ public class RentController {
 
     // 대여하기
     @GetMapping(value = "/book/{bookId}/rent")
-    public String rent(Model model, @PathVariable("bookId") Long bookId, HttpServletRequest request) {
+    public String rent(Model model, @PathVariable("bookId") Long bookId, HttpServletRequest request,
+                       HttpSession session) {
+        Member loginMember = (Member) session.getAttribute(SessionConst.LOGIN_MEMBER);
+        if (loginMember != null) {
+            HttpSession session1 = request.getSession();
+//      세션에서 현재 로그인된 멤버 조회.
+            Member member = (Member) session1.getAttribute(SessionConst.LOGIN_MEMBER);
+            System.out.println("현재로그인된 멤버의 이름:" + member.getName());
 
-        HttpSession session = request.getSession();
-//		세션에서 현재 로그인된 멤버 조회.
-        Member member = (Member) session.getAttribute(SessionConst.LOGIN_MEMBER);
-        System.out.println("현재로그인된 멤버의 이름:" + member.getName());
-
-        try {
-            if (rentService.rent(member, bookId) != (long) 0) {
-                System.out.println("대여하기 성공");
-                return "redirect:/books?success=renttrue";
-            } else {
-                return "redirect:/books?success=rentfalse";
+            try {
+                if (rentService.rent(member, bookId) != (long) 0) {
+                    System.out.println("대여하기 성공");
+                    return "redirect:/books?success=renttrue";
+                } else {
+                    return "redirect:/books?success=rentfalse";
+                }
+            } catch (NotEnoughStockException e) {
+                e.printStackTrace();
+                return "redirect:/books?success=NotEnoughStock";
             }
-        } catch (NotEnoughStockException e) {
-            e.printStackTrace();
-            return "redirect:/books?success=NotEnoughStock";
         }
+        return "redirect:/login";
     }
 
     // 반납하기

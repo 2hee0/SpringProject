@@ -34,7 +34,7 @@
                 </li>
                 <li>
                     <a th:href="@{/bookit}">
-                        <p class="in" id="it">자격증</p>
+                        <p class="in" id="it">IT·CS</p>
                     </a>
                 </li>
             </ul>
@@ -47,7 +47,7 @@
             <hr>
         </div>
         <div class="list_body">
-            <div class="product" th:each="book, iterStat : ${books}" th:if="${iterStat.index >= 115 && iterStat.index < 146}">
+            <div class="product" th:each="book, iterStat : ${books}" th:if="${iterStat.index >= 150 && iterStat.index < 181}">
                 <div class="product_cover">
                     <img th:src="${book.image}" th:alt="${book.title}"  >
                 </div>

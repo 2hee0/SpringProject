@@ -1,16 +1,20 @@
 package com.onehundredmillion.library.admin;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.onehundredmillion.library.domain.Book;
 import com.onehundredmillion.library.dto.BookForm;
 import com.onehundredmillion.library.service.BookService;
 
 import lombok.RequiredArgsConstructor;
-
-import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -52,7 +56,7 @@ public class AddBookController {
 
         bookService.saveBooks(book);
 
-        return "/admin/bookList";
+        return "redirect:/admin/bookList";
 
     }
 
@@ -62,7 +66,7 @@ public class AddBookController {
         model.addAttribute("book", books);
 
         return "admin/admin_book";
-}
+    }
 
     @GetMapping(value = "/updateadmin/{bookId}")
     public String updateForm(Model model, @PathVariable Long bookId) {
