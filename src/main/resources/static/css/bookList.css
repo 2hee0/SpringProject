@@ -2,6 +2,7 @@ body { /* 페이지의 최대 너비를 1500px로 설정합니다. */
     width: 100%;
 }
 
+
 @font-face {
     font-family: 'SUITE-Regular';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
@@ -12,7 +13,7 @@ body { /* 페이지의 최대 너비를 1500px로 설정합니다. */
 .content {
     margin: 0 auto;
     display: flex;
-    width: 1500px;
+    width: 1300px;
 }
 
 /* titleWrap 부분과 bookList 부분 비율 주기 */

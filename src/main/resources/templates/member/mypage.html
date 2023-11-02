@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My 페이지</title>
     <link rel="stylesheet" th:href="@{css/mypage.css}">
     <link rel="stylesheet" th:href="@{css/header.css}">
     <link rel="stylesheet" th:href="@{css/footer.css}">
@@ -22,7 +22,7 @@
                     <div class="photo">
                         <img th:src="@{img/library.png}" alt="">
                     </div>
-                    <p class="name1">
+                    <p class="name">
                         <strong th:if="${loginMember != null}" th:text="${loginMember.name}">Member Name</strong>
                         님의
                         <b>라이브러리</b>
@@ -49,23 +49,15 @@
                 <div class="contWrap">
                     <h4>MY 서재</h4>
                     <div class="list_search">
-                        <button type="button" class="current">찜</button>
-                        <button type="button" class="reservation">예약</button>
-                        <button type="button" class="rental">대여</button>
+                        <button type="button" class="current">찜 목록</button>
+                        <span>｜</span>
+                        <button type="button" class="reservation">예약 목록</button>
+                        <span>｜</span>
+                        <button type="button" class="rental">대여 목록</button>
                     </div>
                 </div>
             </div>
             <div class="like_item" style="display: '';">
-                <div class="list_result_wrap has_line">
-						<span class="form_chk">
-							<p>찜 목록</p>
-						</span>
-                    <div class="right_area">
-                        <div class="item_group">
-
-                        </div>
-                    </div>
-                </div>
                 <div class="prod_list type_box">
                     <div class="prod_item" th:each="like:${likes}">
                         <div class="prod_area horizontal">
@@ -90,42 +82,30 @@
                                         th:onclick="|location.href='@{/book/{likeId}/dislike(likeId=${like.id})}'|">
                                 </button>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="libary_item" style="display: none;">
-                <div class="list_result_wrap has_line">
-						<span class="form_chk">
-							<p>예약 목록</p>
-						</span>
-                    <div class="right_area">
-                        <div class="item_group">
-
+        <div class="libary_item" style="display: none;">
+            <div class="prod_list type_box">
+                <div class="prod_item" th:each="reservation:${reservations}">
+                    <div class="prod_area horizontal">
+                        <div class="prod_thumb_box type_bookcover">
+                            <a href="#" class="prod_link">
+                              <span class="img_box">
+                                 <img class="image" th:src="${reservation.reservationBooks[0].book.image} " alt="..."/>
+                              </span>
+                            </a>
                         </div>
-                    </div>
-                </div>
-                <div class="prod_list type_box">
-                    <div class="prod_item" th:each="reservation:${reservations}">
-                        <div class="prod_area horizontal">
-
-                            <div class="prod_thumb_box type_bookcover">
-                                <a href="#" class="prod_link">
-										<span class="img_box">
-											<img class="image" th:src="${reservation.reservationBooks[0].book.image} "
-                                                 alt="..."/>
-										</span>
-                                </a>
-                            </div>
-                            <div class="prod_info_box">
-                                <a href="#" class="prod_info">
-										<span class="prod_name"
-                                              th:text="${reservation.reservationBooks[0].book.title}"></span>
-                                    <span class="prod_author"
-                                          th:text="${reservation.reservationBooks[0].book.author}"></span>
-                                </a>
-                            </div>
+                        <div class="prod_info_box">
+                            <a href="#" class="prod_info">
+                              <span class="prod_name"
+                                    th:text="${reservation.reservationBooks[0].book.title}"></span>
+                                <span class="prod_author"
+                                      th:text="${reservation.reservationBooks[0].book.author}"></span>
+                            </a>
+                        </div>
+                        <div class="right_area">
                             <div class="right_area">
                                 <button type="button" class="btn_my_delete"
                                         th:onclick="|location.href='@{/book/{reservationId}/cancel(reservationId=${reservation.id})}'|"></button>
@@ -134,44 +114,36 @@
                     </div>
                 </div>
             </div>
-            <div class="rental_item" style="display: none;">
-                <div class="list_result_wrap has_line">
-						<span class="form_chk">
-							<p>대여 목록</p>
-						</span>
-                    <div class="right_area">
-                        <div class="item_group">
-
-                        </div>
-                    </div>
-                </div>
-                <div class="prod_list type_box">
-                    <div class="prod_item" th:each="rent:${rents}">
-                        <div class="prod_area horizontal">
-                            <div class="prod_thumb_box type_bookcover">
-                                <a href="#" class="prod_link">
+        </div>
+        <div class="rental_item" style="display: none;">
+            <div class="prod_list type_box">
+                <div class="prod_item" th:each="rent:${rents}">
+                    <div class="prod_area horizontal">
+                        <div class="prod_thumb_box type_bookcover">
+                            <a href="#" class="prod_link">
 										<span class="img_box">
                                             <img class="image" th:src="${rent.rentBookList[0].book.image}" alt="..."/>
 										</span>
-                                </a>
-                            </div>
-                            <div class="prod_info_box">
-                                <a href="#" class="prod_info">
-                                    <span class="prod_name" th:text="${rent.rentBookList[0].book.title}"></span>
-                                    <span class="prod_author" th:text="${rent.rentBookList[0].book.author}"></span>
-                                    <span class="prod_author" th:text="'대여날짜: '+${rent.rentDate}">대여 기간</span>
-                                </a>
-                            </div>
-                            <div class="right_area">
-                                <button type="button" class="btn_my_delete"
-                                        th:onclick="|location.href='@{/book/{rentId}/returnbook(rentId=${rent.id})}'|"></button>
-
-                            </div>
+                            </a>
+                        </div>
+                        <div class="prod_info_box">
+                            <a href="#" class="prod_info">
+                                                <span class="prod_name"
+                                                      th:text="${rent.rentBookList[0].book.title}"></span>
+                                <span class="prod_author"
+                                      th:text="${rent.rentBookList[0].book.author}"></span>
+                                <span class="prod_author"
+                                      th:text="'대여날짜: '+${rent.rentDate}">대여 기간</span>
+                            </a>
+                        </div>
+                        <div class="right_area">
+                            <button type="button" class="btn_my_delete"
+                                    th:onclick="|location.href='@{/book/{rentId}/returnbook(rentId=${rent.id})}'|"></button>
                         </div>
                     </div>
-
                 </div>
             </div>
+        </div>
         </div>
     </section>
 </main>

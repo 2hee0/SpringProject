@@ -5,6 +5,11 @@
     transform: translate(-50%, -50%); /* 요소의 중심을 화면의 정 가운데로 이동 */
 }
 
+a {
+    color: black;
+    text-decoration: none;
+}
+
 @font-face {
     font-family: 'LeferiPoint-BlackA';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-BlackA.woff') format('woff');
@@ -30,7 +35,7 @@ h1{
     background-color: #EAEAEA;
     border: none;
     border-radius: 10px;
-    height:70px; 
+    height:70px;
     width: 150px;
     font-size: 19px;
     font-family: 'LINESeedKR-Bd';

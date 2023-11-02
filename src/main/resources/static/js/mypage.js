@@ -1,3 +1,4 @@
+// Get references to the active1 and active2 links
 const active1Link = document.querySelector('.active1');
 const active2Link = document.querySelector('.active2');
 

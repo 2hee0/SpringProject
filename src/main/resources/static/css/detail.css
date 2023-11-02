@@ -6,7 +6,7 @@ body {
 .book_detail_page {
     width: 1000px;
     margin: 0 auto;
-    margin-top: 180px;
+    margin-top: 100px;
     display: flex; /* 부모 요소를 플렉스 컨테이너로 설정 */
     align-items: center; /* 수직 가운데 정렬 */
 }
@@ -48,8 +48,8 @@ h1 {
 
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
-.notosanskr * { 
- font-family: 'Noto Sans KR', sans-serif;
+.notosanskr * {
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 .bookContents {

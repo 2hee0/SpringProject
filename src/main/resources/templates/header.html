@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" th:href="@{css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
     <script th:src="@{/js/header.js}"></script>
 </head>
 <body>
@@ -60,13 +60,15 @@
                         </div>
                     </div>
                     <div class="top_banner">
-                        <div class="top_banner_img">
-                            <img src="https://qi-b.qoo10cdn.com/partner/goods_image/1/9/3/4/337791934g.jpg" alt="">
-                        </div>
-                        <div class="top_banner_text">
-                            <a href="#" class="top_banner_tip">오늘의 목표!</a>
-                            <span class="top_banner_tip2">나만의 홈페이지형 블로그를<br> 만들고 싶다면?</span>
-                        </div>
+                        <a th:href="@{/book/141/detail}">
+                            <div class="top_banner_img">
+                                <img src="https://qi-b.qoo10cdn.com/partner/goods_image/1/9/3/4/337791934g.jpg" alt="">
+                            </div>
+                            <div class="top_banner_text">
+                                <a href="#" class="top_banner_tip">오늘의 목표!</a>
+                                <span class="top_banner_tip2">나만의 홈페이지형 블로그를<br> 만들고 싶다면?</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -85,13 +87,13 @@
                                         <div class="categoryNav">
                                             <ul>
                                                 <li>
-                                                    <a href="#">프론트엔드</a>
+                                                    <a th:href="@{/bookfront}">프론트엔드</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">백엔드</a>
+                                                    <a th:href="@{/bookback}">백엔드</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">자격증</a>
+                                                    <a th:href="@{/bookit}">자격증</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -106,13 +108,13 @@
                                 <a th:href="@{/books}">ALL</a>
                             </li>
                             <li class="gnbleft n2">
-                                <a href="#">프론트</a>
+                                <a th:href="@{/bookfront}">프론트</a>
                             </li>
                             <li class="gnbleft n3">
-                                <a href="#">백엔드</a>
+                                <a th:href="@{/bookback}">백엔드</a>
                             </li>
                             <li class="gnbleft n4">
-                                <a href="#">자격증</a>
+                                <a th:href="@{/bookit}">자격증</a>
                             </li>
                         </ul>
                     </div>
