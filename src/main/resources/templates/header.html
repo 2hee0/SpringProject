@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{css/header.css}">
+    <script th:src="@{/js/header.js}"></script>
+</head>
+<body>
+<div class="header" th:fragment="header">
+    <div class="geteGenbMain">
+        <div class="geteCon">
+            <div class="geteRight">
+                <ul>
+                    <li>
+                        <a th:href="@{/login/login}" id="topLogin" th:if="${loginMember == null}">로그인</a>
+                        <span th:if="${loginMember != null}" th:text="${loginMember.name + '님'}">Member Name</span>
+                    </li>
+                    <li class="memberJoin">
+                        <a th:href="@{/join}" th:if="${loginMember == null}">회원가입</a>
+                        <a th:href="@{/logout}" id="topLogout" th:if="${loginMember != null}">로그아웃</a>
+                    </li>
+                    <li class="mypg" onmouseover="showMlv('mlv');" onmouseout="hideMlv('mlv');"
+                        onfocus="showMlv('mlv');" tabindex="0">
+                        <a th:href="@{/login}" id="mlv_arrow" class="on">마이페이지</a>
+                        <div class="mypgsub" id="mlv" onmouseover="showMlv('mlv');" onmouseout="hideMlv('mlv');"
+                             style="display: none;">
+                            <div class="mlv_Ly">
+                                <dl>
+                                    <dt class="blind">마이페이지 레이어</dt>
+                                    <dd>
+                                        <a th:href="@{/mypage}">My 서재</a>
+                                    </dd>
+                                    <dd>
+                                        <a th:href="@{/userinfoForm}">회원정보</a>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="headerWrapper">
+            <div class="headerBox">
+                <div class="header_logosearch">
+                    <h1>
+                        <a th:href="@{/}" class="logo">
+                            <img th:src="@{/img/logo.png}" alt="">
+                        </a>
+                    </h1>
+                    <div class="search">
+                        <input type="text" name="query" id="searchInput" placeholder="검색할 도서를 입력해주세요"/>
+                        <div class="btn">
+                            <a href=""></a>
+                        </div>
+                    </div>
+                    <a th:href="@{/book/1}">
+                    <div class="top_banner">					
+                        <div class="top_banner_img">
+                            <img src="https://qi-b.qoo10cdn.com/partner/goods_image/1/9/3/4/337791934g.jpg" alt="">
+                        </div>
+                        <div class="top_banner_text">
+                            <span class="top_banner_tip">오늘의 목표!</span>
+                            <span class="top_banner_tip2">나만의 홈페이지형 블로그를<br> 만들고 싶다면?</span>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            <div class="bookGNBWrapper">
+                <div class="bookGNB">
+                    <div class="bookAllview">
+                        <a th:href="@{/books}" class="allNav">
+                            <span>전체 카테고리</span>
+                        </a>
+                        <div class="bookAllCategoryWrap" style="display: none;">
+                            <i class="shadow"></i>
+                            <div class="bookAllCategories">
+                                <div class="mainNav">
+                                    <div class="col category1">
+                                        <h3>도서 분류</h3>
+                                        <div class="categoryNav">
+                                            <ul>
+                                                <li>
+                                                    <a th:href="@{/list/front}">프론트엔드</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">백엔드</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">자격증</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bookGnBLeft">
+                        <ul class="gnbNav">
+                            <li class="gnbleft n1">
+                                <a th:href="@{/books}">ALL</a>
+                            </li>
+                            <li class="gnbleft n2">
+                                <a href="#">프론트</a>
+                            </li>
+                            <li class="gnbleft n3">
+                                <a href="#">백엔드</a>
+                            </li>
+                            <li class="gnbleft n4">
+                                <a href="#">자격증</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+.admin_page {
+    position: absolute; /* 절대 위치로 설정 */
+    top: 40%; /* 화면 상단에서 50% 위치에 배치 */
+    left: 50%; /* 화면 왼쪽에서 50% 위치에 배치 */
+    transform: translate(-50%, -50%); /* 요소의 중심을 화면의 정 가운데로 이동 */
+}
+
+a{
+	color: #000;
+	text-decoration: none;
+}
+
+@font-face {
+    font-family: 'LeferiPoint-BlackA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-BlackA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1{
+    margin-left: 70px;
+    margin-bottom: 40px;
+    font-family: 'LeferiPoint-BlackA';
+}
+
+@font-face {
+    font-family: 'LINESeedKR-Bd';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+.admin_button button {
+    margin-right: 35px;
+    background-color: #EAEAEA;
+    border: none;
+    border-radius: 10px;
+    height:70px; 
+    width: 150px;
+    font-size: 19px;
+    font-family: 'LINESeedKR-Bd';
+}
+
+button:hover {
+    background-color:#FF3636;
+    color: white;
+}
+
+button:active {
+    background-color: #EAEAEA;
+    transition: 0.5s;
+}
