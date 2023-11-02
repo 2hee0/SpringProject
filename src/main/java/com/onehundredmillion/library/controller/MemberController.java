@@ -45,7 +45,7 @@ public class MemberController {
     private final Booksearch booksearch;
 
     @GetMapping(value = "/join")
-    public String createForm(Model model) {
+    public String createForm(Model model) throws InterruptedException {
         model.addAttribute("joinForm", new JoinForm());
 
         String clientId = "dGv6cZfFAFF4fYpxYN2X";
@@ -99,6 +99,7 @@ public class MemberController {
         ResponseEntity<String> resp8 = booksearch.callNaverApi(clientId, clientSecret, query8);
         ResponseEntity<String> resp9 = booksearch.callNaverApi(clientId, clientSecret, query9);
         ResponseEntity<String> resp10 = booksearch.callNaverApi(clientId, clientSecret, query10);
+        Thread.sleep(1000);
         ResponseEntity<String> resp11 = booksearch.callNaverApi(clientId, clientSecret, query11);
         ResponseEntity<String> resp12 = booksearch.callNaverApi(clientId, clientSecret, query12);
         ResponseEntity<String> resp13 = booksearch.callNaverApi(clientId, clientSecret, query13);
